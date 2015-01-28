@@ -1,0 +1,9 @@
+<div ng-controller="orderCommentController">
+	<edit-input input-model="comment" placeholder="输入备注信息" input-id="order_comment_input" cancel-input="cancelInput()"></edit-input>
+	<div class="submit">
+		<div class="btn-group btn-group-justified">
+			<a class="btn btn-default cancel" ng-click="backAction()">取消</a>
+			<a class="btn save" ng-click="saveAction()">保存</a>
+		</div>
+	</div>
+</div>

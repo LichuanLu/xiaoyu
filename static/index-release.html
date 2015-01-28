@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>小雨洗车</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+
+    <!-- build:css css/xyrelease.css -->
+    <link rel="stylesheet" href="/static/dist/css/xyrelease.css" />
+    <!-- endbuild -->
+
+    <!-- build:js js/xyrelease.min.js -->
+    <script src="/static/dist/js/xyrelease.min.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body ng-app="xiaoyuApp" ng-controller="MainController">
+
+    <div class="app">
+
+      <!-- Navbars -->
+
+      <div class="navbar navbar-app navbar-absolute-top">
+        <div class="navbar-brand navbar-brand-center" yield-to="title">
+          <span></span>
+        </div>
+        <div class="btn-group pull-left" yield-to="leftbtn">
+        </div>
+        <div class="btn-group pull-right" yield-to="rightbtn">
+          <!-- <div ng-click="toggle('rightSidebar')" class="btn btn-navbar">
+            <i class="fa fa-comment"></i> 
+          </div> -->
+        </div>
+      </div>
+
+      <!-- <div class="navbar navbar-app navbar-absolute-bottom" yield-to="bottom" >
+        <div class="btn-group justified">
+          <a href="http://mobileangularui.com/" class="btn btn-navbar"><i class="fa fa-home fa-navbar"></i> 文档</a>
+          <a href="https://github.com/mcasimir/mobile-angular-ui/issues" class="btn btn-navbar"><i class="fa fa-exclamation-circle fa-navbar"></i> 问题反馈</a>
+        </div>
+      </div> -->
+
+      <!-- App Body -->
+      <div class="app-body" ng-class="{loading: loading}">
+        <div ng-show="loading" class="app-content-loading">
+          <i class="fa fa-spinner fa-spin loading-spinner"></i>
+        </div>
+
+        <ng-view class="app-content" ng-hide="loading"></ng-view>
+        <!-- global http error handler message box-->
+        <toggle-container></toggle-container>
+        <div toggleable id="httpError" inactive-class="Hide" class="xy_error_tips Hide">
+            <span>系统调用错误，请刷新重试</span>
+        </div>
+
+
+      </div>
+
+    </div><!-- ~ .app -->
+    
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<div class="scrollable" ng-controller="orderController">
+	<div class="scrollable-content">
+		<div ui-view="stateView" class="base-lr-margin"></div>
+		<div ui-view class="base-lr-margin"></div>
+		
+		<!-- <div id="orderList" class="list-group item20" ng-class="{ 'hidden': !showOrder }">
+			<div class="list-group-item" ng-click="updateUser()">
+				<span class="help-text mr10">电话</span>
+				<span ng-bind="orderObj.user.phone"></span> <i class="fa fa-chevron-right pull-right"></i>
+			</div>
+			<div class="list-group-item" ng-click="toggleShow('car')">
+				<span class="help-text mr10">车辆</span>
+				<span ng-bind="orderObj.userCar.carNo"></span>
+				<span ng-bind="orderObj.userCar.car.name"></span> <i class="fa fa-chevron-right pull-right"></i>
+			</div>
+			<div class="list-group-item" ng-click="toggleShow('location')">
+				<span class="help-text mr10">位置</span>
+				<span ng-bind="orderObj.userAddress.address.name"></span>
+				<span ng-bind="orderObj.userAddress.comment"></span>
+				<i class="fa fa-chevron-right pull-right"></i>
+			</div>
+			<div class="list-group-item" ng-click="updateWashStartTime()">
+				<span class="help-text mr10">时间</span>
+				<span ng-bind="orderObj.washStartTime"></span>
+				<i class="fa fa-chevron-right pull-right"></i>
+			</div>
+			<div class="list-group-item" ng-click="updateOrderComment()">
+				<span class="help-text mr10">备注</span>
+				<span ng-bind="orderObj.comment"></span>
+				<i class="fa fa-chevron-right pull-right"></i>
+			</div>
+			<div class="submit">
+				<button class="btn confirm" ng-click="confirmOrder()">提交表单</button>
+			</div>
+		</div> -->
+		<!-- car related -->
+		<!--
+		<div id="carListPage" data-ng-include="'/static/app/car/carPage.tpl.html'" ng-class="{ 'hidden': ! showCar }"></div>
+		-->
+		<!-- <div id="carUpdatePage" data-ng-include="'/static/app/car/update/carUpdatePage.tpl.html'" ng-class="{ 'hidden': ! showCarUpdate }"></div>
+		<div id="carNoUpdatePage" data-ng-include="'/static/app/car/update/carNoUpdatePage.tpl.html'" ng-class="{ 'hidden': ! showCarNoUpdate }"></div>
+		<div id="carColorUpdatePage" data-ng-include="'/static/app/car/update/carColorUpdatePage.tpl.html'" ng-class="{ 'hidden': ! showCarColorUpdate }"></div>
+		<div id="carTypePage" data-ng-include="'/static/app/car/update/cartype/carTypePage.tpl.html'" ng-class="{ 'hidden': ! showCarType }"></div>
+		<div id="carTypeUpdatePage" data-ng-include="'/static/app/car/update/cartype/carTypeUpdatePage.tpl.html'" ng-class="{ 'hidden': ! showCarTypeUpdate }"></div>
+		
+		<div id="locationListPage" data-ng-include="'/static/app/location/locationPage.tpl.html'" ng-class="{ 'hidden': ! showLocation }"></div>
+		<div id="locationUpdatePage" data-ng-include="'/static/app/location/update/locationUpdatePage.tpl.html'" ng-class="{ 'hidden': ! showLocationUpdate }"></div>
+		<div id="locationCommentUpdatePage" data-ng-include="'/static/app/location/update/locationCommentUpdatePage.tpl.html'" ng-class="{ 'hidden': ! showLocationCommentUpdate }"></div>
+		<div id="locationAddUpdatePage" data-ng-include="'/static/app/location/update/locationAddUpdatePage.tpl.html'" ng-class="{ 'hidden': ! showLocationAddUpdate }"></div>
+		<div id="orderTimePage" data-ng-include="'/static/app/time/orderTimePage.tpl.html'" ng-class="{ 'hidden': ! showOrderTime }"></div>
+		<div id="orderCommentPage" data-ng-include="'/static/app/orderComment/orderCommentPage.tpl.html'" ng-class="{ 'hidden': ! showOrderComment }"></div>
+		<div id="orderConfirmPage" data-ng-include="'/static/app/orderConfirm/orderConfirmPage.tpl.html'" ng-class="{ 'hidden': ! showOrderConfirm }"></div> -->
+		<div id="userPage" data-ng-include="'/static/app/user/userPage.tpl.html'" ng-class="{ 'hidden': ! showUser }"></div>
+		<div toggleable id="userWarning" inactive-class="Hide" class="xy_error_tips Hide">请加入用户信息</div>
+		<div toggleable id="washTimeWarning" inactive-class="Hide" class="xy_error_tips Hide">请选择洗车时间</div>
+		<div toggleable id="longTearmWarning" inactive-class="Hide" class="xy_error_tips Hide">请选择包洗时长</div>
+		<div toggleable id="carWarning" inactive-class="Hide" class="xy_error_tips Hide">请选择车辆</div>
+		<div toggleable id="addressWarning" inactive-class="Hide" class="xy_error_tips Hide">请选择地址</div>
+		<div overlay="removeOrderFromWaitPayOverlay">
+			<h4 class="overlay-title">确认需要取消订单？</h4>
+			<p>
+				取消的订单无法恢复，将从订单历史中删除。
+			</p>
+			<p bubble>
+				<span class="btn btn-supply" ng-click="confirmRemove()">确定</span>
+				<span class="btn btn-default" ng-click="cancelRemove()">取消</span>
+			</p>
+		</div>
+	</div>
+</div>

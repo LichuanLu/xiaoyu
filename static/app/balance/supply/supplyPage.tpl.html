@@ -1,0 +1,58 @@
+<div ng-controller="supplyController">
+	<!-- <div class="scrollable">
+				<div class="scrollable-content">
+							<div class="form-group row ph10  xy_bt" ng-class="{ 'hidden': leftPrice == 0 }">
+										<div class="fl select-label">选择活动：</div>
+										<div class="col-xs-8">
+											<select name="arriveTime" class="xy_select w100" ng-model="selectedAct" ng-options="actObj.id as actObj.activityName for actObj in actList"></select>
+								</div>
+					</div>
+		</div>
+	</div>
+	<div class="navbar navbar-app navbar-absolute-bottom">
+				<div class="btn-group justified">
+							<span class="btn btn-navbar">
+								{{price|zhcnformat}}
+							</span>
+							<a class="btn btn-navbar" ng-click="submitAction()">
+										确认支付
+							</a>
+				</div>
+	</div> -->
+	<div class="scrollable">
+		<div class="scrollable-content">
+			<div>
+				<div class="form-group row ph10 xy_bt">
+					<label class="col-xs-3 control-label">余额：</label>
+					<div class="form-control-wrapper col-xs-9 form-control-text" style="position:relative;">
+						<span class="price form-control" >{{points | zhcnformat}}</span>
+					</div>
+				</div>
+				<div class="form-group row ph10 xy_bt">
+					<div class="form-control-wrapper col-xs-12 form-control-text" style="position:relative;">
+						<input class="form-control" value="supplyPoint" ng-model="supplyPoint" name="supplyPoint" placeholder="200.00(最低充值额度为200元)">
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="mt20">
+					<div class="form-group row ph10  xy_bt">
+						<label class="col-xs-4 control-label">支付宝支付</label>
+						<div class="form-control-wrapper col-xs-8 form-control-text xy-form-radio">
+							<input type="radio" name="payType" value="2" ng-model="selectedPayType" class="mr20">
+						</div>
+					</div>
+					<div class="form-group row ph10  xy_bt">
+						<label class="col-xs-4 control-label">微信支付</label>
+						<div class="form-control-wrapper col-xs-8 form-control-text xy-form-radio">
+							<input type="radio" name="payType" value="1" ng-model="selectedPayType" class="mr20">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="submit">
+				<button class="btn confirm" ng-click="submitAction()">充值</button>
+			</div>
+		</div>
+	</div>
+</div>

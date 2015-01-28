@@ -1,0 +1,12 @@
+<div ng-controller="carTypeController" class="scrollable">
+	<div class="scrollable-content">
+		<div class="list-group item20">
+			<div ng-repeat="carTypeObj in carTypeList" >
+				<div class="list-group-item" ng-click="selectCarType(carTypeObj)">
+					<span ng-bind="carTypeObj.name" class="ml20"></span>
+					<i class="fa fa-chevron-right pull-right"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

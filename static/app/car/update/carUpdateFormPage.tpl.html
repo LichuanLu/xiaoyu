@@ -1,0 +1,9 @@
+<div ng-controller="carUpdateController">
+	<edit-input class="xy_field_input"  prefix="车牌号" field-message="fieldMessage" input-error="inputError" input-model="updateCarObj.carNo" placeholder="请输入完整车牌号" input-id="car_no_update
+	_input" cancel-input="cancelInput()"></edit-input>
+	<div class="list-group-item" ng-click="chooseCarType()">
+		<span class="help-text mr10">车型</span>
+		<span ng-bind="updateCarObj.car.name"></span>
+		<i class="fa fa-chevron-right pull-right"></i>
+	</div>
+</div>

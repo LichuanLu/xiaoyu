@@ -1,0 +1,12 @@
+<div ng-controller="carController" class="scrollable">
+	<div class="scrollable-content">
+		<div class="list-group item20">
+			<div ng-repeat="carObj in carList" >
+				<car-list-item></car-list-item>
+			</div>
+		</div>
+		<div class="submit">
+			<button class="btn confirm" ng-click="updateAction()">增加车辆</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+<div ng-controller="locationCommentUpdateController">
+	<edit-input input-model="locationCommentObj.locationComment" placeholder="请输入详细地址" input-id="location_comment_update
+	    _input" cancel-input="cancelInput()"></edit-input>
+	<div class="submit">
+		<div class="btn-group btn-group-justified">
+			<a class="btn btn-default cancel" ng-click="backAction()">取消</a>
+			<a class="btn save" ng-click="saveAction()">保存</a>
+		</div>
+	</div>
+</div>

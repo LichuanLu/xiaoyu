@@ -1,0 +1,8 @@
+<div class="form-group row mobile-oneline-form" ng-class="{ 'error' : inputError, 'active': inputActive}">
+	<div class="form-control-wrapper col-xs-12">
+		<span ng-show=" '{{prefix}}' " class="help-text ml15">{{prefix}}</span>
+		<input required ng-model="inputModel" class="form-control" placeholder="{{placeholder}}" id="{{inputId}}
+	    _input" ng-focus="focusAction()" ng-blur="blurAction()"> <i class="fa fa-times pull-right mr15" ng-click="cancelInput()"></i>
+	</div>
+	<div class="ui-field-message">{{fieldMessage}}</div>
+</div>

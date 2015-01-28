@@ -1,0 +1,27 @@
+<div ng-controller="userController" class="scrollable">
+	<div class="scrollable-content">
+		<div ng-class="{ 'hidden': !showUser }" id="userHomePage">
+			<div class="list-group item20">
+				<div class="list-group-item" ng-click="updateName()">
+					<span class="help-text mr10">姓名</span>
+					<span ng-bind="user.name"></span> <i class="fa fa-chevron-right pull-right"></i>
+				</div>
+				<div class="list-group-item" ng-click="updateSex()">
+					<span class="help-text mr10">性别</span>
+					<span>{{user.sex | zhGenderformat}}</span>
+					<i class="fa fa-chevron-right pull-right"></i>
+				</div>
+				<div class="list-group-item" ng-click="updatePhone()">
+					<span class="help-text mr10">手机</span>
+					<span ng-bind="user.phone"></span> <i class="fa fa-chevron-right pull-right"></i>
+				</div>
+			</div>
+			<div class="submit">
+				<button class="btn confirm" ng-click="saveAction()">保存</button>
+			</div>
+		</div>
+		<div id="updatePhonePage" data-ng-include="'/static/app/user/update/updatePhonePage.tpl.html'" ng-class="{ 'hidden': ! showPhoneUpdate }"></div>
+		<div id="updateNamePage" data-ng-include="'/static/app/user/update/updateNamePage.tpl.html'" ng-class="{ 'hidden': ! showNameUpdate }"></div>
+		<div id="updateSexPage" data-ng-include="'/static/app/user/update/updateSexPage.tpl.html'" ng-class="{ 'hidden': ! showSexUpdate }"></div>
+	</div>
+</div>

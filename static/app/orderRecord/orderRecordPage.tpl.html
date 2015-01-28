@@ -1,0 +1,132 @@
+<div class="full-width full-height" ng-controller="orderRecordController">
+	<ul class="nav nav-tabs xy_nav_tabs" ng-class="{ 'hidden': ! showRecord}">
+		<!-- <li class="wp25">
+			<a href="#Tab1" toggle="on" parent-active-class="active">全部</a> <i class="arrow-ent top"></i>
+		</li> -->
+		<li class="wp33">
+			<a href="#Tab1" toggle="on" parent-active-class="active">未支付</a> <i class="arrow-ent top"></i>
+
+		</li>
+		<li class="wp33">
+			<a href="#Tab2" toggle="on" parent-active-class="active">正在进行</a>
+			<i class="arrow-ent top"></i>
+
+		</li>
+		<li class="wp33">
+			<a href="#Tab3" toggle="on" parent-active-class="active">历史订单</a>
+			<i class="arrow-ent top"></i>
+
+		</li>
+	</ul>
+
+	<div class="tab-content full-height" ng-class="{ 'hidden': ! showRecord}">
+		<!-- <div class="tab-pane full-height" 
+            toggleable 
+            active-class="active" 
+            default="active" 
+            id="Tab1" 
+            exclusion-group="myTabs">
+			<div style="position:relative;" class="full-width full-height">
+				<div class="scrollable">
+					<div class="scrollable-content">
+						<div id="balancePage">
+							<div class="list-group item20">
+								<div ng-repeat="recordObj in recordList | filter:filterByUndeleteStatus" >
+									<record-item record-obj="recordObj" pay-action="payAction()" remove-action="removeAction()" delete-action="deleteAction()"></record-item>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div> -->
+
+		<div class="tab-pane full-height" 
+            toggleable 
+            active-class="active" 
+            id="Tab1"
+            default="active" 
+            exclusion-group="myTabs">
+			<div style="position:relative;" class="full-width full-height">
+				<div class="scrollable">
+					<div class="scrollable-content">
+						<div id="balancePage">
+							<div class="list-group item20">
+								<div ng-repeat="recordObj in recordList | filter:{status:1}" >
+									<record-item record-obj="recordObj" pay-action="payAction()" remove-action="removeAction()" delete-action="deleteAction()"></record-item>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="tab-pane full-height" 
+            toggleable 
+            active-class="active" 
+            id="Tab2"
+            exclusion-group="myTabs">
+			<div style="position:relative;" class="full-width full-height">
+				<div class="scrollable">
+					<div class="scrollable-content">
+						<div id="balancePage">
+							<div class="list-group item20">
+								<div ng-repeat="recordObj in recordList | filter:filterByFinishedStatus" >
+									<record-item record-obj="recordObj" pay-action="payAction()" remove-action="removeAction()" delete-action="deleteAction()"></record-item>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="tab-pane full-height" 
+            toggleable 
+            active-class="active" 
+            id="Tab3"
+            exclusion-group="myTabs">
+			<div style="position:relative;" class="full-width full-height">
+				<div class="scrollable">
+					<div class="scrollable-content">
+						<div id="balancePage">
+							<div class="list-group item20">
+								<div ng-repeat="recordObj in recordList | filter:{status:4}" >
+									<record-item record-obj="recordObj" pay-action="payAction()" remove-action="removeAction()" delete-action="deleteAction()"></record-item>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+<!-- 	<div id="orderConfirmPage" data-ng-include="'/static/app/orderConfirm/orderConfirmPage.tpl.html'" ng-class="{ 'hidden': ! showOrderConfirm }"></div> -->
+
+	<div overlay="deleteOrderOverlay">
+		<h4 class="overlay-title">确认需要撤销订单？</h4>
+		<p>
+			撤销的订单无法恢复，工作人员需要三到五天进行退款。
+		</p>
+		<p bubble>
+			<span class="btn btn-supply" ng-click="confirmDelete()">确定</span>
+			<span class="btn btn-default" ng-click="cancelDelete()">取消</span>
+		</p>
+	</div>
+	<div overlay="removeOrderFromWaitPayOverlay">
+		<h4 class="overlay-title">确认需要取消订单？</h4>
+		<p>
+			取消的订单无法恢复，将从订单历史中删除。
+		</p>
+		<p bubble>
+			<span class="btn btn-supply" ng-click="confirmRemove()">确定</span>
+			<span class="btn btn-default" ng-click="cancelRemove()">取消</span>
+		</p>
+	</div>
+
+</div>

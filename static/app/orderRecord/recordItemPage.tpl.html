@@ -1,0 +1,16 @@
+<div class="list-group-item">
+	<div class="xy_block_text">
+		<span ng-show="recordObj.type == 1">洗车订单：{{recordObj.id}}</span>
+		<span ng-show="recordObj.type == 3">包月订单：{{recordObj.id}}</span>
+		<span class="subtext">总价：{{recordObj.countPrice|zhcnformat}}</span>
+		<span class="subtext">{{recordObj.status|recordFormat}}</span>
+	</div>
+	<a ng-show="recordObj.status == 1" class="btn btn-supply mt10 fr" ng-click="clickPay()">支付</a>
+	<!-- <a ng-click="clickRemove()" ng-show="recordObj.status == 1" class="btn btn-default mt10 fr mr10">删除</a>
+	<a ng-show="recordObj.status == 2" class="btn btn-default mt10 fr" ng-click="clickCancel()">取消订单</a> -->
+	<span ng-show="recordObj.status == 4" class="record-highlight-text mt20 fr">服务完成</span>
+	<span ng-show="recordObj.status == 3 || recordObj.status == 5 || recordObj.status == 6 || recordObj.status == 2" class="record-highlight-text mt20 fr">服务中</span>
+	<!-- <span ng-show="recordObj.status == 6" class="record-highlight-text mt20 fr">订单已取消</span>
+	<span ng-show="recordObj.status == 5" class="record-highlight-text mt20 fr">等待现金支付</span> -->
+
+</div>

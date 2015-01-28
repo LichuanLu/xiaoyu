@@ -1,0 +1,11 @@
+<div ng-controller="locationUpdateController">
+	<div class="list-group item20">
+		<a href="#" class="list-group-item" ng-click="chooseLocation()">
+			<span class="help-text mr10">小区</span>
+			<span ng-bind="updateLocationObj.address.name"></span> 
+			<i class="fa fa-chevron-right pull-right"></i>
+		</a>
+		<edit-input input-model="updateLocationObj.comment" placeholder="请输入详细地址" input-id="location_comment_update
+	    _input" cancel-input="cancelInput()"></edit-input>
+	</div>
+</div>

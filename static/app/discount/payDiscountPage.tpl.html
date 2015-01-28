@@ -1,0 +1,12 @@
+<div ng-controller="discountController" class="scrollable">
+	<div class="scrollable-content">
+		<div class="list-group item20">
+			<div ng-repeat="discountObj in discountList" >
+				<div class="list-group-item" ng-click="chooseDiscountAction(discountObj)">
+					<span>{{discountObj.type | discountname}}</span>
+					<span class="pull-right">有效期：{{discountObj.startDate}} - {{discountObj.endDate}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

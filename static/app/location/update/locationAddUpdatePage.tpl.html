@@ -1,0 +1,12 @@
+<div ng-controller="locationAddUpdateController" class="scrollable">
+	<div class="scrollable-content">
+		<div class="list-group item20">
+			<div ng-repeat="addObj in addList" >
+				<div class="list-group-item" ng-click="selectAdd(addObj)">
+					<span ng-bind="addObj.name" class="ml20"></span>
+<!-- 					<i class="fa fa-chevron-right pull-right"></i>
+ -->				</div>
+			</div>
+		</div>
+	</div>
+</div>

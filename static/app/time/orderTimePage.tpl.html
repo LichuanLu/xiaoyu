@@ -1,0 +1,29 @@
+<div ng-controller="orderTimeController" class="form-group mobile-oneline-form">
+	<div>
+		<h4 class="text_a_c">
+			<i class="fa fa-chevron-left" ng-show="showPreDateButton"  ng-click="preWeekAction()"></i>
+			{{curr|amFormat:'YYYY年MMM'}}
+			<i class="fa fa-chevron-right" ng-click="nextWeekAction()"></i>
+		</h4>
+		<div class="xy_calendar_group">
+			<div ng-repeat="mDate in currDateList" class="xy_calendar_item" ng-class="{selected:selectedDate.value == $index}">
+				<span class="top">{{mDate|amSingleFormat:'weekdaysMin'}}</span>
+				<span class="bottom" ng-click="selectDateAction($index,mDate)">{{mDate|amSingleFormat:'date'}}</span>
+			</div>
+		</div>
+		<div class="row-fluid xy_calendar_time_group text_a_c">
+			<div ng-repeat="timeObj in currTimeList" class="span3 xy_calendar_time_item">
+				<time-box></time-box>
+			</div>
+		</div>
+	</div>
+
+	<div class="submit mt80">
+		<div class="btn-group btn-group-justified">
+			<a class="btn btn-default cancel" ng-click="backAction()">取消</a>
+			<a class="btn save" ng-click="saveAction()">保存</a>
+		</div>
+	</div>
+	<div toggleable id="washTimeWarning" inactive-class="Hide" class="xy_error_tips Hide">时间不可用</div>
+
+</div>

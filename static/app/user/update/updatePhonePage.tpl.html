@@ -1,0 +1,9 @@
+<div ng-controller="updatePhoneController">
+	<edit-input input-model="phone" field-message="fieldMessage" input-error="inputError" placeholder="请输入手机号" input-id="update_phone_input" cancel-input="cancelInput()"></edit-input>
+	<div class="submit">
+		<div class="btn-group btn-group-justified">
+			<a class="btn btn-default cancel" ng-click="backAction()">取消</a>
+			<a class="btn save" ng-click="saveAction()">保存</a>
+		</div>
+	</div>
+</div>

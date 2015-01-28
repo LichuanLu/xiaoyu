@@ -1,0 +1,14 @@
+<div class="car-group list-group-item base-border-radius" ng-click="updateAction(locationObj,$event)">
+	<input type="radio" name="selectedLocation" ng-value="locationObj" ng-model="currentLocation.locationObj" ng-change="changeLocationAction()" ng-click="radioClickAction($event)">
+	<div class="inline-content">
+		<div>
+			<span>区域：</span>
+			<span ng-bind="locationObj.address.name"></span>
+		</div>
+		<div class="sub-title">
+			<span>地址：</span>
+			<span ng-bind="locationObj.comment"></span>
+		</div>
+	</div>
+	<i class="fa fa-chevron-right pull-right"></i>
+</div>

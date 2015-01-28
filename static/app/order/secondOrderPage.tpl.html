@@ -1,0 +1,46 @@
+<div ng-controller="secondOrderController">
+	<div class="mb15">
+		<h4>联系电话</h4>
+		<edit-input class="xy_field_input" field-message="fieldMessage" input-error="inputError" input-model="orderObj.user.phone" placeholder="请输入手机号" input-id="mobilephone
+		_input" cancel-input="cancelInput()"></edit-input>
+	</div>
+	<div>
+		<h4>车辆信息</h4>
+		<div data-ng-include="'/static/app/car/carListForm.tpl.html'"></div>
+	</div>
+	<div>
+		<h4>位置信息</h4>
+		<div data-ng-include="'/static/app/location/locationListForm.tpl.html'"></div>
+	</div>
+
+	<div class="list-group-item base-border-radius" ng-click="gotoWashTimePage()" ng-show="orderObj.type == 2">
+		<span class="mr10">洗车时间</span>
+		<span>{{orderObj.washStartTime | amFormat:'MMMD日'}}</span>
+		<span>{{orderObj.washStartTime | amRangeFormat:'HH:mm':dur}}</span>
+		<i class="fa fa-chevron-right pull-right"></i>
+	</div>
+
+	<div class="list-group-item base-border-radius" ng-show="orderObj.type == 3">
+		<span ng-repeat="durationObj in durationList">
+			<input type="radio" name="duration" ng-model="orderObj.durationId"  value="{{durationObj.value}}">
+			{{durationObj.label}}
+		</span>
+	</div>
+
+	<div class="list-group-item mt20 clearfix base-border-radius">
+		<span class="pull-left">总价</span>
+		<span class="price xy_tar pull-right">{{dynamicPrice | zhcnformat}}</span>
+	</div>
+
+	<!-- <div class="form-group row ph10  xy_bt">
+		<label class="col-xs-4 control-label">总价：</label>
+		<div class="form-control-wrapper col-xs-8 form-control-text">
+			<span class="price form-control xy_tar">{{dynamicPrice | zhcnformat}}</span>
+		</div>
+	</div> -->
+
+	<div class="submit row">
+		<a class="btn btn-danger col-xs-6" ng-show="showState" ng-click="removeAction()">取消订单</a>
+		<a class="btn btn-info" ng-class="showState?'col-xs-6':'col-xs-12'" ng-click="submitOrder()">提交订单</a>
+	</div>
+</div>

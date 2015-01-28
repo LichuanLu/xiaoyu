@@ -1,0 +1,40 @@
+<div class="full-width full-height" ng-controller="balanceController">
+	<div class="xy_fix_top">
+		<!-- <div class="form-group row ph10 pb0">
+			<label class="col-xs-3 control-label">手机：</label>
+			<div class="form-control-wrapper col-xs-9 form-control-text">
+				<span class="text form-control" ng-bind="phone"></span>
+			</div>
+		</div> -->
+		<div class="form-group row ph10 xy_bt">
+			<label class="col-xs-3 control-label">余额：</label>
+			<div class="form-control-wrapper col-xs-9 form-control-text" style="position:relative;">
+				<span class="price form-control" >{{points | zhcnformat}}</span>
+				<div class="xy_rbtn zindex999" ng-click="toggleShow('supply')">
+					<button class="btn btn-supply">充值</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="position:relative;" class="full-width full-height pt100">
+		<div class="scrollable pt100">
+			<div class="scrollable-content">
+				<div id="balancePage">
+					<div class="list-group item20">
+						<div ng-repeat="recordObj in recordList">
+							<div class="list-group-item">
+								<div class="xy_block_text">
+									<span>{{recordObj.message}}{{recordObj.money}}元</span>
+									<span class="subtext" ng-bind="recordObj.billDate"></span>
+								</div>
+								<span class="xy_rtext">订单：{{recordObj.order.id}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- 	<div id="supplyPage" data-ng-include="'/static/app/balance/supply/supplyPage.tpl.html'" ng-class="{ 'hidden': ! showSupply }"></div>
+ --></div>
+

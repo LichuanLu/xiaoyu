@@ -1,0 +1,13 @@
+<div ng-controller="updatePointController">
+	<edit-input type="number" input-model="payPoint" placeholder="输入支付金额" input-id="update_point
+	    _input" cancel-input="cancelInput()"></edit-input>
+	<div class="p15">
+		<span>账户总额：{{allPoints | zhcnformat}}</span>
+	</div>
+	<div class="submit">
+		<div class="btn-group btn-group-justified">
+			<a class="btn btn-default cancel" ng-click="backAction()">取消</a>
+			<a class="btn save" ng-click="saveAction()">保存</a>
+		</div>
+	</div>
+</div>

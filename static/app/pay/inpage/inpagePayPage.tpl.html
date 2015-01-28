@@ -1,0 +1,49 @@
+<div ng-controller="inpagePayController" class="mt20">
+	<div class="form-group row ph10  xy_bt" ng-show="showPrice">
+		<label class="col-xs-4 control-label">总价：</label>
+		<div class="form-control-wrapper col-xs-8 form-control-text">
+			<span class="price form-control xy_tar">{{price | zhcnformat}}</span>
+		</div>
+	</div>
+
+	<div class="list-group item20 mb10 mt20" ng-show="showDiscount">
+		<div class="list-group-item pl10" ng-click="selectDiscount()">
+			<label class="">抵用卷/优惠码：</label>
+			<i class="fa fa-chevron-right pull-right"></i>
+			<span class="pull-right">{{discountObj.type | discountname}}</span>
+		</div>
+	</div>
+	<div class="form-group row ph10  xy_bt" ng-show="showDiscount">
+		<label class="col-xs-4 control-label">还需支付：</label>
+		<div class="form-control-wrapper col-xs-8 form-control-text">
+			<span class="price form-control xy_tar">{{leftPrice | zhcnformat}}</span>
+		</div>
+	</div>
+
+	<div class="mt20" ng-show="leftPrice != 0">
+		<div class="form-group row ph10 xy_bt" ng-show="showPayPoint">
+			<label class="col-xs-4 control-label">余额支付
+			<span>（余额：{{allPoints | zhcnformat}}）</span>
+			</label>
+			<div class="form-control-wrapper col-xs-8 form-control-text xy-form-radio">
+				<input type="radio" name="payType" value="0" ng-model="selectedPayType" class="mr20">
+			</div>
+		</div>
+		<div class="form-group row ph10  xy_bt">
+			<label class="col-xs-4 control-label">支付宝支付</label>
+			<div class="form-control-wrapper col-xs-8 form-control-text xy-form-radio">
+				<input type="radio" name="payType" value="2" ng-model="selectedPayType" class="mr20">
+			</div>
+		</div>
+		<div class="form-group row ph10  xy_bt">
+			<label class="col-xs-4 control-label">微信支付</label>
+			<div class="form-control-wrapper col-xs-8 form-control-text xy-form-radio">
+				<input type="radio" name="payType" value="1" ng-model="selectedPayType" class="mr20">
+			</div>
+		</div>
+	</div>
+
+	<div class="submit">
+		<button class="btn confirm" ng-click="submitAction()">立即支付</button>
+	</div>
+</div>

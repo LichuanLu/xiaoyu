@@ -1,0 +1,10 @@
+<div ng-controller="updateNameController">
+	<edit-input input-model="name" placeholder="请输入姓名" input-id="name" cancel-input="cancelInput()"></edit-input>
+	<p class="xy_editinput_text">我们将会通过这个名称联系您</p>
+	<div class="submit">
+		<div class="btn-group btn-group-justified">
+			<a class="btn btn-default cancel" ng-click="backAction()">取消</a>
+			<a class="btn save" ng-click="saveAction()">保存</a>
+		</div>
+	</div>
+</div>

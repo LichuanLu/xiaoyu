@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>微信安全支付</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="/static/dist/css/xyrelease.css" />
+
+    <script src="/static/components/jquery/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <div class="app has-navbar-top">
+
+        <!-- Navbars -->
+
+        <div class="navbar navbar-app navbar-absolute-top">
+            <div class="navbar-brand navbar-brand-center">
+                <span>微信安全支付</span>
+            </div>
+            <div class="btn-group pull-left">
+                <div class="btn btn-navbar back-btn">
+                    首页
+                </div>
+            </div>
+            <div class="btn-group pull-right"></div>
+        </div>
+
+        <div class="app-body">
+
+            <div class="app-content">
+                <div class="scrollable">
+                    <div class="scrollable-content">
+                        <div class="text_a_c mt50">
+                            <div class="pay-title">
+                                <h3>正在进行微信支付</h3>
+                            </div>
+                            <p class="mh20 mt20">如果支付遇到问题，请联系客服</p>
+                        </div>
+                        <div class="mt50 mh20">
+                            <div class="btn-group btn-group-justified">
+                                <a class="btn btn-default cancel">取消</a>
+                                <a class="btn save">微信支付</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ~ .app -->
+    <script type="text/javascript">
+        
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            $('.btn.save').click(function (e){
+                e.preventDefault();
+                callpay();
+            }); 
+
+            $('.btn.cancel').click(function (e){
+                e.preventDefault();
+                var userId = getParameterByName("userId");
+                window.location.href = '/index.html#/pay/success/'+userId;
+
+            }); 
+
+            $('.btn.back-btn').click(function (e){
+                e.preventDefault();
+                var userId = getParameterByName("userId");
+                window.location.href = '/index.html#/order/'+userId;
+
+            });
+
+        });
+
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            callpay();
+        });
+
+        function callpay(){
+            var appId = getParameterByName("appid");
+            var timeStamp = getParameterByName("timeStamp");
+            var nonceStr = getParameterByName("nonceStr");
+            var packageValue = getParameterByName("package");
+            var paySign = getParameterByName("sign");
+            var userId = getParameterByName("userId");
+            // console.log("appId:"+appId);
+            // console.log("timeStamp:"+timeStamp);
+            // console.log("nonceStr:"+nonceStr);
+            // console.log("packageValue:"+packageValue);
+            // console.log("paySign:"+paySign);
+            // alert("appId:"+appId);
+            // alert("timeStamp:"+timeStamp);
+            // alert("nonceStr:"+nonceStr);
+            // alert("packageValue:"+packageValue);
+            // alert("paySign:"+paySign);
+
+            if(appId&&timeStamp&&nonceStr&&packageValue&&paySign){
+                WeixinJSBridge.log("appId:"+appId);
+                WeixinJSBridge.log("timeStamp:"+timeStamp);
+                WeixinJSBridge.log("nonceStr:"+nonceStr);
+                WeixinJSBridge.log("packageValue:"+packageValue);
+                WeixinJSBridge.log("paySign:"+paySign);
+                WeixinJSBridge.invoke('getBrandWCPayRequest',{
+                    "appId" : appId ,
+                    "timeStamp" : timeStamp,
+                    "nonceStr" : nonceStr,
+                    "package" : packageValue,
+                    "signType" : "MD5",
+                    "paySign" : paySign
+                },function(res){
+                    WeixinJSBridge.log(res.err_msg);
+                    if(res.err_msg == "get_brand_wcpay_request:ok"){
+                        window.location.href = '/index.html#/pay/success/'+userId;
+
+                    }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
+                        alert("用户取消支付!");
+                    }else{
+                        alert("支付失败!");
+                    }
+                })
+
+            }else{
+                alert("支付出现问题，请重试或者联系管理员");
+            }
+            
+        }
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        function getUrlParameter(sParam)
+        {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++)
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam)
+                {
+                    return sParameterName[1];
+                }
+            }
+        }
+    </script>
+</body>
+</html>

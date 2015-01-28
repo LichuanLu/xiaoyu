@@ -1,0 +1,65 @@
+{
+  // Define globals exposed by modern browsers.
+  "browser": true,
+
+  // Define globals exposed by Node.js.
+  "node": true,
+
+  "bitwise": true,
+
+  // Force all variable names to use either camelCase style or UPPER_CASE
+  // with underscores.
+  "camelcase": true,
+
+  "curly": true,
+
+  // Prohibit use of == and != in favor of === and !==.
+  "eqeqeq": true,
+
+  "esnext": true,
+
+  "immed": true,
+
+  // Enforce tab width of 2 spaces.
+  "indent": 2,
+
+  // Prohibit use of a variable before it is defined.
+  "latedef": true,
+
+  // Require capitalized names for constructor functions.
+  "newcap": true,
+
+  "noarg": true,
+
+  // Enforce use of single quotation marks for strings.
+  "quotmark": "single",
+
+  "regexp": true,
+
+  // Prohibit use of explicitly undeclared variables.
+  "undef": true,
+
+  // Warn when variables are defined but never used.
+  "unused": true,
+
+  // Enforce placing 'use strict' at the top function scope
+  "strict": true,
+
+  // Prohibit trailing whitespace.
+  "trailing": true,
+
+  "smarttabs": true,
+
+  "globals": {
+    "angular": false,
+    "moment":false,
+    "$": false,
+    "beforeEach": false,
+    "describe": false,
+    "inject": false,
+    "it": false,
+    "expect": false,
+    "alert":false,
+    "_":false
+  }
+}

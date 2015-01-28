@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>小雨洗车</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+
+    <!-- build:css css/xyrelease.css -->
+<!--     <link rel="stylesheet" href="components/mobile-angular-ui/dist/css/mobile-angular-ui-hover.min.css" />
+ -->    <link rel="stylesheet" href="components/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
+<!--     <link rel="stylesheet" href="components/mobile-angular-ui/dist/css/mobile-angular-ui-desktop.min.css" />
+ -->    
+    <!--
+    <link href="components/mobiscroll/css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
+    <link href="components/mobiscroll/css/mobiscroll.widget.css" rel="stylesheet" type="text/css" />
+    <link href="components/mobiscroll/css/mobiscroll.widget.sense-ui.css" rel="stylesheet" type="text/css" />
+    <link href="components/mobiscroll/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+    <link href="components/mobiscroll/css/mobiscroll.scroller.sense-ui.css" rel="stylesheet" type="text/css" />
+    -->
+    <link rel="stylesheet" href="css/global.css" />
+    <!-- endbuild -->
+
+    <!-- build:js js/xyrelease.min.js -->
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/angular/angular.min.js"></script>
+    <!--
+    <script src="components/angular-route/angular-route.min.js"></script>
+    -->
+    <script src="components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="components/ui-router-extras/release/ct-ui-router-extras.js"></script>
+    <script src="components/angular-touch/angular-touch.min.js"></script>
+    <script src="components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+
+    <script src="components/moment/min/moment-with-locales.min.js"></script>
+    <script src="components/moment/locale/zh-cn.js"></script>
+
+    <!-- lodash -->
+    <script src="components/lodash/lodash.min.js"></script>
+    <script src="components/angular-lodash/angular-lodash.js"></script>
+
+    <!-- angular ui bootstrap -->
+    <!-- only rating feature -->
+    <script src="components/ui-bootstrap/ui-bootstrap-custom-0.12.0.js"></script>
+    <script src="components/ui-bootstrap/ui-bootstrap-custom-tpls-0.12.0.js"></script>
+
+
+    <!--<script type="app/util/dateUtil.js"></script>-->
+    <!-- for mobiscroll-->
+    <!--
+    <script src="components/mobiscroll/js/mobiscroll.core.js"></script>
+    <script src="components/mobiscroll/js/mobiscroll.util.datetime.js"></script>
+    <script src="components/mobiscroll/js/mobiscroll.widget.js" type="text/javascript"></script>
+    <script src="components/mobiscroll/js/mobiscroll.scroller.js" type="text/javascript"></script>
+    <script src="components/mobiscroll/js/mobiscroll.select.js" type="text/javascript"></script>
+    <script src="components/mobiscroll/js/mobiscroll.datetime.js" type="text/javascript"></script>
+    <script src="components/mobiscroll/js/i18n/mobiscroll.i18n.zh.js" type="text/javascript"></script>
+    <script src="components/mobiscroll/js/mobiscroll.widget.sense-ui.js" type="text/javascript"></script>
+    -->
+    <!-- end -->
+    <script src="app/app.js"></script>
+    <script src="app/util/httpErrorAction.js"></script>
+    <script src="app/common/angularErrorHandler.js"></script>
+    <script src="app/common/angularMoment.js"></script>
+
+    <script src="app/common/authorDirective.js"></script>
+    <script src="app/common/toggleContainerDirective.js"></script>
+    <script src="app/common/editInputDirective.js"></script>
+    <!--
+    <script src="app/common/mobiscrollDirective.js"></script>
+    -->
+    <script src="app/common/navBtnDirective.js"></script>
+    <script src="app/common/currencyFilter.js"></script>
+    <script src="app/common/genderFilter.js"></script>
+    <script src="app/common/wcPayService.js"></script>    
+    <script src="app/common/validateService.js"></script> 
+    <script src="app/common/bswizardDirective.js"></script>
+    <script src="app/common/dateTimeService.js"></script>
+
+    <script src="app/order/orderModule.js"></script>
+    <script src="app/order/orderService.js"></script>
+    <script src="app/order/orderController.js"></script>
+    <script src="app/order/secondOrderController.js"></script>
+    <script src="app/order/firstOrderController.js"></script>
+
+    <script src="app/car/carModule.js"></script>
+    <script src="app/car/carService.js"></script>
+    <script src="app/car/carController.js"></script>
+    <script src="app/car/carListItemDirective.js"></script>
+    <script src="app/car/carFormListItemDirective.js"></script>
+
+    <script src="app/car/update/carUpdateController.js"></script>
+    <!-- 过期  新版本放弃no 和 color-->
+    <!--
+    <script src="app/car/update/carNoUpdateController.js"></script>
+    <script src="app/car/update/carColorUpdateController.js"></script> -->
+    <script src="app/car/update/cartype/carTypeController.js"></script>
+    <script src="app/car/update/cartype/carTypeUpdateController.js"></script>
+
+    <script src="app/location/locationModule.js"></script>
+    <script src="app/location/locationService.js"></script>
+    <script src="app/location/locationController.js"></script>
+    <script src="app/location/locationListItemDirective.js"></script>
+    <script src="app/location/locationFormListItemDirective.js"></script>
+    <script src="app/location/update/locationUpdateController.js"></script>
+
+    <!-- 过期  -->
+    <!--
+    <script src="app/location/update/locationCommentUpdateController.js"></script>-->
+    <script src="app/location/update/locationAddUpdateController.js"></script>
+
+
+    <script src="app/time/orderTimeController.js"></script>
+    <script src="app/time/orderTimeService.js"></script>
+    <script src="app/time/timeBoxDirective.js"></script>
+
+    <script src="app/orderComment/orderCommentController.js"></script>
+    <script src="app/orderConfirm/orderConfirmController.js"></script>
+
+
+    <script src="app/pay/payModule.js"></script>
+    <script src="app/pay/payController.js"></script>
+    <script src="app/pay/payService.js"></script>
+    <script src="app/pay/update/updatePointController.js"></script>
+    <script src="app/pay/update/updatePointService.js"></script>
+    <script src="app/pay/success/paySuccessController.js"></script>
+    <script src="app/pay/success/supplySuccessController.js"></script>
+    <script src="app/pay/wechat/payWechatController.js"></script>
+
+    <script src="app/balance/balanceModule.js"></script>
+    <script src="app/balance/balanceController.js"></script>
+    <script src="app/balance/balanceService.js"></script>
+    <script src="app/balance/supply/supplyController.js"></script>
+    <script src="app/balance/supply/supplyService.js"></script>
+
+    <script src="app/orderRecord/orderRecordModule.js"></script>
+    <script src="app/orderRecord/orderRecordController.js"></script>
+    <script src="app/orderRecord/recordItemDirective.js"></script>
+    <script src="app/orderRecord/recordStatusFilter.js"></script>
+    <script src="app/orderRecord/orderRecordService.js"></script>
+    <script src="app/orderRecord/detail/orderDetailController.js"></script>
+    <script src="app/orderRecord/detail/orderDetailService.js"></script>
+    <script src="app/orderRecord/detail/orderFinishController.js"></script>
+
+    <script src="app/user/userModule.js"></script>
+    <script src="app/user/userService.js"></script>
+    <script src="app/user/userController.js"></script>
+    <script src="app/user/update/updatePhoneController.js"></script>
+    <script src="app/user/update/updateNameController.js"></script>
+    <script src="app/user/update/updateSexController.js"></script>
+
+
+    <script type="text/javascript" src="app/discount/discountModule.js"></script>
+    <script type="text/javascript" src="app/discount/discountController.js"></script>
+    <script type="text/javascript" src="app/discount/discountService.js"></script>
+
+    <script type="text/javascript" src="app/longterm/longtermModule.js"></script>
+    <script type="text/javascript" src="app/longterm/longtermController.js"></script>
+    <script type="text/javascript" src="app/longterm/longtermService.js"></script>
+
+
+    <!-- endbuild -->
+  </head>
+  <body ng-app="xiaoyuApp" ng-controller="MainController">
+
+    <div class="app">
+
+      <!-- Navbars -->
+
+      <div class="navbar navbar-app navbar-absolute-top">
+        <div class="navbar-brand navbar-brand-center" yield-to="title">
+          <span></span>
+        </div>
+        <div class="btn-group pull-left" yield-to="leftbtn">
+        </div>
+        <div class="btn-group pull-right" yield-to="rightbtn">
+        </div>
+      </div>
+
+      <!-- <div class="navbar navbar-app navbar-absolute-bottom" yield-to="bottom" >
+        <div class="btn-group justified">
+          <a href="http://mobileangularui.com/" class="btn btn-navbar"><i class="fa fa-home fa-navbar"></i> 文档</a>
+          <a href="https://github.com/mcasimir/mobile-angular-ui/issues" class="btn btn-navbar"><i class="fa fa-exclamation-circle fa-navbar"></i> 问题反馈</a>
+        </div>
+      </div> -->
+
+      <!-- App Body -->
+      <div class="app-body" ng-class="{loading: loading}">
+        <div ng-show="loading" class="app-content-loading">
+          <i class="fa fa-spinner fa-spin loading-spinner"></i>
+        </div>
+
+        <div ui-view class="app-content" ng-hide="loading"></div>
+        <!-- global http error handler message box-->
+        <toggle-container></toggle-container>
+        <div toggleable id="httpError" inactive-class="Hide" class="xy_error_tips Hide">
+            <span>系统调用错误，请刷新重试</span>
+        </div>
+
+
+      </div>
+
+    </div><!-- ~ .app -->
+    
+  </body>
+</html>

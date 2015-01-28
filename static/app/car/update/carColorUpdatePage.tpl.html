@@ -1,0 +1,10 @@
+<div ng-controller="carColorUpdateController">
+	<edit-input input-model="carColorObj.carColor" placeholder="请输入车的颜色" input-id="car_color_update
+	    _input" cancel-input="cancelInput()"></edit-input>
+	    <div class="submit">
+		<div class="btn-group btn-group-justified">
+			<a class="btn btn-default cancel" ng-click="backAction()">取消</a>
+			<a class="btn save" ng-click="saveAction()">保存</a>
+		</div>
+	</div>
+</div>
