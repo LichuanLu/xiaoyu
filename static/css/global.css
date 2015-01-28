@@ -280,6 +280,10 @@ span.price {
 .xy_bt {
   border-bottom: 1px solid #ddd;
 }
+.xy_field_input span,
+.xy_field_input input {
+  font-size: 0.875rem;
+}
 .xy_field_input .form-control-wrapper {
   padding: 0;
   background-color: #ffffff;
@@ -400,6 +404,27 @@ span.price {
   padding-top: 15px;
   padding-bottom: 15px;
 }
+.list-group.edit-group > :first-child {
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  border-top-right-radius: 0.5em;
+  border-top-left-radius: 0.5em;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.list-group.edit-group > :last-child {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
+.list-group.edit-group .form-control-wrapper {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  border: 0;
+}
 .list-group-item span {
   font-size: 0.875rem;
 }
@@ -440,7 +465,7 @@ div.submit {
 }
 .btn.btn-supply {
   color: #fff;
-  background-color: #f63;
+  background-color: #0eb7fd;
   border-radius: 4px;
   text-align: center;
 }
@@ -449,34 +474,49 @@ div.submit {
   line-height: 34px;
 }
 .xy_calendar_group {
-  margin: 15px 6%;
+  margin: 15px 2%;
   text-align: center;
-  width: 88%;
+  width: 96%;
   float: left;
   overflow: hidden;
   border-right: none;
-  border: 1px solid;
+  border: 1px solid #ddd;
+  border-radius: 0.5em;
 }
 .xy_calendar_group .xy_calendar_item {
   float: left;
   width: 14.28%;
-  border-right: 1px solid;
+  border-right: 1px solid #ddd;
 }
 .xy_calendar_group .xy_calendar_item > span {
   display: block;
   padding: 5px;
 }
 .xy_calendar_group .xy_calendar_item > span.top {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #ddd;
+  height: 40px;
+  line-height: 30px;
+  background-color: #a8a8a8;
+}
+.xy_calendar_group .xy_calendar_item > span.bottom {
+  height: 50px;
+  line-height: 40px;
 }
 .xy_calendar_group .xy_calendar_item.selected > span.bottom {
-  background-color: blue;
+  background-color: #0eb7fd;
   color: white;
+}
+.xy_calendar_title {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.xy_calendar_title .title {
+  color: #0eb7fd;
 }
 .xy_calendar_time_group {
   float: left;
   overflow: hidden;
-  margin: 20px 5%;
+  margin: 20px 2%;
 }
 .xy_calendar_time_group .xy_calendar_time_item {
   float: left;
@@ -486,20 +526,24 @@ div.submit {
 }
 .xy_calendar_time_group .xy_calendar_time_item .xy-time-box {
   padding: 5px;
-  border: 1px solid;
+  border: 1px solid #ddd;
   border-radius: 5px;
+  height: 40px;
+}
+.xy_calendar_time_group .xy_calendar_time_item .xy-time-box span {
+  line-height: 30px;
 }
 .xy_calendar_time_group .xy_calendar_time_item .xy-time-box.selected {
-  background-color: blue;
+  background-color: #0eb7fd;
 }
 .xy_calendar_time_group .xy_calendar_time_item .xy-time-box.selected span {
-  color: white;
+  color: #ffffff;
 }
 .xy_calendar_time_group .xy_calendar_time_item .xy-time-box.disable {
-  background-color: darkgrey;
+  background-color: #a8a8a8;
 }
 .xy_calendar_time_group .xy_calendar_time_item .xy-time-box.disable span {
-  color: white;
+  color: #ffffff;
 }
 .xy_block_text {
   display: inline-block;

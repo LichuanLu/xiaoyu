@@ -1,5 +1,5 @@
 <div ng-controller="secondOrderController">
-	<div class="mb15">
+	<div class="mb15 mt10">
 		<h4>联系电话</h4>
 		<edit-input class="xy_field_input" field-message="fieldMessage" input-error="inputError" input-model="orderObj.user.phone" placeholder="请输入手机号" input-id="mobilephone
 		_input" cancel-input="cancelInput()"></edit-input>
@@ -40,7 +40,7 @@
 	</div> -->
 
 	<div class="submit row">
-		<a class="btn btn-danger col-xs-6" ng-show="showState" ng-click="removeAction()">取消订单</a>
-		<a class="btn btn-info" ng-class="showState?'col-xs-6':'col-xs-12'" ng-click="submitOrder()">提交订单</a>
+		<a class="btn btn-danger btn-lg col-xs-6" ng-show="showState" ng-click="removeAction()">取消订单</a>
+		<a class="btn btn-info btn-lg" ng-class="showState?'col-xs-6':'col-xs-12'" ng-click="submitOrder()">提交订单</a>
 	</div>
 </div>

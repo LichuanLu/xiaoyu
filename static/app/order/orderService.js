@@ -142,7 +142,7 @@ angular.module('xiaoyuApp.order')
 
 		var getOccupiedTimes = function() {
 			var promise = $http({
-				url: '/rest/occupiedTime',
+				url: '/rest/time/occupiedTime',
 				method: 'get'
 			}).then(function(response) {
 				// The then function here is an opportunity to modify the response

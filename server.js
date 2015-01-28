@@ -791,7 +791,7 @@ app.get('/rest/Order/:uid/DefaultOrder', function(req, res) {
 });
 
 
-app.get('/rest/occupiedTime',function(req,res){
+app.get('/rest/time/occupiedTime',function(req,res){
   var data = [{
     'time':'2014-12-31 09:00:00.000'
   },
