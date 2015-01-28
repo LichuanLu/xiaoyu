@@ -1,0 +1,2 @@
+ <!-- The template to display files available for upload -->
+<script data-main="/static/app/main" src="/static/components/requirejs/require.js"></script>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  {>head/}
+  <body>
+    {+contentHolder}{/contentHolder}
+    {+scriptsHolder}
+        {>scripts/} 
+    {/scriptsHolder}    
+  </body>
+</html>
+
+
+
