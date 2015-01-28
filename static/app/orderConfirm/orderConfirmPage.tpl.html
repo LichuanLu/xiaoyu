@@ -1,12 +1,50 @@
 <div ng-controller="orderConfirmController">
-	<h4>订单信息</h4>
-	<div class="form-group row ph10 pv5 xy_bt">
-		<label class="col-xs-3 control-label">手机</label>
-		<div class="form-control-wrapper col-xs-9 form-control-text">
-			<span class="text form-control" ng-bind="orderObj.user.phone"></span>
+	<div class="mt20">
+		<h4>联系电话</h4>
+		<div class="list-group-item base-border-radius">
+			<span>手机：</span>
+			<span class="text" ng-bind="orderObj.user.phone"></span>
 		</div>
 	</div>
-	<div class="form-group row ph10 pv5 xy_bt">
+	<div class="mt20">
+		<h4>车辆信息</h4>
+		<div class="car-text-group list-group-item base-border-radius clearfix">
+			<div class="inline-content">
+				<div>
+					<span>车牌号：</span>
+					<span ng-bind="orderObj.userCar.carNo"></span>
+				</div>
+				<div class="sub-title">
+					<span>品牌：</span>
+					<span ng-bind="orderObj.userCar.car.name"></span>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="mt20">
+		<h4>位置信息</h4>
+		<div class="car-text-group list-group-item base-border-radius clearfix">
+			<div class="inline-content">
+				<div>
+					<span>区域：</span>
+					<span ng-bind="orderObj.userAddress.address.name"></span>
+				</div>
+				<div class="sub-title">
+					<span>地址：</span>
+					<span ng-bind="orderObj.userAddress.comment"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- <div class="form-group row ph10 pv5 xy_bt">
+			<label class="col-xs-3 control-label">手机</label>
+			<div class="form-control-wrapper col-xs-9 form-control-text">
+					<span class="text form-control" ng-bind="orderObj.user.phone"></span>
+			</div>
+	</div> -->
+	<!-- <div class="form-group row ph10 pv5 xy_bt">
 		<label class="col-xs-3 control-label">车辆</label>
 		<div class="form-control-wrapper col-xs-9 form-control-text">
 			<span class="text form-control" ng-bind="orderObj.userCar.carNo"></span>
@@ -19,23 +57,27 @@
 			<span class="text form-control" ng-bind="orderObj.userAddress.address.name"></span>
 			<span class="text form-control" ng-bind="orderObj.userAddress.comment"></span>
 		</div>
+	</div> -->
+	<div class="mt20">
+		<h4>洗车时间</h4>
+		<div class="list-group-item base-border-radius">
+			<span ng-bind="washTime"></span>
+		</div>
 	</div>
-	<div class="form-group row ph10 pv5 xy_bt">
+	<!-- <div class="form-group row ph10 pv5 xy_bt">
 		<label class="col-xs-3 control-label">时间</label>
 		<div class="form-control-wrapper col-xs-9 form-control-text">
 			<span class="text form-control" ng-bind="washTime"></span>
 		</div>
-	</div>
-
+	</div> -->
 	<div data-ng-include="'/static/app/pay/payPage.tpl.html'"></div>
-
-<!-- 
-	<div class="navbar navbar-app navbar-absolute-bottom">
-        <div class="btn-group justified">
-          <span class="btn btn-navbar">
-			{{orderObj.countPrice|zhcnformat}}
-		  </span>
-          <a class="btn btn-navbar" ng-click="submitAction()"><i class="fa fa-check fa-navbar"></i> 确认支付</a>
-        </div>
-    </div> -->
+	<!--
+		<div class="navbar navbar-app navbar-absolute-bottom">
+		<div class="btn-group justified">
+			<span class="btn btn-navbar">
+						{{orderObj.countPrice|zhcnformat}}
+					</span>
+			<a class="btn btn-navbar" ng-click="submitAction()"><i class="fa fa-check fa-navbar"></i> 确认支付</a>
+		</div>
+	</div> -->
 </div>

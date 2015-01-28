@@ -5,48 +5,76 @@
 			<span class="form-control xy_tar">{{orderId}}</span>
 		</div>
 	</div> -->
-	<div class="form-group row ph10  xy_bt" ng-show="showPrice">
+	<!-- <div class="form-group row ph10  xy_bt" ng-show="showPrice">
 		<label class="col-xs-4 control-label">总价：</label>
 		<div class="form-control-wrapper col-xs-8 form-control-text">
 			<span class="price form-control xy_tar">{{price | zhcnformat}}</span>
 		</div>
+	</div> -->
+
+	<div class="list-group-item mt20 clearfix base-border-radius" ng-show="showPrice">
+		<span class="pull-left">总价</span>
+		<span class="price xy_tar pull-right">{{price | zhcnformat}}</span>
 	</div>
 
-	<div class="list-group item20 mb10 mt20" ng-show="showDiscount">
+	<div class="list-group-item base-border-radius" ng-click="selectDiscount()" ng-show="showDiscount">
+		<span class="mr10">抵用卷/优惠码：</span>
+		<span>{{discountObj.type | discountname}}</span>
+		<i class="fa fa-chevron-right pull-right"></i>
+	</div>
+	<div class="list-group-item clearfix base-border-radius" ng-show="showDiscount">
+		<span class="pull-left">还需支付：</span>
+		<span class="price xy_tar pull-right">{{leftPrice | zhcnformat}}</span>
+	</div>
+
+	<!-- <div class="list-group item20 mb10 mt20" ng-show="showDiscount">
 		<div class="list-group-item pl10" ng-click="selectDiscount()">
 			<label class="">抵用卷/优惠码：</label>
 			<i class="fa fa-chevron-right pull-right"></i>
 			<span class="pull-right">{{discountObj.type | discountname}}</span>
 		</div>
-	</div>
-	<div class="form-group row ph10  xy_bt" ng-show="showDiscount">
+	</div> -->
+	<!-- <div class="form-group row ph10  xy_bt" ng-show="showDiscount">
 		<label class="col-xs-4 control-label">还需支付：</label>
 		<div class="form-control-wrapper col-xs-8 form-control-text">
 			<span class="price form-control xy_tar">{{leftPrice | zhcnformat}}</span>
 		</div>
-	</div>
+	</div> -->
 
 	<div class="mt20" ng-show="leftPrice != 0">
-		<div class="form-group row ph10 xy_bt" ng-show="showPayPoint">
+		<div class="list-group-item clearfix base-border-radius" ng-show="showPayPoint">
+			<span>余额支付：</span>
+			<span>（余额：{{allPoints | zhcnformat}}）</span>
+			<input type="radio" name="payType" value="0" ng-model="selectedPayType" class="pull-right">
+		</div>
+		<div class="list-group-item clearfix base-border-radius">
+			<span>支付宝支付：</span>
+			<input type="radio" name="payType" value="2" ng-model="selectedPayType" class="pull-right">
+		</div>
+		<div class="list-group-item clearfix base-border-radius">
+			<span>微信支付：</span>
+			<input type="radio" name="payType" value="1" ng-model="selectedPayType" class="pull-right">
+		</div>
+		<!-- <div class="form-group row ph10 xy_bt" ng-show="showPayPoint">
 			<label class="col-xs-4 control-label">余额支付
 			<span>（余额：{{allPoints | zhcnformat}}）</span>
 			</label>
 			<div class="form-control-wrapper col-xs-8 form-control-text xy-form-radio">
 				<input type="radio" name="payType" value="0" ng-model="selectedPayType" class="mr20">
 			</div>
-		</div>
-		<div class="form-group row ph10  xy_bt">
+		</div> -->
+		<!-- <div class="form-group row ph10  xy_bt">
 			<label class="col-xs-4 control-label">支付宝支付</label>
 			<div class="form-control-wrapper col-xs-8 form-control-text xy-form-radio">
 				<input type="radio" name="payType" value="2" ng-model="selectedPayType" class="mr20">
 			</div>
-		</div>
-		<div class="form-group row ph10  xy_bt">
+		</div> -->
+		<!-- <div class="form-group row ph10  xy_bt">
 			<label class="col-xs-4 control-label">微信支付</label>
 			<div class="form-control-wrapper col-xs-8 form-control-text xy-form-radio">
 				<input type="radio" name="payType" value="1" ng-model="selectedPayType" class="mr20">
 			</div>
-		</div>
+		</div> -->
 		<!-- <div class="form-group row ph10  xy_bt">
 			<label class="col-xs-4 control-label">线下支付</label>
 			<div class="form-control-wrapper col-xs-8 form-control-text xy-form-radio">
@@ -79,8 +107,11 @@
 			</select>
 		</div>
 	</div> -->
-	<div class="submit">
-		<button class="btn confirm" ng-click="submitAction()">立即支付</button>
+	<div class="submit row">
+		<a class="btn btn-info btn-lg col-xs-12" ng-click="submitAction()">立即支付</a>
 	</div>
+	<!-- <div class="submit">
+		<button class="btn confirm" ng-click="submitAction()">立即支付</button>
+	</div> -->
 <!-- 	<div id="updatePayPointPage" data-ng-include="'/static/app/pay/update/updatePointPage.tpl.html'" ng-class="{ 'hidden': ! showUpdatePayPoint }"></div> -->
 </div>

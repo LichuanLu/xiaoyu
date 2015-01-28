@@ -28,7 +28,7 @@ angular.module('xiaoyuApp')
 					washStartTime = moment(washStartTime);
 				}
 				if (orderObj.type == 2) {
-					result = washStartTime.format('MMMD日') + $filter('amRangeFormat')(washStartTime, 'HH:mm', dur);
+					result = washStartTime.format('MMMD日') +' '+$filter('amRangeFormat')(washStartTime, 'HH:mm', dur);
 				} else if (orderObj.type == 3) {
 					if (!orderObj.duration) {
 						$log.log('error:orderObj.duration is null');

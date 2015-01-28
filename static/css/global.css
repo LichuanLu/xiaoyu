@@ -1,13 +1,26 @@
-.list-group .list-group-item.car-group {
+.list-group-item.car-group {
   padding-top: 25px;
   padding-bottom: 25px;
 }
-.list-group .list-group-item.car-group .inline-content {
+.list-group-item.car-group .inline-content {
   height: 75px;
   top: 0;
   margin-left: 30px;
   line-height: 26px;
   padding: 10px;
+}
+.list-group-item.car-text-group {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.list-group-item.car-text-group .inline-content {
+  height: 50px;
+  top: 0;
+  /* margin-left: 30px; */
+  /* line-height: 26px; */
+  /* padding: 10px; */
+  line-height: 20px;
+  padding-top: 6px;
 }
 body {
   font-family: "微软雅黑", "Hiragino Sans GB", "Microsoft YaHei", "宋体", Arial, Verdana, sans-serif;
@@ -110,7 +123,7 @@ body,
   display: none !important;
 }
 .navbar-app {
-  background-color: #f63;
+  background-color: #0eb7fd;
   color: #fff;
 }
 .navbar-app .btn,
