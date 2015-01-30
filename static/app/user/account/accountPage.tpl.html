@@ -1,0 +1,52 @@
+<div ng-controller="accountController" class="base-lr-margin">
+	<div class="mt20">
+		<div class="list-group-item base-border-radius" ng-click="updateUser()">
+			<span>手机号码：{{userObj.phone}}</span>
+			<i class="fa fa-chevron-right pull-right"></i>
+		</div>
+	</div>
+	<div class="mt20 list-group edit-group">
+		<div class="list-group-item" ng-click="goBalance()">
+			<div class="icons-balance account-icons pull-left">
+			</div>
+			<span>我的余额：</span>
+			<span class="price">{{userObj.points | zhcnformat}}</span>
+			<i class="fa fa-chevron-right pull-right"></i>
+		</div>
+		<div class="list-group-item" ng-click="goLongterm()">
+			<div class="icons-balance account-icons pull-left">
+			</div>
+			<span>我的包月</span>
+			<i class="fa fa-chevron-right pull-right"></i>
+		</div>
+	</div>
+	<div class="mt20 list-group edit-group" ng-click="goOrder()">
+		<div class="list-group-item">
+			<div class="icons-order account-icons pull-left">
+			</div>
+			<span>我的订单</span>
+			<i class="fa fa-chevron-right pull-right"></i>
+		</div>
+		<div class="list-group-item" ng-click="goDiscount()">
+			<div class="icons-discount account-icons pull-left">
+			</div>
+			<span>我的优惠卷</span>
+			<i class="fa fa-chevron-right pull-right"></i>
+
+		</div>
+		<div class="list-group-item" ng-click="goCar()">
+			<div class="icons-car account-icons pull-left">
+			</div>
+			<span>车辆管理</span>
+			<i class="fa fa-chevron-right pull-right"></i>
+		</div>
+	</div>
+	<div class="mt20">
+		<div class="list-group-item base-border-radius" ng-click="goAbout()">
+			<div class="icons-car account-icons pull-left">
+			</div>
+			<span>关于我们</span>
+			<i class="fa fa-chevron-right pull-right"></i>
+		</div>
+	</div>
+</div>
