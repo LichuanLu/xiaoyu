@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('xiaoyuApp.longterm')
-	.controller('longtermController', ['$scope', '$log', '$location', 'CaptureService', 'userService', 'longtermService',
-		function($scope, $log, $location, CaptureService, userService, longtermService) {
+	.controller('longtermController', ['$scope', '$log','$state' ,'$location', 
+		'CaptureService', 'userService', 'longtermService','userId',
+		function($scope, $log,$state,$location, CaptureService, userService, longtermService,userIdService) {
 			$log.log('longtermController init');
 
 			//init order page
@@ -17,9 +18,14 @@ angular.module('xiaoyuApp.longterm')
 			$scope.initLayout();
 
 			longtermService.getRecordList().then(function(data) {
-				if(data){
+				if (data) {
 					$scope.recordList = data;
 				}
 			});
+
+			$scope.addLongterm = function() {
+				$log.log('go add long term order');
+				$state.go('order',{'userId':userIdService.getData(),'orderType':3});
+			};
 		}
 	]);

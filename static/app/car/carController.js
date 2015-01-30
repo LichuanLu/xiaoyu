@@ -94,7 +94,7 @@ angular.module('xiaoyuApp.car')
 					$event.preventDefault();
 					$event.stopPropagation();
 				}
-				if (typeof carObj !== 'undefined') {
+				if ($scope.isUndefined(carObj)) {
 					//updateCarObjService.oldCarObj = carObj;
 					$log.log('create new car');
 					updateCarObjService.update(angular.copy(emptyCarObj));

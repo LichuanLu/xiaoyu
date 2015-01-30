@@ -20,7 +20,7 @@ angular.module('xiaoyuApp.pay')
 			//加入Inpage支付判断，inpage支付没有showPrice，还有最终支付需要先拿到orderId，然后提交
 
 
-			if (typeof $scope.param1 !== 'undefined') {
+			if (!$scope.isUndefined($scope.param1)) {
 				$scope.orderId = $scope.param1;
 				$scope.price = $scope.param2;
 				$scope.type = $scope.param3;
@@ -28,6 +28,11 @@ angular.module('xiaoyuApp.pay')
 				$scope.discountObj = $scope.param4;
 				// $scope.inpagePay = $scope.param5;
 			}
+			// else if(!$scope.isUndefined($stateParams.param1)){
+			// 	$scope.orderId = $stateParams.param1;
+			// 	$scope.price = $stateParams.param2;
+			// 	$scope.type = $stateParams.param3;
+			// }
 
 
 			// $scope.orderId = $stateParams.param1;

@@ -1,8 +1,19 @@
 <div class="scrollable" ng-controller="orderDetailController">
 	<div class="scrollable-content">
 		<bswizard input-collection="bswizardData"></bswizard>
+		<div ng-show="showWasher" class="base-lr-margin">
+			<div class="list-group-item base-border-radius">
+				<div>
+					<span>洗车员：</span>
+					<span ng-bind="orderObj.washer.name"></span>
+				</div>
+				<div class="sub-title">
+					<span>手&nbsp;&nbsp;机：</span>
+					<span ng-bind="orderObj.washer.phone"></span>
+				</div>
+			</div>
+		</div>
 		<ui-view></ui-view>
-	</div>	
+	</div>
 	<div toggleable id="submitCommentSucMsg" inactive-class="Hide" class="xy_error_tips Hide">提交评论成功</div>
 </div>
-

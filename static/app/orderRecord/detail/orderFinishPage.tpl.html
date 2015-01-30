@@ -1,34 +1,68 @@
-<div ng-controller="orderFinishController">
-	<div ng-show="showWasher">
-		<p>洗车员：{{washer.name}}</p>
-		<p>手机：{{washer.phone}}</p>
+<div ng-controller="orderFinishController" class="base-lr-margin">
+	<div class="mt20">
+		<h4>洗车时间</h4>
+		<div class="list-group-item base-border-radius">
+			<span ng-bind="washTime"></span>
+		</div>
 	</div>
-	<h4>洗车时间</h4>
-	<label>{{washTime}}</label>
-	<h4>照片展示</h4>
+	<div class="mt20">
+		<h4>照片展示</h4>
+		<div class="list-group-item base-border-radius">
+			<span>暂无展示照片</span>
+		</div>
+	</div>
+	<!-- <h4>照片展示</h4>
 	<div class="row">
 		<div class="col-xs-3" ng-repeat="imgObj in imgList | limitTo:4">
 			<img ng-src="{{imgObj.pictureUrl}}">
 		</div>
+	</div> -->
+	<div class="mt20">
+		<h4>我的评论</h4>
+		<div class="list-group-item base-border-radius" ng-show="showEdit">
+			<span>请您为服务评分：</span>
+			<rating class="xy_rating" ng-model="rate" max="max" readonly="!showEdit"></rating>
+		</div>
+		<div ng-show="showEdit" class="list-group-item base-border-radius">
+			<textarea class="xy_text_area" placeholder="请对我们的服务做出评价" rows="3" ng-model="comment"></textarea>
+		</div>
+		<div class="mt10" ng-show="!showEdit">
+			<rating class="xy_rating" ng-model="rate" max="max" readonly="!showEdit"></rating>
+		</div>
+		<div class="list-group-item base-border-radius mt10" ng-show="!showEdit">
+			<p>{{comment}}</p>
+		</div>
+
 	</div>
-	<h4>我的评论</h4>
-	<div ng-show="showEdit">
+	<div class="submit row">
+		<a class="btn btn-warning btn-lg col-xs-12" ng-show="showEdit" ng-click="submitComment()">提交评论</a>
+	</div>
+	<!-- <div class="submit row">
+		<div class="pl0 col-xs-6" ng-show="showEdit">
+			<a class="btn btn-danger btn-lg full-width" ng-click="submitComment()">提交评论</a>
+		</div>
+		<div class="pr0 col-xs-6" ng-show="showEdit">
+			<a class="btn btn-info btn-lg full-width" ng-click="shareAction()">分享得优惠卷</a>
+		</div>
+		<a class="btn btn-info btn-lg col-xs-12" ng-show="!showEdit" ng-click="shareAction()">分享得优惠卷</a>
+	</div> -->
+	<!-- <div ng-show="showEdit">
 		<span>请您为服务评分：</span>
 		<rating ng-model="rate" max="max" readonly="!showEdit"></rating>
-	</div>
-	<div ng-show="showEdit">
+	</div> -->
+	<!-- <div ng-show="showEdit">
 		<textarea placeholder="评论" rows="3" ng-model="comment"></textarea>
-	</div>
+	</div> -->
 
-	<div ng-show="!showEdit">
+	<!-- <div ng-show="!showEdit">
 		<rating ng-model="rate" max="max" readonly="!showEdit"></rating>
-	</div>
-	<div ng-show="!showEdit">
+	</div> -->
+	<!-- <div ng-show="!showEdit">
 		<p placeholder="评论" rows="3">{{comment}}</p>
-	</div>
+	</div> -->
 
-	<div class="row">
+	<!-- <div class="row">
 		<a class="btn btn-info" ng-class="showEdit?'col-xs-6':'col-xs-12'" ng-click="shareAction()">分享优惠卷</a>
 		<a class="btn btn-info col-xs-6" ng-show="showEdit" ng-click="submitComment()">提交评论</a>		
-	</div>
+	</div> -->
 </div>

@@ -543,6 +543,7 @@ app.configure(function() {
 
 });
 
+
 app.get('/rest/Activity/ListAll', function(req, res) {
   var data = [{
     "activityName": "充10元获15雨点",
@@ -627,7 +628,7 @@ app.get('/rest/Order/:orderId', function(req, res) {
     "type": 2,
     "score":'',
     "comments":[{
-      "comment":''
+      "comment":'测试'
     }],
     "washer":{
       "id":"1",
@@ -683,26 +684,29 @@ app.get('/rest/Order/:orderId', function(req, res) {
       "type": 2,
       "user": null
     },
-    "userCar": { //用户默认车辆
+    "userCar": 
+    {
       "car": {
-        'id': 4,
-        'name': '丰田霸道',
-        'parent': null,
-        'pic': '',
-        'status': 1,
-        'type': 2
+        "id": 2,
+        "name": "大奔",
+        "parent": null,
+        "pic": "",
+        "status": 1,
+        "type": 2
       },
-      "carNo": "京B 88888",
-      "color": 0,
-      "createdTime": "2014年-10月-31日 12:27:19",
-      "default": true,
-      "id": 1,
+      "carNo": "京J 99999",
+      "color": '黑色',
+      "createdTime": "2014年-10月-30日 12:27:19",
+      "default": false,
+      "id": 2,
       "status": 0,
-      "type": 0,
-      "user": null
+      "type": 1
     }
 
   };
+
+    
+
 
   res.send({
     errorCode: 0,
@@ -816,26 +820,122 @@ app.get('/rest/time/occupiedTime',function(req,res){
 
 });
 
+
+
+
+
+
 app.get('/rest/Activity/user/:userId/ListAll',function(req,res){
   console.log(req.params);
-  var data = [{
-     'id': 1,
-     'startDate':'2014/10/12',
-     'endDate':'2014/12/12',
-     'name':'',
-     'type': 3 , //代金卷1，打折卷2 ,  免费洗车 3 
-     'count':'' ,  //代金卷是钱 ，打折卷是比例 60 就是60% 
-     'status':0  // 0 有效  1 删除 2 无效
+  // var data = [{
+  //    'id': 1,
+  //    'startDate':'2014/10/12',
+  //    'endDate':'2014/12/12',
+  //    'name':'',
+  //    'type': 3 , //代金卷1，打折卷2 ,  免费洗车 3 
+  //    'count':'' ,  //代金卷是钱 ，打折卷是比例 60 就是60% 
+  //    'status':0  // 0 有效  1 删除 2 无效
+  // },
+  // {
+  //   'id': 2,
+  //    'startDate':'2014/10/12',
+  //    'endDate':'2015/01/12',
+  //    'name':'',
+  //    'type': 3 , //代金卷1，打折卷2 ,  免费洗车 3 
+  //    'count':'' ,  //代金卷是钱 ，打折卷是比例 60 就是60% 
+  //    'status':0  // 0 有效  1 删除 2 无效
+  // }];
+  var data = [   
+  {
+    "activity":     {
+      "activityName": "免费洗车一次",
+      "discount": 0,
+      "id": 1,
+      "inMoney": 0,
+      "outPoints": 0,
+      "picUrl": "",
+      "status": 0,
+      "type": 3,
+      "washPoints": 0
+    },
+    "endDate": "2015年-01月-31日",
+    "id": 1,
+    "name": "免费洗车一次",
+    "startDate": "2015年-01月-28日",
+    "status": 0,
+    "type": 0,
+    "useDate": null,
+    "user":     {
+      "badgeId": "1",
+      "createdDate": "2015年-01月-26日 18:49:30",
+      "email": "xuyanbj@cn.ibm.com",
+      "id": 1,
+      "money": 11,
+      "name": "xuyan",
+      "password": "1",
+      "phone": "18511897539",
+      "points": 2,
+      "role":       {
+        "id": 2,
+        "name": "洗车员",
+        "status": "0",
+        "type": 0
+      },
+      "sex": 1,
+      "status": 0,
+      "times": 2,
+      "type": 0,
+      "updatedDate": "2015年-01月-26日 18:50:18",
+      "weixinId": "zz",
+      "weixinToken": "zz"
+    }
   },
   {
-    'id': 2,
-     'startDate':'2014/10/12',
-     'endDate':'2015/01/12',
-     'name':'',
-     'type': 3 , //代金卷1，打折卷2 ,  免费洗车 3 
-     'count':'' ,  //代金卷是钱 ，打折卷是比例 60 就是60% 
-     'status':0  // 0 有效  1 删除 2 无效
-  }];
+    "activity":     {
+      "activityName": "免费洗车一次",
+      "discount": 0,
+      "id": 1,
+      "inMoney": 0,
+      "outPoints": 0,
+      "picUrl": "",
+      "status": 0,
+      "type": 3,
+      "washPoints": 0
+    },
+    "endDate": "2015年-01月-31日",
+    "id": 2,
+    "name": "免费洗车一次",
+    "startDate": "2015年-01月-28日",
+    "status": 0,
+    "type": 0,
+    "useDate": null,
+    "user":     {
+      "badgeId": "1",
+      "createdDate": "2015年-01月-26日 18:49:30",
+      "email": "xuyanbj@cn.ibm.com",
+      "id": 1,
+      "money": 11,
+      "name": "xuyan",
+      "password": "1",
+      "phone": "18511897539",
+      "points": 2,
+      "role":       {
+        "id": 2,
+        "name": "洗车员",
+        "status": "0",
+        "type": 0
+      },
+      "sex": 1,
+      "status": 0,
+      "times": 2,
+      "type": 0,
+      "updatedDate": "2015年-01月-26日 18:50:18",
+      "weixinId": "zz",
+      "weixinToken": "zz"
+    }
+  }
+
+  ];
   res.send({
     errorCode: 0,
     errorDescription: "",
@@ -853,11 +953,11 @@ var data = [{
   "countPrice": 100,
   "endOrderTime": null,
   "id": 1,
-  'washStartTime': '2014/10/12 3:00',
+  'washStartTime': '2014-10-12 3:00',
   'comment': '无',
   "startOrderTime": "2014年-11月-04日 21:21:02",
   "status": 1,
-  "type": 1,
+  "type": 2,
   "user": {
     "createdDate": "2014年-10月-31日 12:25:37",
     "id": 1,
@@ -917,6 +1017,8 @@ var data = [{
   "countPrice": 100,
   "endOrderTime": null,
   "id": 2,
+  'washStartTime': '2014-10-12 3:00',
+  'duration': 1,
   "startOrderTime": "2014年-11月-04日 21:21:02",
   "status": 2,
   "type": 3,
@@ -946,8 +1048,15 @@ var data = [{
     "user": null
   },
   "userCar": {
-    "car": null,
-    "carNo": "88888",
+    'car': {
+      'id': 4,
+      'name': '丰田霸道',
+      'parent': null,
+      'pic': '',
+      'status': 1,
+      'type': 2
+    },
+    "carNo": "京A 88888",
     "color": "黑色",
     "createdTime": "2014年-10月-31日 12:27:19",
     "default": true,
@@ -962,7 +1071,7 @@ var data = [{
   "id": 3,
   "startOrderTime": "2014年-11月-04日 21:21:02",
   "status": 3,
-  "type": 1,
+  "type": 2,
   "user": {
     "createdDate": "2014年-10月-31日 12:25:37",
     "id": 1,
@@ -1005,7 +1114,7 @@ var data = [{
   "id": 4,
   "startOrderTime": "2014年-11月-04日 21:21:02",
   "status": 4,
-  "type": 1,
+  "type": 2,
   "user": {
     "createdDate": "2014年-10月-31日 12:25:37",
     "id": 1,
@@ -1048,7 +1157,7 @@ var data = [{
   "id": 5,
   "startOrderTime": "2014年-11月-04日 21:21:02",
   "status": 5,
-  "type": 1,
+  "type": 2,
   "user": {
     "createdDate": "2014年-10月-31日 12:25:37",
     "id": 1,
@@ -1091,7 +1200,7 @@ var data = [{
   "id": 6,
   "startOrderTime": "2014年-11月-04日 21:21:02",
   "status": 6,
-  "type": 1,
+  "type": 2,
   "user": {
     "createdDate": "2014年-10月-31日 12:25:37",
     "id": 1,

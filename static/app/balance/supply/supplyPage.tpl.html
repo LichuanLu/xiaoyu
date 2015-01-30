@@ -1,41 +1,72 @@
 <div ng-controller="supplyController">
 	<!-- <div class="scrollable">
-				<div class="scrollable-content">
-							<div class="form-group row ph10  xy_bt" ng-class="{ 'hidden': leftPrice == 0 }">
-										<div class="fl select-label">选择活动：</div>
-										<div class="col-xs-8">
-											<select name="arriveTime" class="xy_select w100" ng-model="selectedAct" ng-options="actObj.id as actObj.activityName for actObj in actList"></select>
-								</div>
-					</div>
+					<div class="scrollable-content">
+									<div class="form-group row ph10  xy_bt" ng-class="{ 'hidden': leftPrice == 0 }">
+													<div class="fl select-label">选择活动：</div>
+													<div class="col-xs-8">
+														<select name="arriveTime" class="xy_select w100" ng-model="selectedAct" ng-options="actObj.id as actObj.activityName for actObj in actList"></select>
+										</div>
+						</div>
 		</div>
-	</div>
-	<div class="navbar navbar-app navbar-absolute-bottom">
+</div>
+<div class="navbar navbar-app navbar-absolute-bottom">
 				<div class="btn-group justified">
-							<span class="btn btn-navbar">
-								{{price|zhcnformat}}
-							</span>
-							<a class="btn btn-navbar" ng-click="submitAction()">
-										确认支付
-							</a>
+								<span class="btn btn-navbar">
+									{{price|zhcnformat}}
+								</span>
+								<a class="btn btn-navbar" ng-click="submitAction()">
+												确认支付
+								</a>
 				</div>
-	</div> -->
+</div> -->
 	<div class="scrollable">
 		<div class="scrollable-content">
-			<div>
-				<div class="form-group row ph10 xy_bt">
-					<label class="col-xs-3 control-label">余额：</label>
-					<div class="form-control-wrapper col-xs-9 form-control-text" style="position:relative;">
-						<span class="price form-control" >{{points | zhcnformat}}</span>
-					</div>
-				</div>
-				<div class="form-group row ph10 xy_bt">
-					<div class="form-control-wrapper col-xs-12 form-control-text" style="position:relative;">
-						<input class="form-control" value="supplyPoint" ng-model="supplyPoint" name="supplyPoint" placeholder="200.00(最低充值额度为200元)">
-					</div>
-				</div>
-			</div>
-			<div>
+			<div class="base-lr-margin">
 				<div class="mt20">
+					<h4>您的余额：<span class="price">{{points | zhcnformat}}</span></h4>
+					<edit-input class="xy_field_input" field-message="fieldMessage" input-error="inputError" input-model="supplyPoint" placeholder="200.00(最低充值额度为200元)" input-id="supply_points_input" cancel-input="cancelInput()"></edit-input>
+				</div>
+				<div class="mt20">
+					<div class="list-group-item clearfix base-border-radius">
+						<div class="icons-alipay pay-icons pull-left">
+						</div>
+						<span>支付宝支付：</span>
+						<div class="inline-div pull-right">
+							<input id="pay-radio-2" type="radio" name="payType" value="2" ng-model="selectedPayType" class="mark-radio">
+							<label for="pay-radio-2"><span></span></label>
+						</div>
+					</div>
+					<div class="list-group-item clearfix base-border-radius">
+						<div class="icons-wechat pay-icons pull-left">
+						</div>
+						<span>微信支付：</span>
+						<div class="inline-div pull-right">
+
+							<input id="pay-radio-1" type="radio" name="payType" value="1" ng-model="selectedPayType" class="mark-radio">
+							<label for="pay-radio-1"><span></span></label>
+						</div>
+					</div>
+				</div>
+				<div class="submit row">
+					<a class="btn btn-info btn-lg col-xs-12" ng-click="submitAction()">充值</a>
+				</div>
+				<!-- <div>
+						<div class="form-group row ph10 xy_bt">
+								<label class="col-xs-3 control-label">余额：</label>
+								<div class="form-control-wrapper col-xs-9 form-control-text" style="position:relative;">
+										<span class="price form-control" >{{points | zhcnformat}}</span>
+								</div>
+						</div>
+						<div class="form-group row ph10 xy_bt">
+								<div class="form-control-wrapper col-xs-12 form-control-text" style="position:relative;">
+										<input class="form-control" value="supplyPoint" ng-model="supplyPoint" name="supplyPoint" placeholder="200.00(最低充值额度为200元)">
+								</div>
+						</div>
+				</div> -->
+
+
+
+				<!-- <div class="mt20">
 					<div class="form-group row ph10  xy_bt">
 						<label class="col-xs-4 control-label">支付宝支付</label>
 						<div class="form-control-wrapper col-xs-8 form-control-text xy-form-radio">
@@ -48,10 +79,10 @@
 							<input type="radio" name="payType" value="1" ng-model="selectedPayType" class="mr20">
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="submit">
-				<button class="btn confirm" ng-click="submitAction()">充值</button>
+				</div> -->
+				<!-- <div class="submit">
+					<button class="btn confirm" ng-click="submitAction()">充值</button>
+				</div> -->
 			</div>
 		</div>
 	</div>

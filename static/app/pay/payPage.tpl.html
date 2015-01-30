@@ -43,17 +43,33 @@
 
 	<div class="mt20" ng-show="leftPrice != 0">
 		<div class="list-group-item clearfix base-border-radius" ng-show="showPayPoint">
+			<div class="icons-points pay-icons pull-left">
+			</div>
 			<span>余额支付：</span>
 			<span>（余额：{{allPoints | zhcnformat}}）</span>
-			<input type="radio" name="payType" value="0" ng-model="selectedPayType" class="pull-right">
+			<div class="inline-div pull-right">
+				<input id="pay-radio-0" type="radio" name="payType" value="0" ng-model="selectedPayType" class="mark-radio">
+				<label for="pay-radio-0"><span></span></label>
+			</div>
 		</div>
 		<div class="list-group-item clearfix base-border-radius">
+			<div class="icons-alipay pay-icons pull-left">
+			</div>
 			<span>支付宝支付：</span>
-			<input type="radio" name="payType" value="2" ng-model="selectedPayType" class="pull-right">
+			<div class="inline-div pull-right">
+				<input id="pay-radio-2" type="radio" name="payType" value="2" ng-model="selectedPayType" class="mark-radio">
+				<label for="pay-radio-2"><span></span></label>
+			</div>
 		</div>
 		<div class="list-group-item clearfix base-border-radius">
+			<div class="icons-wechat pay-icons pull-left">
+			</div>
 			<span>微信支付：</span>
-			<input type="radio" name="payType" value="1" ng-model="selectedPayType" class="pull-right">
+			<div class="inline-div pull-right">
+
+				<input id="pay-radio-1" type="radio" name="payType" value="1" ng-model="selectedPayType" class="mark-radio">
+				<label for="pay-radio-1"><span></span></label>
+			</div>
 		</div>
 		<!-- <div class="form-group row ph10 xy_bt" ng-show="showPayPoint">
 			<label class="col-xs-4 control-label">余额支付

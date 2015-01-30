@@ -1,9 +1,9 @@
 <div ng-controller="orderTimeController" class="form-group mobile-oneline-form">
 	<div class="mt20">
 		<h4 class="text_a_c xy_calendar_title">
-			<i class="fa fa-chevron-left pull-left" ng-show="showPreDateButton"  ng-click="preWeekAction()"></i>
+			<i class="fa fa-chevron-left pull-left ur-small-element" ng-show="showPreDateButton"  ng-click="preWeekAction()"></i>
 			<span class="title">{{curr|amFormat:'YYYY年MMM'}}</span>
-			<i class="fa fa-chevron-right pull-right" ng-click="nextWeekAction()"></i>
+			<i class="fa fa-chevron-right pull-right ur-small-element" ng-click="nextWeekAction()"></i>
 		</h4>
 		<div class="xy_calendar_group">
 			<div ng-repeat="mDate in currDateList" class="xy_calendar_item" ng-class="{selected:selectedDate.value == $index}">

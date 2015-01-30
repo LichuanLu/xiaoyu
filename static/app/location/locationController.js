@@ -84,7 +84,9 @@ angular.module('xiaoyuApp.location')
 					$event.preventDefault();
 					$event.stopPropagation();
 				}
-				if (typeof locationObj !== 'undefined') {
+
+
+				if ($scope.isUndefined(locationObj)) {
 					//updateCarObjService.oldCarObj = carObj;
 					$log.log('create new location');
 					updateLocationObjService.update(angular.copy(emptyLocationObj));

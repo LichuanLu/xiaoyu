@@ -1,5 +1,5 @@
-<div ng-controller="locationUpdateController">
-	<div class="list-group item20">
+<div ng-controller="locationUpdateController" class="base-lr-margin mt20">
+	<!-- <div class="list-group item20">
 		<a href="#" class="list-group-item" ng-click="chooseLocation()">
 			<span class="help-text mr10">小区</span>
 			<span ng-bind="updateLocationObj.address.name"></span> 
@@ -7,13 +7,32 @@
 		</a>
 		<edit-input input-model="updateLocationObj.comment" placeholder="请输入详细地址" input-id="location_comment_update
 	    _input" cancel-input="cancelInput()"></edit-input>
+	</div> -->
+
+	<div class="list-group edit-group">
+		<a href="#" class="list-group-item" ng-click="chooseLocation()">
+			<span class="help-text mr10">小区：</span>
+			<span ng-bind="updateLocationObj.address.name"></span> 
+			<i class="fa fa-chevron-right pull-right"></i>
+		</a>
+		<edit-input class="xy_field_input" input-model="updateLocationObj.comment" prefix="详细：" field-message="fieldMessage" input-error="inputError" placeholder="XX区XX号车位" input-id="location_comment_update
+	    _input" cancel-input="cancelInput()"></edit-input>
 	</div>
-	<div class="submit">
+	<!-- <div class="submit">
 		<div class="btn-group btn-group-justified">
 			<a class="btn btn-default cancel" ng-click="resultAction('delete')">删除</a>
 			<a class="btn save" ng-click="resultAction('save')">保存</a>
 		</div>
+	</div> -->
+	<div class="submit row">
+		<div class="pl0 col-xs-6">
+			<a class="btn btn-danger btn-lg full-width" ng-click="resultAction('delete')">删除</a>
+		</div>
+		<div class="pr0 col-xs-6">
+			<a class="btn btn-info btn-lg full-width" ng-click="resultAction('save')">保存</a>
+		</div>
 	</div>
+
 	<div overlay="deleteLocationOverlay">
 		<h4 class="overlay-title">确认删除地址？</h4>
 		<p bubble>

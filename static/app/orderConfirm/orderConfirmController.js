@@ -2,11 +2,11 @@
 
 //car page major controller
 angular.module('xiaoyuApp.order')
-	.controller('orderConfirmController', ['$scope', '$state', '$filter', '$previousState', 'CaptureService', '$templateCache',
-		'$log', '$location', 'orderService', 'userId', 'defaultTimeConfig','dateTimeService',
+	.controller('orderConfirmController', ['$scope', '$state', '$stateParams', '$filter', '$previousState', 'CaptureService', '$templateCache',
+		'$log', '$location', 'orderService', 'userId', 'defaultTimeConfig', 'dateTimeService',
 
-		function($scope, $state, $filter, $previousState, CaptureService, $templateCache, $log, $location,
-			orderService, userIdService, defaultTimeConfig,dateTimeService) {
+		function($scope, $state, $stateParams, $filter, $previousState, CaptureService, $templateCache, $log, $location,
+			orderService, userIdService, defaultTimeConfig, dateTimeService) {
 			$log.log('orderConfirmController init');
 			//give access from parent to child
 			//$scope.setOrderConfirmScope($scope);
@@ -53,7 +53,10 @@ angular.module('xiaoyuApp.order')
 			// 	return result;
 			// };
 
-
+			$scope.showPay = true;
+			if (!$scope.isUndefined($stateParams.showPay) && $stateParams.showPay == 'false') {
+				$scope.showPay = false;
+			}
 
 			//for pay page param
 			$scope.param1 = $scope.orderObj.id;
@@ -64,9 +67,9 @@ angular.module('xiaoyuApp.order')
 
 			$scope.dur = defaultTimeConfig.duration;
 			// $scope.washTime = $scope.getWashTimeStr($scope.orderObj,$scope.dur);
-			$scope.washTime = dateTimeService.getOrderWashTimeStr($scope.orderObj,$scope.dur);
+			$scope.washTime = dateTimeService.getOrderWashTimeStr($scope.orderObj, $scope.dur);
 
-			
+
 
 			$scope.submitAction = function() {
 				$log.log('submit action');

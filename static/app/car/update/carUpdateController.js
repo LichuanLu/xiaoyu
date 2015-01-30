@@ -38,11 +38,11 @@ angular.module('xiaoyuApp.car')
 
 
 			$scope.initLayout = function() {
-				// var content = '';
-				// //disable back action , use cancel to back , in order to prevent wrong action
-				// //var rawContent = $templateCache.get('/static/app/common/backBtn.tpl.html');
-				// var title = '<span>编辑车辆信息</span>';
-				// CaptureService.setContentFor('title', title, $scope);
+				var content = '';
+				//disable back action , use cancel to back , in order to prevent wrong action
+				//var rawContent = $templateCache.get('/static/app/common/backBtn.tpl.html');
+				var title = '<span>编辑车辆信息</span>';
+				CaptureService.setContentFor('title', title, $scope);
 				// if ($scope.isNewCar) {
 				// 	CaptureService.setContentFor('rightbtn', content, $scope);
 				// } else {
@@ -50,8 +50,11 @@ angular.module('xiaoyuApp.car')
 				// 	CaptureService.setContentFor('rightbtn', delRawContent[1], $scope);
 
 				// }
-				// CaptureService.setContentFor('leftbtn', content, $scope);
+				CaptureService.setContentFor('rightbtn', content, $scope);
+				CaptureService.setContentFor('leftbtn', content, $scope);
 			};
+
+			$scope.initLayout();
 
 			$scope.chooseCarType = function() {
 				$state.go('^.brandlist');

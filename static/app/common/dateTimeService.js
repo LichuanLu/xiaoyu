@@ -2,8 +2,8 @@
 
 //car related service
 angular.module('xiaoyuApp')
-	.factory('dateTimeService', ['$filter',
-		function($filter) {
+	.factory('dateTimeService', ['$filter','$log',
+		function($filter,$log) {
 			var getCurrentDateTime = function() {
 				var now = new Date();
 				var month = (now.getMonth() + 1);

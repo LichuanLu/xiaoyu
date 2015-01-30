@@ -15,12 +15,11 @@
 					<span ng-bind="orderObj.userCar.carNo"></span>
 				</div>
 				<div class="sub-title">
-					<span>品牌：</span>
+					<span>品&nbsp;&nbsp;牌：</span>
 					<span ng-bind="orderObj.userCar.car.name"></span>
 				</div>
 			</div>
 		</div>
-		
 	</div>
 	<div class="mt20">
 		<h4>位置信息</h4>
@@ -64,13 +63,18 @@
 			<span ng-bind="washTime"></span>
 		</div>
 	</div>
+
+	<div class="list-group-item mt20 clearfix base-border-radius" ng-show="!showPay">
+		<span class="pull-left">总价</span>
+		<span class="price xy_tar pull-right">{{orderObj.countPrice | zhcnformat}}</span>
+	</div>
 	<!-- <div class="form-group row ph10 pv5 xy_bt">
 		<label class="col-xs-3 control-label">时间</label>
 		<div class="form-control-wrapper col-xs-9 form-control-text">
 			<span class="text form-control" ng-bind="washTime"></span>
 		</div>
 	</div> -->
-	<div data-ng-include="'/static/app/pay/payPage.tpl.html'"></div>
+	<div ng-show="showPay" data-ng-include="'/static/app/pay/payPage.tpl.html'"></div>
 	<!--
 		<div class="navbar navbar-app navbar-absolute-bottom">
 		<div class="btn-group justified">

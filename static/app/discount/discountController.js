@@ -6,8 +6,8 @@ angular.module('xiaoyuApp.discount')
 		function($scope, $state,$stateParams,$log,$previousState, discountService) {
 			$log.log('discountController init');
 			var orderId = "";
-			if($scope.isUndefined($stateParams.oId)){
-				orderId = $stateParams.orderId;
+			if(!$scope.isUndefined($stateParams.oId)){
+				orderId = $stateParams.oId;
 			}
 
 			discountService.getDiscountList(orderId).then(function(data) {
@@ -16,7 +16,9 @@ angular.module('xiaoyuApp.discount')
 
 
 
-			$scope.initLayout = function() {};
+			$scope.initLayout = function() {
+				
+			};
 
 			$scope.radioClickAction = function($event) {
 				if (typeof $event !== 'undefined') {

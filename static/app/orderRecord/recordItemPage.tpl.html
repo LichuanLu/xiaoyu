@@ -1,15 +1,31 @@
-<div class="list-group-item">
+<div class="mb10 list-group-item base-border-radius" ng-click="goDetail()">
 	<div class="xy_block_text">
-		<span ng-show="recordObj.type == 1">洗车订单：{{recordObj.id}}</span>
+		<!-- <span ng-show="recordObj.type == 1">洗车订单：{{recordObj.id}}</span>
 		<span ng-show="recordObj.type == 3">包月订单：{{recordObj.id}}</span>
 		<span class="subtext">总价：{{recordObj.countPrice|zhcnformat}}</span>
-		<span class="subtext">{{recordObj.status|recordFormat}}</span>
+		<span class="subtext">{{recordObj.status|recordFormat}}</span>-->
+		<span>{{recordObj.userCar.carNo}}</span>
+		<span class="subtext">{{recordObj.userCar.car.name}}</span>
+		<span class="subtext">洗车时间：{{washTime}}</span>
 	</div>
-	<a ng-show="recordObj.status == 1" class="btn btn-supply mt10 fr" ng-click="clickPay()">支付</a>
+	<div class="xy_block_text text_a_c pull-right" ng-show="recordObj.status == 1">
+		<a class="btn btn-warning block_text" ng-click="clickPay()">支付</a>
+		<span class="price">{{recordObj.countPrice | zhcnformat}}</span>
+	</div>
+	<div class="xy_block_text text_a_c pull-right" ng-show="recordObj.status == 3 || recordObj.status == 5 || recordObj.status == 6 || recordObj.status == 2">
+		<a class="btn btn-disable block_text">进行中</a>		
+		<span class="price">{{recordObj.countPrice | zhcnformat}}</span>
+	</div>
 	<!-- <a ng-click="clickRemove()" ng-show="recordObj.status == 1" class="btn btn-default mt10 fr mr10">删除</a>
 	<a ng-show="recordObj.status == 2" class="btn btn-default mt10 fr" ng-click="clickCancel()">取消订单</a> -->
-	<span ng-show="recordObj.status == 4" class="record-highlight-text mt20 fr">服务完成</span>
-	<span ng-show="recordObj.status == 3 || recordObj.status == 5 || recordObj.status == 6 || recordObj.status == 2" class="record-highlight-text mt20 fr">服务中</span>
+	<span ng-show="recordObj.status == 4 || recordObj.status == 7" class="record-highlight-text mt20 fr">服务完成</span>
+	
+<!--  	<a ng-show="recordObj.status == 4 || recordObj.status == 7" class="btn btn-info mt10 fr">再次下单</a>
+ -->
+ 	
+
+
+	<!-- <span ng-show="recordObj.status == 3 || recordObj.status == 5 || recordObj.status == 6 || recordObj.status == 2" class="record-highlight-text mt20 fr">服务中</span> -->
 	<!-- <span ng-show="recordObj.status == 6" class="record-highlight-text mt20 fr">订单已取消</span>
 	<span ng-show="recordObj.status == 5" class="record-highlight-text mt20 fr">等待现金支付</span> -->
 

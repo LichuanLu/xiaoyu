@@ -22,8 +22,14 @@
 
 	<div class="list-group-item base-border-radius" ng-show="orderObj.type == 3">
 		<span ng-repeat="durationObj in durationList">
-			<input type="radio" name="duration" ng-model="orderObj.durationId"  value="{{durationObj.value}}">
-			{{durationObj.label}}
+			<!-- <input type="radio" name="duration" ng-model="orderObj.durationId"  value="{{durationObj.value}}">
+			{{durationObj.label}} -->
+			<div class="inline-div xy-dur-radio">
+				<input id="dur-radio-{{durationObj.id}}" type="radio" name="duration" value="{{durationObj.value}}" ng-model="orderObj.durationId">
+				<label for="dur-radio-{{durationObj.id}}"><span><span></span></span></label>
+				<span class="xy-dur-label">{{durationObj.label}}</span>
+			</div>
+
 		</span>
 	</div>
 
@@ -40,7 +46,12 @@
 	</div> -->
 
 	<div class="submit row">
-		<a class="btn btn-danger btn-lg col-xs-6" ng-show="showState" ng-click="removeAction()">取消订单</a>
-		<a class="btn btn-info btn-lg" ng-class="showState?'col-xs-6':'col-xs-12'" ng-click="submitOrder()">提交订单</a>
+		<div class="pl0 col-xs-6" ng-show="showState">
+			<a class="btn btn-danger btn-lg full-width" ng-click="removeAction()">取消订单</a>
+		</div>
+		<div class="pr0 col-xs-6" ng-show="showState">
+			<a class="btn btn-info btn-lg full-width" ng-click="submitOrder()">提交订单</a>
+		</div>
+		<a class="btn btn-info btn-lg col-xs-12" ng-show="!showState" ng-click="submitOrder()">提交订单</a>
 	</div>
 </div>

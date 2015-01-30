@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('xiaoyuApp.record')
-	.controller('orderRecordController', ['$scope', '$log', '$location', '$templateCache', '$rootScope', '$filter',
+	.controller('orderRecordController', ['$scope', '$state' ,'$log', '$location', '$templateCache', '$rootScope', '$filter',
 		'CaptureService', 'recordService', 'recordOrderUpdate','userId',
-		function($scope, $log, $location, $templateCache, $rootScope, $filter,
+		function($scope, $state ,$log, $location, $templateCache, $rootScope, $filter,
 			CaptureService, recordService, recordOrderUpdate,userIdService) {
 			$log.log('orderRecordController init');
 
@@ -37,14 +37,27 @@ angular.module('xiaoyuApp.record')
 			$scope.initLayout();
 			$scope.payAction = function() {
 				$scope.orderObj = angular.copy(recordOrderUpdate.getRecordObj());
-				if($scope.orderObj.type == 1){
-					$scope.toggleShow('orderConfirm');
-				}else if($scope.orderObj.type == 2){
-					$location.path('/pay/'+userIdService.getData()).search({
-						param1: $scope.orderObj.id,
-						param2: $scope.orderObj.countPrice,
-						param3: 1
-					});
+				// if($scope.orderObj.type == 1){
+				// 	$scope.toggleShow('orderConfirm');
+				// }else if($scope.orderObj.type == 2){
+				// 	$location.path('/pay/'+userIdService.getData()).search({
+				// 		param1: $scope.orderObj.id,
+				// 		param2: $scope.orderObj.countPrice,
+				// 		//"type":""    //充值 //洗车//1//2/
+				// 		param3: 2
+				// 	});
+				// }
+				//新的逻辑会跳转到带状态的订单详情，然后支付
+				//orderId,showState=true
+				// .state('order', {
+		  //         url:'/order/:userId?orderId&orderType&showState',
+				var orderId = $scope.orderObj.id;
+				if(orderId){
+					//跳转到订单详细
+					$state.go('record.detail',{'userId':userIdService.getData(),'orderId':orderId});
+					// $state.go('order',{'userId':userIdService.getData(),'orderId':orderId,'orderType':$scope.orderObj.type,'showState':true});
+				}else{
+					$log.log('error:record pay action ,order id is null');
 				}
 				
 

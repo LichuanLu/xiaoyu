@@ -17,6 +17,7 @@ angular.module('xiaoyuApp.order')
 			//init orderObj
 			if (!$scope.isUndefined($stateParams.orderId)) {
 				orderService.getOrder($stateParams.orderId).then(function(data) {
+
 					$scope.initOrderParam(data);
 					if ($stateParams.showState == 'true') {
 						var result = orderDetailService.generateBswizardData(data);

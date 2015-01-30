@@ -7,28 +7,52 @@ angular.module('xiaoyuApp.record')
 			CaptureService, orderService, orderDetailService, userIdService) {
 			$log.log('orderDetailController init');
 			$scope.bswizardData = [];
-			$scope.orderObj = "";
+			$scope.orderObj = '';
+
+			//是否显示洗车员信息
+			$scope.showWasher = false;
+
 			if (!$scope.isUndefined($stateParams.orderId)) {
 				orderService.getOrder($stateParams.orderId).then(function(data) {
+					//状态栏
+					var result = orderDetailService.generateBswizardData(data);
+					if (result) {
+						$scope.bswizardData = result;
+					}
+
+					//订单Obj是否存在washer
+					 // "washer":{
+				  //     "id":"1",
+				  //     "name": "刘伟光",
+				  //     "phone": "18601391001"
+				  //   },
+				  	if(data.washer.hasOwnProperty('id') && data.washer.id){
+				  		$scope.showWasher = true;
+				  	}
+
 					//未支付=1，已支付=2，服务中=3，服务完成=4，订单已取消=6，现今支付=5，订单已删除=9）
-					if (data.status == 1) {
-						$state.go('order', {
-							'userId': userIdService.getData(),
-							'showState':true,
-							'orderId':$stateParams.orderId
-						});
-					} else {
-						var result = orderDetailService.generateBswizardData(data);
-						if (result) {
-							$scope.bswizardData = result;
-						}
+					if (data.status == 1 || data.status == 2 || data.status == 3) {
 						$scope.orderObj = data;
-						if(data.status == 4 || data.status == 7){
+						var showPay = 'true';
+						if (data.status == 2 || data.status == 3) {
+							showPay = 'false';
+						}
+						$state.go('record.detail.confirm', {
+							'showPay': showPay
+						});
+
+						// $state.go('order', {
+						// 	'userId': userIdService.getData(),
+						// 	'showState':true,
+						// 	'orderId':$stateParams.orderId
+						// });
+					} else {
+
+						$scope.orderObj = data;
+						if (data.status == 4 || data.status == 7) {
 							$log.log('go order finish page');
 							$state.go('record.detail.finish');
-						}else if(data.status == 2 || data.status == 3){
-							$log.log('go order working page');
-						}else{
+						} else {
 							$log.log('error:order status error');
 						}
 					}

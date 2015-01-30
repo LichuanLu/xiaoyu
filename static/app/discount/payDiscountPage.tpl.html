@@ -3,8 +3,9 @@
 		<div class="list-group item20">
 			<div ng-repeat="discountObj in discountList" >
 				<div class="list-group-item" ng-click="chooseDiscountAction(discountObj)">
-					<span>{{discountObj.type | discountname}}</span>
-					<span class="pull-right">有效期：{{discountObj.startDate}} - {{discountObj.endDate}}</span>
+					<span>{{discountObj.activity.type | discountname}}</span>
+					<span class="pull-right">{{discountObj.endDate}}到期</span>
+
 				</div>
 			</div>
 		</div>

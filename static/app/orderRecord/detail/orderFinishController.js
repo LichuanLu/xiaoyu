@@ -20,12 +20,12 @@ angular.module('xiaoyuApp.record')
 			$scope.isReadonly = false;
 			//for rating end
 
-			$scope.showWasher = false;
+			// $scope.showWasher = false;
 
-			if ($scope.orderObj.washer && $scope.orderObj.washer.hasOwnProperty('id')) {
-				$scope.washer = $scope.orderObj.washer;
-				$scope.showWasher = true;
-			}
+			// if ($scope.orderObj.washer && $scope.orderObj.washer.hasOwnProperty('id')) {
+			// 	$scope.washer = $scope.orderObj.washer;
+			// 	$scope.showWasher = true;
+			// }
 
 			$scope.showEdit = true;
 			if ($scope.orderObj.status == 7) {
