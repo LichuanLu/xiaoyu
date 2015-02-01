@@ -1,7 +1,7 @@
 <div class="car-group list-group-item base-border-radius" ng-click="updateAction(carObj,$event)">
 	<div class="inline-div" ng-click="radioClickAction($event)">
 		<input id="car-radio-{{carObj.id}}" type="radio" name="selectedCar" ng-value="carObj" ng-model="currentCar.carObj" ng-change="changeCarAction()">
-		<label for="car-radio-{{carObj.id}}"><span><span></span></span></label>
+		<label class="ur-small-element" for="car-radio-{{carObj.id}}"><span><span></span></span></label>
 	</div>
 	<div class="inline-content">
 		<div>
