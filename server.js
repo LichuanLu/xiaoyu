@@ -384,8 +384,8 @@ app.configure(function() {
       "id": 3,
       "washStartTime":"2014-11-12 09:00:00",
       "orderStatus": [],
-      "duration":1,
-      "startOrderTime": "2014年-11月-04日 21:02:59",
+      "duration":6,
+      "startOrderTime": "2013-11-12 09:00:00",
       "status": "",
       "type": 2,
       "user": {

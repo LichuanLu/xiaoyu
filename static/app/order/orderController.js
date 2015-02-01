@@ -67,7 +67,7 @@ angular.module('xiaoyuApp.order')
 
 			$scope.watchDurationChange = function(type) {
 				if ($scope.orderObj.type == 3) {
-					$scope.$watch('orderObj.durationId', function(newValue, oldValue) {
+					$scope.$watch('orderObj.duration', function(newValue, oldValue) {
 						if (newValue) {
 							var carId;
 							if (type == 2) {
@@ -100,8 +100,8 @@ angular.module('xiaoyuApp.order')
 						$log.log('userCar car Changed');
 						//包月订单需要加入duration id
 						if ($scope.orderObj.type == 3) {
-							if (newValue.id && $scope.orderObj.durationId) {
-								orderService.getDynamicPrice(newValue.id, $scope.orderObj.durationId).then(function(data) {
+							if (newValue.id && $scope.orderObj.duration) {
+								orderService.getDynamicPrice(newValue.id, $scope.orderObj.duration).then(function(data) {
 									$scope.dynamicPrice = data;
 								});
 							}
@@ -385,6 +385,8 @@ angular.module('xiaoyuApp.order')
 						//$scope.orderObj.type = data.type;
 						//for type 3
 						$scope.orderObj.washStartTime = data.washStartTime;
+						$scope.orderObj.startOrderTime = data.startOrderTime;
+						$scope.orderObj.duration = data.duration;
 						$state.go('order.confirm');
 					}
 					// $state.go('pay',{'userId':userIdService.getData(),'param1': data.id,'param2':data.countPrice,'param3':2});
@@ -416,7 +418,7 @@ angular.module('xiaoyuApp.order')
 					$timeout(function() {
 						$scope.toggle('washTimeWarning', 'off');
 					}, 1500);
-				} else if (!$scope.orderObj.durationId && $scope.orderObj.type == 3) {
+				} else if (!$scope.orderObj.duration && $scope.orderObj.type == 3) {
 					$scope.toggle('longTearmWarning', 'on');
 					$timeout(function() {
 						$scope.toggle('longTearmWarning', 'off');

@@ -24,9 +24,14 @@ angular.module('xiaoyuApp')
 				//充值 //洗车 // 包月 //1//2/3
 				var result = '';
 				var washStartTime = orderObj.washStartTime;
+				var startOrderTime = orderObj.startOrderTime;
 				if (typeof washStartTime === 'string') {
 					washStartTime = moment(washStartTime);
 				}
+				if (typeof startOrderTime === 'string') {
+					startOrderTime = moment(startOrderTime);
+				}
+				
 				if (orderObj.type == 2) {
 					result = washStartTime.format('MMMD日') +' '+$filter('amRangeFormat')(washStartTime, 'HH:mm', dur);
 				} else if (orderObj.type == 3) {
@@ -36,7 +41,7 @@ angular.module('xiaoyuApp')
 					var duration = moment.duration({
 						months: orderObj.duration
 					});
-					result = $filter('amRangeFormat')(washStartTime, 'YYYY-MM-DD', duration);
+					result = $filter('amRangeFormat')(startOrderTime, 'YYYY-MM-DD', duration);
 				}
 				return result;
 			};

@@ -154,10 +154,10 @@ angular.module('xiaoyuApp.order')
 			return promise;
 		};
 
-		var getDynamicPrice = function(carId,durationId) {
+		var getDynamicPrice = function(carId,duration) {
 			var url;
-			if(durationId){
-				url = '/rest/Order/Car/'+carId+'/Duration/'+durationId+'/OrderPrice';
+			if(duration){
+				url = '/rest/Order/Car/'+carId+'/Duration/'+duration+'/OrderPrice';
 
 			}else{
 				url = '/rest/Order/Car/'+carId+'/OrderPrice';
