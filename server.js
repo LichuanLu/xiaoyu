@@ -615,7 +615,7 @@ app.get('/rest/Order/UserCar/:carId/UserAddress/:locationId/OrderPrice', functio
 
 });
 
-app.get('/rest/Order/:orderId', function(req, res) {
+app.get('/rest/Order/:orderId/view', function(req, res) {
   console.log(req.params.uid);
   var data = {
     "countPrice": 200,
