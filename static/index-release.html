@@ -30,9 +30,6 @@
         <div class="btn-group pull-left" yield-to="leftbtn">
         </div>
         <div class="btn-group pull-right" yield-to="rightbtn">
-          <!-- <div ng-click="toggle('rightSidebar')" class="btn btn-navbar">
-            <i class="fa fa-comment"></i> 
-          </div> -->
         </div>
       </div>
 
@@ -49,7 +46,7 @@
           <i class="fa fa-spinner fa-spin loading-spinner"></i>
         </div>
 
-        <ng-view class="app-content" ng-hide="loading"></ng-view>
+        <div ui-view class="app-content" ng-hide="loading"></div>
         <!-- global http error handler message box-->
         <toggle-container></toggle-container>
         <div toggleable id="httpError" inactive-class="Hide" class="xy_error_tips Hide">

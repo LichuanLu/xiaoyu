@@ -9,11 +9,11 @@ angular.module('xiaoyuApp.longterm')
 	}, {
 		'id': 2,
 		'label': '半年',
-		'value': 2
+		'value': 6
 	}, {
 		'id': 3,
 		'label': '一年',
-		'value': 3
+		'value': 12
 	}])
 	.factory('longtermService', ['$http', 'userId',
 		function($http, userId) {
