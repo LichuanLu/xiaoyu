@@ -20,7 +20,7 @@ angular.module('xiaoyuApp.location')
 				// 	$scope.currentLocation.locationObj = $scope.locationList[0];
 				// }
 				if ($scope.locationList.length > 0) {
-					if ($scope.orderObj.userAddress) {
+					if ($scope.orderObj && $scope.orderObj.userAddress) {
 						var found = $filter('filter')($scope.locationList, {
 							id: $scope.orderObj.userAddress.id
 						}, true);
@@ -47,13 +47,15 @@ angular.module('xiaoyuApp.location')
 			};
 
 			$scope.initLayout = function() {
-				// var content = '';
-				// var rawContent = $templateCache.get('/static/app/common/backBtn.tpl.html');
-				// var title = '<span>我的地址</span>';
-				// CaptureService.setContentFor('title', title, $scope);
-				// CaptureService.setContentFor('leftbtn', rawContent[1], $scope);
-				// CaptureService.setContentFor('rightbtn', content, $scope);
+				var content = '';
+				var rawContent = $templateCache.get('/static/app/common/backBtn.tpl.html');
+				var title = '<span>我的地址</span>';
+				CaptureService.setContentFor('title', title, $scope);
+				CaptureService.setContentFor('leftbtn', content, $scope);
+				CaptureService.setContentFor('rightbtn', content, $scope);
 			};
+
+			$scope.initLayout();
 
 			$scope.radioClickAction = function($event) {
 				if (typeof $event !== 'undefined') {
@@ -67,7 +69,7 @@ angular.module('xiaoyuApp.location')
 				// 	$event.stopPropagation();
 				// }
 				// $log.log($scope.currentCar.carObj);
-				if ($scope.currentLocation.locationObj) {
+				if ($scope.currentLocation.locationObj && $scope.setLocation) {
 					$scope.setLocation($scope.currentLocation.locationObj);
 				}
 

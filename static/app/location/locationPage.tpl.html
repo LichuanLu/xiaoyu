@@ -1,12 +1,17 @@
 <div ng-controller="locationController" class="scrollable">
 	<div class="scrollable-content">
-		<div class="list-group item20">
-			<div ng-repeat="locationObj in locationList" >
-				<location-list-item></location-list-item>
+		<div class="mt20 base-lr-margin">
+			<div class="list-group">
+				<div ng-repeat="locationObj in locationList" >
+					<location-list-item></location-list-item>
+				</div>
 			</div>
-		</div>
-		<div class="submit">
-			<button class="btn confirm" ng-click="updateAction()">添加地址</button>
+			<div class="submit row">
+				<a class="btn btn-info btn-lg col-xs-12" ng-click="updateAction()">添加地址</a>
+			</div>
+			<!-- <div class="submit">
+				<button class="btn confirm" ng-click="updateAction()">添加地址</button>
+			</div> -->
 		</div>
 	</div>
 </div>

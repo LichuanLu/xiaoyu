@@ -22,12 +22,13 @@ input[type=radio   ]{
   padding   : 0;
   font-size : 1em;
   opacity   : 0;
+  display: none;
 }
 
 input[type=checkbox] + label,
 input[type=radio   ] + label{
   display      : inline-block;
-  margin-left  : -2.5em;
+  margin-left  : 0px;
   line-height  : 1em;
 }
 
@@ -37,7 +38,7 @@ input[type=radio   ]:not(old) + label > span{
   width            : 2em;
   height           : 2em;
   margin           : 0.25em 0.5em 0.25em 0.25em;
-  border           : 0.0625em solid rgb(192,192,192);
+  //border           : 0.0625em solid rgb(192,192,192);
   border-radius    : 1em;
   background       : rgb(224,224,224);
   background-image :    -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
@@ -77,7 +78,7 @@ input[type=radio]:checked +  label > span > span{
   width            : 1em;
   height           : 1em;
   margin           : 0.5em;
-  border           : 0.0625em solid rgb(115,153,77);
+  //border           : 0.0625em solid rgb(115,153,77);
   border-radius    : 0.5em;
   background       : rgb(153,204,102);
   background-image :    -moz-linear-gradient(rgb(179,217,140),rgb(153,204,102));
@@ -94,12 +95,12 @@ input[type=radio]:checked +  label > span > span{
 }
 
 .xy-dur-radio{
-	width: 30%;
+	width: 32%;
 	text-align: center;
 	.xy-dur-label{
 		display: inline-block;
 		vertical-align: middle;
-		height: 30px;
+		height: 3em;
 	}
 }
 
@@ -166,9 +167,10 @@ input[type=radio]:checked +  label > span > span{
 .pay-title{
     display: inline-block;
     vertical-align: middle;
-    h3{
-	    margin-bottom: 0;
-	    line-height: 22px;
+    h4{
+    	color: @orange;
+	    //margin-bottom: 0;
+	    //line-height: 22px;
     }
 }
 
@@ -263,7 +265,7 @@ input[type=radio]:checked +  label > span > span{
 }
 
 a{
-	color: #f63;
+	color: @blue;
 }
 
 .control-label{
@@ -608,8 +610,14 @@ div{
 		margin:20px 0px;
 	}
 }
+
+
+.btn-lg{
+	font-size: 1.125rem !important;
+}
+
 .btn{
-	font-size: 1.125rem;
+	font-size: 0.875rem;
 	&.confirm{
 		width: 100%;
 		display: block;
@@ -651,7 +659,7 @@ div{
 	width: 96%;
 	float: left;
 	overflow: hidden;
-	border-right: none;
+	border-right: none !important;
 	border: 1px solid #ddd;
 	border-radius: 0.5em;
 	.xy_calendar_item{
@@ -752,6 +760,8 @@ div{
 
 .nav-tabs{
 	&.xy_nav_tabs{
+		border-color: @white;
+
 		>li.active>a,>li.active>a:focus{
 			background-color:inherit;
 			border:inherit;
@@ -794,8 +804,8 @@ div{
 		width: 8px;
 		height: 8px;
 		display: inline-block;
-		border-right: 2px solid #ccc;
-		border-bottom: 2px solid #ccc;
+		border-right: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
 		cursor: pointer;
 		/* position: relative; */
 		/* top: -1px; */
@@ -813,7 +823,7 @@ div{
 			height: 50px;
 			padding-top: 15px;
 			padding-bottom: 15px;
-			width: 90%;
+			width: 50%;
 			display: inline;
 		}
 		i{

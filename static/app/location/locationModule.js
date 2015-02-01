@@ -13,7 +13,7 @@ angular.module('xiaoyuApp.location', [])
 					template: '<ui-view/>'
 				})
 				.state('location.list', {
-					url: '/list',
+					url: '/:userId/list',
 					views: {
 						'': {
 							templateUrl: '/static/app/location/locationPage.tpl.html'

@@ -22,7 +22,7 @@ angular.module('xiaoyuApp.balance')
 				var uid = userId.getData();
 				var promise = $http({
 					url: '/rest/Activity/'+uid+'/'+activityId+'/Recharge',
-					params:{
+					data:{
 						'countPrice':countPrice
 					},
 					method: 'post'

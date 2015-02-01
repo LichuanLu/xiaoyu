@@ -853,7 +853,7 @@ app.get('/rest/Activity/user/:userId/ListAll',function(req,res){
       "id": 1,
       "inMoney": 0,
       "outPoints": 0,
-      "picUrl": "",
+      "picUrl": "/static/images/xiaoyu_icon_youhuiquan.png",
       "status": 0,
       "type": 3,
       "washPoints": 0
@@ -897,7 +897,7 @@ app.get('/rest/Activity/user/:userId/ListAll',function(req,res){
       "id": 1,
       "inMoney": 0,
       "outPoints": 0,
-      "picUrl": "",
+      "picUrl": "/static/images/xiaoyu_icon_youhuiquan.png",
       "status": 0,
       "type": 3,
       "washPoints": 0

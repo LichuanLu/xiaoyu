@@ -36,7 +36,7 @@ angular.module('xiaoyuApp')
 					var duration = moment.duration({
 						months: orderObj.duration
 					});
-					result = $filter('amRangeFormat')(washStartTime, 'll', duration);
+					result = $filter('amRangeFormat')(washStartTime, 'YYYY-MM-DD', duration);
 				}
 				return result;
 			};

@@ -21,7 +21,7 @@ angular.module('angularMoment', [])
 			}
 			var endTime = angular.copy(mObj);
 			endTime.add(duration);
-			return mObj.format(format) + '-' + endTime.format(format);
+			return mObj.format(format) + ' ~ ' + endTime.format(format);
 		};
 
 	})

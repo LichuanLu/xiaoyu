@@ -1,12 +1,13 @@
 .list-group-item.car-group {
+  position: relative;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 .list-group-item.car-group .inline-content {
   height: 75px;
   top: 0;
-  margin-left: 30px;
-  line-height: 26px;
+  margin-left: 2em;
+  line-height: 2em;
   padding: 10px;
 }
 .list-group-item.car-text-group {
@@ -19,7 +20,8 @@
   line-height: 20px;
   padding-top: 6px;
 }
-.list-group-item .pull-right {
+.list-group-item .pull-right,
+.list-group-item .pull-left {
   line-height: 2em;
 }
 input[type=radio].mark-radio + label {
@@ -116,11 +118,12 @@ input[type=radio] {
   padding: 0;
   font-size: 1em;
   opacity: 0;
+  display: none;
 }
 input[type=checkbox] + label,
 input[type=radio] + label {
   display: inline-block;
-  margin-left: -2.5em;
+  margin-left: 0px;
   line-height: 1em;
 }
 input[type=checkbox]:not(old) + label > span,
@@ -129,7 +132,6 @@ input[type=radio]:not(old) + label > span {
   width: 2em;
   height: 2em;
   margin: 0.25em 0.5em 0.25em 0.25em;
-  border: 0.0625em solid #c0c0c0;
   border-radius: 1em;
   background: #e0e0e0;
   background-image: -moz-linear-gradient(#f0f0f0, #e0e0e0);
@@ -165,7 +167,6 @@ input[type=radio]:checked + label > span > span {
   width: 1em;
   height: 1em;
   margin: 0.5em;
-  border: 0.0625em solid #73994d;
   border-radius: 0.5em;
   background: #99cc66;
   background-image: -moz-linear-gradient(#b3d98c, #99cc66);
@@ -178,13 +179,13 @@ input[type=radio]:checked + label > span > span {
   display: inline-block;
 }
 .xy-dur-radio {
-  width: 30%;
+  width: 32%;
   text-align: center;
 }
 .xy-dur-radio .xy-dur-label {
   display: inline-block;
   vertical-align: middle;
-  height: 30px;
+  height: 3em;
 }
 .row {
   margin: 0;
@@ -239,9 +240,8 @@ input[type=radio]:checked + label > span > span {
   display: inline-block;
   vertical-align: middle;
 }
-.pay-title h3 {
-  margin-bottom: 0;
-  line-height: 22px;
+.pay-title h4 {
+  color: #ff6633;
 }
 .error .ui-field-message,
 .error .ui-field-message:after {
@@ -327,7 +327,7 @@ input[type=radio]:checked + label > span > span {
   color: #ff3a0c;
 }
 a {
-  color: #f63;
+  color: #0eb7fd;
 }
 .control-label.highlight {
   font-size: 25px;
@@ -644,8 +644,11 @@ span.price {
 div.submit {
   margin: 20px 0px;
 }
+.btn-lg {
+  font-size: 1.125rem !important;
+}
 .btn {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
 }
 .btn.confirm {
   width: 100%;
@@ -681,7 +684,7 @@ div.submit {
   width: 96%;
   float: left;
   overflow: hidden;
-  border-right: none;
+  border-right: none !important;
   border: 1px solid #ddd;
   border-radius: 0.5em;
 }
@@ -767,6 +770,9 @@ div.submit {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
+.nav-tabs.xy_nav_tabs {
+  border-color: #ffffff;
+}
 .nav-tabs.xy_nav_tabs > li.active > a,
 .nav-tabs.xy_nav_tabs > li.active > a:focus {
   background-color: inherit;
@@ -801,8 +807,8 @@ div.submit {
   width: 8px;
   height: 8px;
   display: inline-block;
-  border-right: 2px solid #ccc;
-  border-bottom: 2px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   cursor: pointer;
   /* position: relative; */
   /* top: -1px; */
@@ -821,7 +827,7 @@ div.submit {
   height: 50px;
   padding-top: 15px;
   padding-bottom: 15px;
-  width: 90%;
+  width: 50%;
   display: inline;
 }
 .mobile-oneline-form .form-control-wrapper i {

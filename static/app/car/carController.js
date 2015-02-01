@@ -24,7 +24,7 @@ angular.module('xiaoyuApp.car')
 			 //         $scope.selected = 'Not found';
 			 //     }
 				if ($scope.carList.length > 0) {
-					if($scope.orderObj.userCar){
+					if($scope.orderObj && $scope.orderObj.userCar){
 						var found = $filter('filter')($scope.carList, {id: $scope.orderObj.userCar.id}, true);
 						$log.log('found:'+found);
 						if (found.length) {
@@ -49,13 +49,15 @@ angular.module('xiaoyuApp.car')
 			};
 
 			$scope.initLayout = function() {
-				// var content = '';
-				// var rawContent = $templateCache.get('/static/app/common/backBtn.tpl.html');
-				// var title = '<span>我的车辆</span>';
-				// CaptureService.setContentFor('title', title, $scope);
-				// CaptureService.setContentFor('leftbtn', rawContent[1], $scope);
-				// CaptureService.setContentFor('rightbtn', content, $scope);
+				var content = '';
+				//var rawContent = $templateCache.get('/static/app/common/backBtn.tpl.html');
+				var title = '<span>我的车辆</span>';
+				CaptureService.setContentFor('title', title, $scope);
+				CaptureService.setContentFor('leftbtn', content, $scope);
+				CaptureService.setContentFor('rightbtn', content, $scope);
 			};
+
+			$scope.initLayout();
 
 			$scope.backAction = function() {
 				$log.log('back action start');
@@ -74,7 +76,7 @@ angular.module('xiaoyuApp.car')
 				// 	$event.stopPropagation();
 				// }
 				// $log.log($scope.currentCar.carObj);
-				if ($scope.currentCar.carObj) {
+				if ($scope.currentCar.carObj && $scope.setCar) {
 					$scope.setCar($scope.currentCar.carObj);
 
 				}

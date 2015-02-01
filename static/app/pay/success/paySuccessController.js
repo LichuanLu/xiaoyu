@@ -24,7 +24,7 @@ angular.module('xiaoyuApp.pay')
 
 			//link to record page
 			$scope.linkMyOrderAction = function() {
-				$location.path('/record/' + userIdService.getData());
+				$location.path('/record/' + userIdService.getData()+'/list');
 			};
 
 			$scope.linkWashAction = function() {

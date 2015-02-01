@@ -13,7 +13,7 @@ angular.module('xiaoyuApp.car', [])
 					template: '<ui-view/>'
 				})
 				.state('car.list', {
-					url:'/list',
+					url:'/:userId/list',
 					views: {
 						'': {
 							templateUrl: '/static/app/car/carPage.tpl.html'

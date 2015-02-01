@@ -58,7 +58,7 @@ angular.module('xiaoyuApp.record')
 				var promise = $http({
 					url: url,
 					method: 'post',
-					params:{
+					data:{
 						'comment':comment,
 						'score':score
 					}

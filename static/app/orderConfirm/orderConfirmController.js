@@ -13,11 +13,11 @@ angular.module('xiaoyuApp.order')
 
 			$scope.initLayout = function() {
 				var content = '';
-				var rawContent = $templateCache.get('/static/app/common/backBtn.tpl.html');
+				//var rawContent = $templateCache.get('/static/app/common/backBtn.tpl.html');
 				var title = '<span>订单确认</span>';
 
 				CaptureService.setContentFor('title', title, $scope);
-				CaptureService.setContentFor('leftbtn', rawContent[1], $scope);
+				CaptureService.setContentFor('leftbtn', content, $scope);
 				CaptureService.setContentFor('rightbtn', content, $scope);
 			};
 

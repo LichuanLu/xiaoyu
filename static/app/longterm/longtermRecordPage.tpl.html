@@ -1,6 +1,6 @@
 <div ng-show="recordList.length > 0">
 	<h4 class="mt20">已包月车辆</h4>
-	<div class="list-group item20">
+	<div class="list-group">
 		<div ng-repeat="recordObj in recordList | filter:filterByUndeleteStatus" >
 			<record-item record-obj="recordObj" pay-action="payAction()" remove-action="removeAction()" delete-action="deleteAction()"></record-item>
 		</div>
@@ -12,9 +12,11 @@
 </div>
 <div ng-show="recordList.length <= 0">
 	<div class="submit">
-		<div class="text_a_c mt50">
-			<h3>对不起您还不是包月用户</h3>
+		<div class="text_a_c mt50 mb20">
+			<h4>对不起，您还不是包月用户</h4>
 		</div>
-		<button class="btn confirm" ng-click="">去包月</button>
+		<div class="submit row">
+			<a class="btn btn-info btn-lg col-xs-12" ng-click="addLongterm()">去包月</a>
+		</div>
 	</div>
 </div>

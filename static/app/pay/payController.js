@@ -48,7 +48,7 @@ angular.module('xiaoyuApp.pay')
 			//use discount to reduce the $scope.price
 			//调用统一支付接口支付？需要先判断discount
 			if ($scope.discountObj) {
-				if ($scope.discountObj.type == 3) {
+				if ($scope.discountObj.activity && $scope.discountObj.activity.type == 3) {
 					$scope.leftPrice = 0;
 				}
 				//else 使用折扣算出leftprice

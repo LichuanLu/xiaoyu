@@ -1,14 +1,16 @@
-<div ng-controller="carController" class="scrollable">
+<div ng-controller="discountController" class="scrollable">
 	<div class="scrollable-content">
 		<div class="mt20 base-lr-margin">
 			<div class="list-group">
-				<div ng-repeat="carObj in carList" >
-					<car-list-item></car-list-item>
+				<div ng-repeat="discountObj in discountList" >
+					<div class="mb20" ng-click="goOrder()">
+						<img ng-src="{{discountObj.activity.picUrl}}">
+					</div>
 				</div>
 			</div>
-			<div class="submit row">
+			<!-- <div class="submit row">
 				<a class="btn btn-info btn-lg col-xs-12" ng-click="updateAction()">增加车辆</a>
-			</div>
+			</div> -->
 		</div>
 		
 		<!-- <div class="submit">

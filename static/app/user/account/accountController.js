@@ -43,10 +43,13 @@ angular.module('xiaoyuApp.user')
 
 			$scope.goDiscount = function() {
 				$log.log('go to goDiscount page');
+				$state.go('discount.list',{'userId':userIdService.getData()});
+
 			};
 
 			$scope.goCar = function() {
 				$log.log('go to goCar page');
+				$state.go('car.list',{'userId':userIdService.getData()});
 			};
 
 			$scope.goAbout = function() {
