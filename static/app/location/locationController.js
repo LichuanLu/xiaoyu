@@ -55,7 +55,10 @@ angular.module('xiaoyuApp.location')
 				CaptureService.setContentFor('rightbtn', content, $scope);
 			};
 
-			$scope.initLayout();
+			if($state.is('location.list')){
+				$scope.initLayout();
+			}
+
 
 			$scope.radioClickAction = function($event) {
 				if (typeof $event !== 'undefined') {

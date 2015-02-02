@@ -57,7 +57,10 @@ angular.module('xiaoyuApp.car')
 				CaptureService.setContentFor('rightbtn', content, $scope);
 			};
 
-			$scope.initLayout();
+			if($state.is('car.list')){
+				$scope.initLayout();
+			}
+
 
 			$scope.backAction = function() {
 				$log.log('back action start');
