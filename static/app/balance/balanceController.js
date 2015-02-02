@@ -29,7 +29,7 @@ angular.module('xiaoyuApp.balance')
 				CaptureService.setContentFor('rightbtn', content, $scope);
 			};
 
-			
+			$scope.initLayout();
 
 			//toggle show order|child page
 			// $scope.toggleShow = function(item) {
