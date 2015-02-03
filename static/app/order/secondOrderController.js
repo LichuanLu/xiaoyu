@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('xiaoyuApp.order')
-	.controller('secondOrderController', ['$scope','$q','$state', '$log', '$timeout', 'CaptureService',
-		function($scope,$q,$state, $log, $timeout, CaptureService) {
+	.controller('secondOrderController', ['$scope','$q','$state','$previousState' ,'$log', '$timeout', 'CaptureService',
+		function($scope,$q,$state,$previousState, $log, $timeout, CaptureService) {
 			console.log('secondOrderController');
 			//init order page
 			$scope.initLayout = function() {

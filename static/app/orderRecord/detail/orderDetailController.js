@@ -26,7 +26,7 @@ angular.module('xiaoyuApp.record')
 				  //     "name": "刘伟光",
 				  //     "phone": "18601391001"
 				  //   },
-				  	if(data.washer.hasOwnProperty('id') && data.washer.id){
+				  	if(data.washer && data.washer.hasOwnProperty('id') && data.washer.id){
 				  		$scope.showWasher = true;
 				  	}
 

@@ -60,7 +60,7 @@ input[type=radio]:checked.mark-radio + label > span {
 }
 .pay-icons {
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 10px;
   zoom: 0.5;
   -moz-transform: scale(0.5);
   -moz-transform-origin: 0 0;
@@ -571,7 +571,7 @@ span.price {
   padding-bottom: 0;
 }
 .pl0 {
-  padding-left: 0;
+  padding-left: 0 !important;
 }
 .pr0 {
   padding-right: 0;
@@ -627,16 +627,16 @@ span.price {
   border-bottom-left-radius: 0.5em;
   border: 0;
 }
+.sub-title {
+  font-size: 0.85em;
+  color: #676767;
+}
 .list-group-item span {
   font-size: 0.875rem;
 }
 .list-group-item .inline-content {
   font-size: 0.875rem;
   position: absolute;
-}
-.list-group-item .inline-content .sub-title {
-  font-size: 0.85em;
-  color: #676767;
 }
 .help-text {
   color: #777;

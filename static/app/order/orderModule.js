@@ -8,7 +8,7 @@ angular.module('xiaoyuApp.order', [
 			$stateProvider
 				.state('order', {
 		          url:'/order/:userId?orderId&orderType&showState',
-		          templateUrl: '/static/app/order/orderPage.tpl.html'
+		          templateUrl: '/static/app/order/orderPage.tpl.html',
 		        })
 		        .state('order.confirm', {
 					url: '/confirm',

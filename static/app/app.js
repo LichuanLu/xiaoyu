@@ -71,6 +71,7 @@ angular.module('xiaoyuApp', [
         $rootScope.loading = true;
       });
 
+      $rootScope.appTitle = '小雨洗车';
       $rootScope.$on('$routeChangeSuccess', function() {
         $rootScope.loading = false;
       });
