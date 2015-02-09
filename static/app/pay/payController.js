@@ -153,7 +153,7 @@ angular.module('xiaoyuApp.pay')
 					if($scope.discountObj.id){
 						activityId = $scope.discountObj.id;
 					}
-					switch ($scope.selectedPayType) {
+					switch (parseInt($scope.selectedPayType)) {
 						case 0:
 							$scope.leftPointsPayAction(activityId);
 							break;

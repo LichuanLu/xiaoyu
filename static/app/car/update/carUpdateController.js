@@ -2,12 +2,12 @@
 
 //car update page  controller
 angular.module('xiaoyuApp.car')
-	.controller('carUpdateController', ['$scope','$rootScope','$state', '$previousState',
-	 'CaptureService', 'carService', '$templateCache',
-		'$log', 'updateCarObjService', 'updateCarListService',
+	.controller('carUpdateController', ['$scope','$timeout','$rootScope', '$state', '$previousState',
+		'CaptureService', 'carService', '$templateCache',
+		'$log', 'updateCarObjService', 'updateCarListService','validateMessage','validateService',
 
-		function($scope,$rootScope, $state, $previousState, CaptureService, 
-			carService, $templateCache, $log, updateCarObjService, updateCarListService) {
+		function($scope,$timeout ,$rootScope, $state, $previousState, CaptureService,
+			carService, $templateCache, $log, updateCarObjService, updateCarListService,validateMessage,validateService) {
 			$log.log('car Update Controller init');
 			//give access from parent to child
 			//$scope.setCarUpdateScope($scope);
@@ -54,7 +54,9 @@ angular.module('xiaoyuApp.car')
 				CaptureService.setContentFor('leftbtn', content, $scope);
 			};
 
-			$scope.initLayout();
+			if($state.is('car.update')){
+				$scope.initLayout();
+			}
 
 			$scope.chooseCarType = function() {
 				$state.go('^.brandlist');
@@ -90,38 +92,57 @@ angular.module('xiaoyuApp.car')
 
 
 
-
 			$scope.resultAction = function(type) {
 				if (type === 'save') {
-					//if newcar , insert into carlist 
-					//if oldcar , call update old car
-					if ($scope.isNewCar) {
-						carService.addNewCar(updateCarObjService.getNewCarObj()).then(function(data) {
-							if (data) {
-								$log.log('add new car success!');
-								updateCarListService.addCar(data);
-								//$scope.toggleShow('carUpdate');
-								$previousState.go('carUpdateEntrypoint');
+					var newCarObj = updateCarObjService.getNewCarObj();
 
-
-							} else {
-								$log.log('add new car fail!');
-							}
-						});
+					$scope.inputError = false;
+					//输入为空
+					if (!newCarObj.car.name) {
+						$scope.toggle('carWarning', 'on');
+						$timeout(function() {
+							$scope.toggle('carWarning', 'off');
+						}, 1500);
+					} else if (newCarObj.carNo === '') {
+						$scope.inputError = true;
+						$scope.fieldMessage = validateMessage.emptyInputError;
+					} else if (!validateService.carNoValidate(newCarObj.carNo)) {
+						$scope.inputError = true;
+						$scope.fieldMessage = validateMessage.carNoInputError;
 					} else {
-						carService.updateCar(updateCarObjService.getNewCarObj()).then(function(data) {
-							if (data) {
-								$log.log('update car success!');
-								updateCarObjService.updateOldCar();
-								// $scope.toggleShow('carUpdate');
-								$previousState.go('carUpdateEntrypoint');
+						//if newcar , insert into carlist 
+						//if oldcar , call update old car
+						if ($scope.isNewCar) {
+							carService.addNewCar(newCarObj).then(function(data) {
+								if (data) {
+									$log.log('add new car success!');
+									updateCarListService.addCar(data);
+									//$scope.toggleShow('carUpdate');
+									$previousState.go('carUpdateEntrypoint');
 
-							} else {
-								$log.log('update car fail!');
-							}
 
-						});
+								} else {
+									$log.log('add new car fail!');
+								}
+							});
+						} else {
+							carService.updateCar(newCarObj).then(function(data) {
+								if (data) {
+									$log.log('update car success!');
+									updateCarObjService.updateOldCar();
+									// $scope.toggleShow('carUpdate');
+									$previousState.go('carUpdateEntrypoint');
+
+								} else {
+									$log.log('update car fail!');
+								}
+
+							});
+						}
+
 					}
+
+
 
 				} else if (type === 'delete') {
 					$log.log('delete car');

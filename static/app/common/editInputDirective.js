@@ -14,6 +14,7 @@ angular.module('xiaoyuApp')
 				inputError:'=inputError',
 				fieldMessage:'=fieldMessage',
 				prefix: '@prefix',
+				type:'@type'
 			},
 			// {} = isolate, true = child, false/undefined = no change
 			// controller: function($scope, $element, $attrs, $transclude) {},
@@ -24,14 +25,14 @@ angular.module('xiaoyuApp')
 			//transclude: true,
 			// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
 			link: function($scope, iElm, iAttrs, controller) {
-				$scope.focusAction = function() {
-					$log.log('focus');
-					$scope.inputActive = true;
-				};
-				$scope.blurAction = function() {
-					$log.log('blur');
-					$scope.inputActive = false;
-				};
+				// $scope.focusAction = function() {
+				// 	$log.log('focus');
+				// 	$scope.inputActive = true;
+				// };
+				// $scope.blurAction = function() {
+				// 	$log.log('blur');
+				// 	$scope.inputActive = false;
+				// };
 			}
 		};
 	}]);

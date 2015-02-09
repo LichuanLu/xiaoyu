@@ -24,5 +24,6 @@ angular.module('xiaoyuApp')
 	.value('validateMessage', {
 		'emptyInputError': '输入不能为空',
 		'carNoInputError': '车牌号格式不对，请参考 京A88888',
-		'mobileInputError': '手机号必须是11位数字'
+		'mobileInputError': '手机号必须是11位数字',
+		'supplyInputLessError':'至少充值200元'
 	});

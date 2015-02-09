@@ -3,10 +3,10 @@
 //car update page  controller
 angular.module('xiaoyuApp.balance')
 	.controller('supplyController', ['$scope', 'CaptureService','$window','$templateCache', '$log', '$filter',
-		'$location', 'supplyService', 'userId','thirdPayService',
+		'$location', 'supplyService', 'userId','thirdPayService','validateMessage',
 
 		function($scope, CaptureService,$window, $templateCache, $log, $filter, $location,
-		 supplyService, userIdService,thirdPayService) {
+		 supplyService, userIdService,thirdPayService,validateMessage) {
 			$log.log('supplyController Controller init');
 			//give access from parent to child
 			// $scope.setSupplyScope($scope);
@@ -51,13 +51,20 @@ angular.module('xiaoyuApp.balance')
 			$scope.generateOrderId = function() {
 				//var orderObj = {};
 				var result;
+				$scope.inputError = false;
 				if ($scope.supplyPoint >= 200) {
 					//orderObj.countPrice = $scope.supplyPoint;
 					//orderObj.type = 1;
 					//result = orderService.submitOrder(orderObj);
 					result = supplyService.getSupplyOrder($scope.selectedAct,$scope.supplyPoint);
 				} else {
-					alert('至少充值200元');
+					if ($scope.supplyPoint === '') {
+						$scope.inputError = true;
+						$scope.fieldMessage = validateMessage.emptyInputError;
+					} else {
+						$scope.inputError = true;
+						$scope.fieldMessage = validateMessage.supplyInputLessError;
+					}
 				}
 				return result;
 			};
