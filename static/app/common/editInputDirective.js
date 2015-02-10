@@ -11,10 +11,10 @@ angular.module('xiaoyuApp')
 				placeholder: '@placeholder',
 				inputId: '@inputId',
 				cancelInput: '&',
-				inputError:'=inputError',
-				fieldMessage:'=fieldMessage',
+				inputError: '=inputError',
+				fieldMessage: '=fieldMessage',
 				prefix: '@prefix',
-				type:'@type'
+				type: '@type'
 			},
 			// {} = isolate, true = child, false/undefined = no change
 			// controller: function($scope, $element, $attrs, $transclude) {},
@@ -33,6 +33,9 @@ angular.module('xiaoyuApp')
 				// 	$log.log('blur');
 				// 	$scope.inputActive = false;
 				// };
+				$scope.cleanInput = function() {
+					$scope.inputModel = '';
+				};
 			}
 		};
 	}]);

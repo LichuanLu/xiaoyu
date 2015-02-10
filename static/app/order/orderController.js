@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('xiaoyuApp.order')
-	.controller('orderController', ['$scope','$rootScope','$q', '$state', '$stateParams', '$log', '$timeout', 'CaptureService', 'orderService',
-		'updateOrderCommentService', 'defaultOrder', 'updateUserObjService', 'updateCarObjService', 'updateLocationObjService',
-		'carService', 'locationService', 'longtermDurationList','orderDetailService','defaultTimeConfig','recordService','userId',
-		function($scope,$rootScope, $q, $state, $stateParams, $log, $timeout, CaptureService,
+	.controller('orderController', ['$scope', '$rootScope', '$q', '$state', '$stateParams', '$log', '$timeout', 'CaptureService', 'orderService',
+		'updateOrderCommentService', 'defaultOrder', 'updateUserObjService', 'updateCarObjService', 'updateLocationObjService','emptyCarObj',
+		'carService', 'locationService', 'longtermDurationList', 'orderDetailService', 'defaultTimeConfig',
+		'recordService', 'userId', 'validateMessage', 'validateService',
+		function($scope, $rootScope, $q, $state, $stateParams, $log, $timeout, CaptureService,
 			orderService, updateOrderCommentService, defaultOrder, updateUserObjService,
-			updateCarObjService, updateLocationObjService, carService, locationService, 
-			longtermDurationList,orderDetailService,defaultTimeConfig,recordService,userIdService) {
+			updateCarObjService, updateLocationObjService,emptyCarObj,carService, locationService,
+			longtermDurationList, orderDetailService, defaultTimeConfig, recordService, userIdService,
+			 validateMessage, validateService) {
 			console.log('orderController');
 
 			$scope.durationList = longtermDurationList;
@@ -147,15 +149,17 @@ angular.module('xiaoyuApp.order')
 				// 	id: tarId
 				// })[0];
 				//call delete service if success then delete
-				if(tarId){
+				if (tarId) {
 					recordService.removeOrder(tarId).then(function(data) {
 						$rootScope.toggle('removeOrderFromWaitPayOverlay', 'off');
-						$state.go('record.list',{'userId':userIdService.getData()})
+						$state.go('record.list', {
+							'userId': userIdService.getData()
+						})
 					});
-				}else{
+				} else {
 					$log.log("error:remove tarId error");
 				}
-				
+
 
 			};
 
@@ -315,6 +319,12 @@ angular.module('xiaoyuApp.order')
 			// 	$scope.userScope = userScope;
 			// };
 
+			//click add car in second order page
+			$scope.addCarAction = function() {
+				//at first , should reset the new car to default car
+				updateCarObjService.update(angular.copy(emptyCarObj));
+				$state.go('car.update');
+			};
 
 			//change order car obj
 			$scope.setCar = function(car) {
@@ -407,6 +417,8 @@ angular.module('xiaoyuApp.order')
 				// 	}
 				// });
 
+
+
 				//first check user and washtime
 				if (!$scope.orderObj.user) {
 					$scope.toggle('userWarning', 'on');
@@ -423,6 +435,12 @@ angular.module('xiaoyuApp.order')
 					$timeout(function() {
 						$scope.toggle('longTearmWarning', 'off');
 					}, 1500);
+				} else if ($scope.orderObj.user.phone === '') {
+					$scope.inputError = true;
+					$scope.fieldMessage = validateMessage.emptyInputError;
+				} else if (!validateService.mobileValidate($scope.orderObj.user.phone)) {
+					$scope.inputError = true;
+					$scope.fieldMessage = validateMessage.mobileInputError;
 				} else {
 					//first conmmit
 					if ($state.is('order.first')) {
