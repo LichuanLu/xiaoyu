@@ -150,7 +150,7 @@ angular.module('xiaoyuApp.pay')
 				} else {
 					$log.log('select pay type:' + $scope.selectedPayType);
 					var activityId = '';
-					if($scope.discountObj.id){
+					if($scope.discountObj && $scope.discountObj.hasOwnProperty('id')){
 						activityId = $scope.discountObj.id;
 					}
 					switch (parseInt($scope.selectedPayType)) {
