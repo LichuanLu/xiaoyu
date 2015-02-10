@@ -105,7 +105,7 @@ angular.module('xiaoyuApp.balance')
 
 			$scope.payAction = function(activityId) {
 				$log.log('select pay type:' + $scope.selectedPayType);
-				switch ($scope.selectedPayType) {
+				switch (parseInt($scope.selectedPayType)) {
 					case 0:
 						$scope.leftPointsPayAction(activityId);
 						break;
