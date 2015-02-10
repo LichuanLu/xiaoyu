@@ -832,7 +832,9 @@ div.submit {
   padding-top: 15px;
   padding-bottom: 15px;
   width: 60%;
-  display: inline;
+  display: inline-block;
+  line-height: 50px;
+  min-width: 60%;
 }
 .mobile-oneline-form .form-control-wrapper i {
   height: 50px;
