@@ -32,8 +32,8 @@ angular.module('xiaoyuApp.record')
 				$scope.showEdit = false;
 			}
 
-			if ($scope.orderObj.comments && $scope.orderObj.comments.length > 0) {
-				$scope.comment = $scope.orderObj.comments[0].comment;
+			if ($scope.orderObj.comment) {
+				$scope.comment = $scope.orderObj.comment;
 			}
 			if ($scope.orderObj.pictures && $scope.orderObj.pictures.length > 0) {
 				$scope.imgList = $scope.orderObj.pictures;
