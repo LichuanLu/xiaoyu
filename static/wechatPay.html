@@ -24,11 +24,11 @@
             <div class="navbar-brand navbar-brand-center">
                 <span>微信安全支付</span>
             </div>
-            <div class="btn-group pull-left">
+           <!--  <div class="btn-group pull-left">
                 <div class="btn btn-navbar back-btn">
                     首页
                 </div>
-            </div>
+            </div> -->
             <div class="btn-group pull-right"></div>
         </div>
 
@@ -75,15 +75,14 @@
             $('.btn.btn-cancel').click(function (e){
                 e.preventDefault();
                 var userId = getParameterByName("userId");
-                window.location.href = '/static/index.html#/pay/success/'+userId;
+                window.location.href = '/static/index.html#/record/'+userId+'/list';
 
             }); 
 
             $('.btn.back-btn').click(function (e){
                 e.preventDefault();
                 var userId = getParameterByName("userId");
-                window.location.href = '/static/index.html#/order/'+userId;
-
+                window.location.href = '/static/index.html#/record/'+userId+'/list';
             });
 
         });
