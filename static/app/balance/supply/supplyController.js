@@ -122,9 +122,9 @@ angular.module('xiaoyuApp.balance')
 			$scope.aliPayAction = function(activityId) {
 				//send order id , pay money and points to getAliPay
 				///rest/Pay/{userId}/{orderId}/balance/{balance}/payType/{payType}/{payAmount}
-				//1为微信支付，2为支付宝 3 线下 0 余额
+				//2为微信支付，1为支付宝 3 线下 0 余额
 				thirdPayService.getAliPayLink(userIdService.getData(),
-					$scope.orderId, 0, 2, $scope.countPrice,activityId).then(function(data) {
+					$scope.orderId, 0, 1, $scope.countPrice,activityId).then(function(data) {
 					$log.log('ali pay link:' + data);
 					//link to ali pay page , pass pay success page as return uri
 					if (data === 'SUCCESS' || data === 'success') {
@@ -138,7 +138,7 @@ angular.module('xiaoyuApp.balance')
 
 
 			$scope.wechatAction = function(activityId) {
-				var url = thirdPayService.getWeChatPayLink(userIdService.getData(), $scope.orderId, 0, 1, $scope.countPrice,activityId);
+				var url = thirdPayService.getWeChatPayLink(userIdService.getData(), $scope.orderId, 0, 2, $scope.countPrice,activityId);
 				if (url) {
 					$window.location.href = url;
 				}

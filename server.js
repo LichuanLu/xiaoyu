@@ -1269,7 +1269,7 @@ res.send({
 
 
 
-app.post('/rest/order/:userId/:orderId/comment',function (req,res) {
+app.post('/rest/Order/:userId/:orderId/comment',function (req,res) {
   console.log(req.params);
   console.log(req.body);
   var result = {

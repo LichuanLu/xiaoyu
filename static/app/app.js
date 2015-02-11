@@ -58,6 +58,10 @@ angular.module('xiaoyuApp', [
           url: '/wechatpay/:userId',
           templateUrl: '/static/app/pay/wechat/payWechatPage.tpl.html',
           controller: 'payWechatController',
+        }).state('about', {
+          url: '/about',
+          templateUrl: '/static/app/about/aboutPage.tpl.html',
+          controller: 'aboutController',
         });
 
 

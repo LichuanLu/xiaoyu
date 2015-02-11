@@ -54,6 +54,8 @@ angular.module('xiaoyuApp.user')
 
 			$scope.goAbout = function() {
 				$log.log('go to goAbout page');
+				$state.go('about');
+
 			};
 		}
 	]);

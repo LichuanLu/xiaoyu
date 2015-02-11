@@ -54,7 +54,7 @@ angular.module('xiaoyuApp.record')
 
 			var submitComment = function(orderId, comment, score) {
 				///rest/order/:userId/:orderId/comment
-				var url = '/rest/order/' + userIdService.getData() + '/' + orderId + '/comment';
+				var url = '/rest/Order/' + userIdService.getData() + '/' + orderId + '/comment';
 				var promise = $http({
 					url: url,
 					method: 'post',

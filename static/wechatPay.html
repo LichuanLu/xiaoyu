@@ -44,9 +44,14 @@
                             <p class="mh20 mt20">如果支付遇到问题，请联系客服</p>
                         </div>
                         <div class="mt50 mh20">
-                            <div class="btn-group btn-group-justified">
-                                <a class="btn btn-default cancel">取消</a>
-                                <a class="btn save">微信支付</a>
+
+                            <div class="submit row">
+                                <div class="pl0 col-xs-6" >
+                                    <a class="btn btn-danger btn-lg full-width btn-cancel">取消</a>
+                                </div>
+                                <div class="pr0 col-xs-6">
+                                    <a class="btn btn-info btn-lg full-width btn-save">微信支付</a>
+                                </div>
                             </div>
                         </div>
 
@@ -62,22 +67,22 @@
         
         $( document ).ready(function() {
             console.log( "ready!" );
-            $('.btn.save').click(function (e){
+            $('.btn.btn-save').click(function (e){
                 e.preventDefault();
                 callpay();
             }); 
 
-            $('.btn.cancel').click(function (e){
+            $('.btn.btn-cancel').click(function (e){
                 e.preventDefault();
                 var userId = getParameterByName("userId");
-                window.location.href = '/index.html#/pay/success/'+userId;
+                window.location.href = '/static/index.html#/pay/success/'+userId;
 
             }); 
 
             $('.btn.back-btn').click(function (e){
                 e.preventDefault();
                 var userId = getParameterByName("userId");
-                window.location.href = '/index.html#/order/'+userId;
+                window.location.href = '/static/index.html#/order/'+userId;
 
             });
 
@@ -121,7 +126,7 @@
                 },function(res){
                     WeixinJSBridge.log(res.err_msg);
                     if(res.err_msg == "get_brand_wcpay_request:ok"){
-                        window.location.href = '/index.html#/pay/success/'+userId;
+                        window.location.href = '/static/index.html#/pay/success/'+userId;
 
                     }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
                         alert("用户取消支付!");
