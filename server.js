@@ -624,7 +624,7 @@ app.get('/rest/Order/:orderId/view', function(req, res) {
     "id": 1,
     "orderStatus": [],
     "startOrderTime": "2014年-11月-03日 10:34:24",
-    "status": 4,
+    "status": 1,
     "type": 2,
     "score":'',
     "comments":[{
@@ -795,7 +795,8 @@ app.get('/rest/Order/:uid/DefaultOrder', function(req, res) {
 });
 
 
-app.get('/rest/time/occupiedTime',function(req,res){
+
+app.get('/rest/time/address/:addressId/occupiedTime',function(req,res){
   var data = [{
     'time':'2014-12-31 09:00:00.000'
   },

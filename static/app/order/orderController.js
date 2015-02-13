@@ -2,20 +2,21 @@
 
 angular.module('xiaoyuApp.order')
 	.controller('orderController', ['$scope', '$rootScope', '$q', '$state', '$stateParams', '$log', '$timeout', 'CaptureService', 'orderService',
-		'updateOrderCommentService', 'defaultOrder', 'updateUserObjService', 'updateCarObjService', 'updateLocationObjService','emptyCarObj',
+		'updateOrderCommentService', 'defaultOrder', 'updateUserObjService', 'updateCarObjService', 'updateLocationObjService', 'emptyCarObj',
 		'carService', 'locationService', 'longtermDurationList', 'orderDetailService', 'defaultTimeConfig',
 		'recordService', 'userId', 'validateMessage', 'validateService',
 		function($scope, $rootScope, $q, $state, $stateParams, $log, $timeout, CaptureService,
 			orderService, updateOrderCommentService, defaultOrder, updateUserObjService,
-			updateCarObjService, updateLocationObjService,emptyCarObj,carService, locationService,
+			updateCarObjService, updateLocationObjService, emptyCarObj, carService, locationService,
 			longtermDurationList, orderDetailService, defaultTimeConfig, recordService, userIdService,
-			 validateMessage, validateService) {
+			validateMessage, validateService) {
 			console.log('orderController');
 
 			$scope.durationList = longtermDurationList;
 			$scope.dynamicPrice = 0;
 			$scope.dur = defaultTimeConfig.duration;
 			$scope.showState = false;
+
 			//init orderObj
 			if (!$scope.isUndefined($stateParams.orderId)) {
 				orderService.getOrder($stateParams.orderId).then(function(data) {
@@ -28,8 +29,6 @@ angular.module('xiaoyuApp.order')
 						}
 						$scope.showState = true;
 					}
-
-
 
 				});
 
@@ -131,7 +130,21 @@ angular.module('xiaoyuApp.order')
 			//$scope.showOrder = true;
 
 			$scope.gotoWashTimePage = function() {
-				$state.go('order.washtime');
+				//先判断是否有addressId
+				if ($state.is('order.first')) {
+					var newLocationObj = updateLocationObjService.getNewLocationObj();
+					if (newLocationObj.address && newLocationObj.address.hasOwnProperty('id') && newLocationObj.address.id) {
+						$state.go('order.washtime',{'addressId':newLocationObj.address.id});
+
+					} else {
+						$scope.toggle('chooseTimeWarning', 'on');
+						$timeout(function() {
+							$scope.toggle('chooseTimeWarning', 'off');
+						}, 1500);
+					}
+				} else {
+					$state.go('order.washtime',{'addressId':$scope.orderObj.userAddress.id});
+				}
 			};
 
 
@@ -436,11 +449,11 @@ angular.module('xiaoyuApp.order')
 						$scope.toggle('longTearmWarning', 'off');
 					}, 1500);
 				} else if ($scope.orderObj.user.phone === '') {
-					$scope.inputError = true;
-					$scope.fieldMessage = validateMessage.emptyInputError;
+					$scope.userInputError = true;
+					$scope.userFieldMessage = validateMessage.emptyInputError;
 				} else if (!validateService.mobileValidate($scope.orderObj.user.phone)) {
-					$scope.inputError = true;
-					$scope.fieldMessage = validateMessage.mobileInputError;
+					$scope.userInputError = true;
+					$scope.userFieldMessage = validateMessage.mobileInputError;
 				} else {
 					//first conmmit
 					if ($state.is('order.first')) {
@@ -452,6 +465,9 @@ angular.module('xiaoyuApp.order')
 							$timeout(function() {
 								$scope.toggle('carWarning', 'off');
 							}, 1500);
+						} else if (!validateService.carNoValidate(newCarObj.carNo)) {
+							$scope.inputError = true;
+							$scope.fieldMessage = validateMessage.carNoInputError;
 						} else if (!newLocationObj.address.name || !newLocationObj.comment) {
 							$scope.toggle('addressWarning', 'on');
 							$timeout(function() {
@@ -499,6 +515,28 @@ angular.module('xiaoyuApp.order')
 			};
 
 
+			//first order 点击换小区，reset wash start time
+			$scope.$on('locationUpdateController.changeLocation', function(event) {
+				console.log('locationUpdateController.changeLocation');
+				$scope.orderObj.washStartTime = '';
+				// $scope.toggle('resetTimeWarning', 'on');
+				// $timeout(function() {
+				// 	$scope.toggle('resetTimeWarning', 'off');
+				// }, 1500);
+			});
+
+
+			//second order 点击换小区，reset wash start time
+			$scope.$watch('orderObj.userAddress', function(newValue, oldValue) {
+				if (newValue) {
+					$log.log('userAddress Changed');
+					$scope.orderObj.washStartTime = '';
+					// $scope.toggle('resetTimeWarning', 'on');
+					// $timeout(function() {
+					// 	$scope.toggle('resetTimeWarning', 'off');
+					// }, 1500);
+				}
+			});
 
 			//hide|show car page
 			// $scope.$watch('showCar', function(newValue, oldValue) {

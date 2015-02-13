@@ -82,7 +82,9 @@ angular.module('xiaoyuApp.location')
 
 
 			$scope.chooseLocation = function() {
+				$scope.$emit('locationUpdateController.changeLocation');
 				$state.go('^.area');
+
 			};
 
 

@@ -2,10 +2,10 @@
 
 //car page major controller
 angular.module('xiaoyuApp.order')
-	.controller('orderTimeController', ['$scope', '$filter','$state','$previousState','CaptureService', '$templateCache',
+	.controller('orderTimeController', ['$scope', '$filter','$state','$stateParams','$previousState','CaptureService', '$templateCache',
 		'$log', 'orderService', 'defaultTimeConfig',
 
-		function($scope,$filter,$state,$previousState,CaptureService, $templateCache, $log, orderService, defaultTimeConfig) {
+		function($scope,$filter,$state,$stateParams,$previousState,CaptureService, $templateCache, $log, orderService, defaultTimeConfig) {
 			$log.log('orderTimeController init');
 
 			$scope.generateTimeList = function(mObj, startTimeArr, endTimeArr, duration) {
@@ -15,8 +15,9 @@ angular.module('xiaoyuApp.order')
 				var resArr = [];
 				while (tempTime.isBefore(endTime)) {
 					var temp = angular.copy(tempTime);
+					var status = tempTime.isBefore($scope.curr)?1:0;
 					resArr.push({
-						'status': 0,
+						'status': status,
 						'time': temp
 					});
 					tempTime.add(duration);
@@ -46,7 +47,7 @@ angular.module('xiaoyuApp.order')
 
 				}
 
-				orderService.getOccupiedTimes().then(function(data) {
+				orderService.getOccupiedTimes($scope.addressId).then(function(data) {
 					$log.log(data);
 					if (data && data instanceof Array && data.length > 0) {
 						data.forEach(function(element, index, array) {
@@ -70,6 +71,8 @@ angular.module('xiaoyuApp.order')
 					}
 				});
 			};
+
+			$scope.addressId = $stateParams.addressId;
 
 			//init selected time , if select change this
 			$scope.selectedTime = {

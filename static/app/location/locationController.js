@@ -82,7 +82,7 @@ angular.module('xiaoyuApp.location')
 				$log.log('back action start');
 				$scope.toggleShow('location');
 			};
-
+			
 
 			$scope.updateAction = function(locationObj, $event) {
 				if (typeof $event !== 'undefined') {

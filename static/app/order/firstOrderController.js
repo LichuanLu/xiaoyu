@@ -15,6 +15,5 @@ angular.module('xiaoyuApp.order')
 			};
 			$scope.initLayout();
 
-
 		}
 	]);

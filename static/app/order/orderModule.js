@@ -70,7 +70,7 @@ angular.module('xiaoyuApp.order', [
 					}
 				})
 				.state('order.washtime', {
-					url:'/time',
+					url:'/time/:addressId',
 					views: {
 						'': {
 							templateUrl: '/static/app/time/orderTimePage.tpl.html'
