@@ -12,7 +12,9 @@
 		</div>
 		<div class="row mt20">
 			<div class="col-xs-3" ng-repeat="imgObj in imgList | limitTo:4">
-				<img class="base-border-radius" ng-src="{{imgObj.pictureUrl}}">
+				<a ng-href="{{imgObj.pictureUrl}}">
+					<img class="base-border-radius" ng-src="{{imgObj.pictureUrl}}">
+				</a>
 			</div>
 		</div>
 	</div>
