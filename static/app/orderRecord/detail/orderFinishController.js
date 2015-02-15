@@ -35,6 +35,8 @@ angular.module('xiaoyuApp.record')
 			if ($scope.orderObj.comment) {
 				$scope.comment = $scope.orderObj.comment;
 			}
+
+			$scope.imgList = [];
 			if ($scope.orderObj.pictures && $scope.orderObj.pictures.length > 0) {
 				$scope.imgList = $scope.orderObj.pictures;
 			}

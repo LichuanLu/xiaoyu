@@ -25,9 +25,9 @@ angular.module('xiaoyuApp.order')
 
 				$scope.selectTime = function() {
 					if(iElm.hasClass('disable')){
-						$scope.toggle('washTimeWarning', 'on');
+						$scope.toggle('washTimeDisableWarning', 'on');
 						$timeout(function() {
-							$scope.toggle('washTimeWarning', 'off');
+							$scope.toggle('washTimeDisableWarning', 'off');
 						}, 1500);
 					}else{
 						$scope.isSelected = true;

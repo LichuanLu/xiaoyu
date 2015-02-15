@@ -624,7 +624,7 @@ app.get('/rest/Order/:orderId/view', function(req, res) {
     "id": 1,
     "orderStatus": [],
     "startOrderTime": "2014年-11月-03日 10:34:24",
-    "status": 1,
+    "status": 4,
     "type": 2,
     "score":'',
     "comments":[{
@@ -636,16 +636,16 @@ app.get('/rest/Order/:orderId/view', function(req, res) {
       "phone": "18601391001"
     },
     "pictures":[{
-      'pictureUrl':'/static/images/pay.comm.png'
+      'pictureUrl':'/static/images/xiaoyu_icon_logo.png'
     },
     {
-      'pictureUrl':'/static/images/pay.comm.png'
+      'pictureUrl':'/static/images/xiaoyu_icon_logo.png'
     },
     {
-      'pictureUrl':'/static/images/pay.comm.png'
+      'pictureUrl':'/static/images/xiaoyu_icon_logo.png'
     },
     {
-      'pictureUrl':'/static/images/pay.comm.png'
+      'pictureUrl':'/static/images/xiaoyu_icon_logo.png'
     }],
     "user": { //用户信息
       "createdDate": "2014年-10月-31日 12:25:37",

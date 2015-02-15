@@ -2,10 +2,11 @@
 
 //car page major controller
 angular.module('xiaoyuApp.order')
-	.controller('orderTimeController', ['$scope', '$filter','$state','$stateParams','$previousState','CaptureService', '$templateCache',
+	.controller('orderTimeController', ['$scope','$timeout','$filter', '$state', '$stateParams', '$previousState', 'CaptureService', '$templateCache',
 		'$log', 'orderService', 'defaultTimeConfig',
 
-		function($scope,$filter,$state,$stateParams,$previousState,CaptureService, $templateCache, $log, orderService, defaultTimeConfig) {
+		function($scope,$timeout, $filter, $state, $stateParams, $previousState, CaptureService, 
+			$templateCache, $log, orderService, defaultTimeConfig) {
 			$log.log('orderTimeController init');
 
 			$scope.generateTimeList = function(mObj, startTimeArr, endTimeArr, duration) {
@@ -15,7 +16,7 @@ angular.module('xiaoyuApp.order')
 				var resArr = [];
 				while (tempTime.isBefore(endTime)) {
 					var temp = angular.copy(tempTime);
-					var status = tempTime.isBefore($scope.curr)?1:0;
+					var status = temp.isBefore($scope.nowConstant) ? 1 : 0;
 					resArr.push({
 						'status': status,
 						'time': temp
@@ -109,6 +110,7 @@ angular.module('xiaoyuApp.order')
 			$scope.dur = dur;
 
 			$scope.firstday = angular.copy($scope.curr);
+			$scope.nowConstant = angular.copy($scope.curr);
 
 			//generate date time list
 			$scope.generateDateList();
@@ -163,7 +165,10 @@ angular.module('xiaoyuApp.order')
 
 			$scope.saveAction = function() {
 				if ($scope.selectedTime.time == '') {
-					alert('请选择时间');
+					$scope.toggle('washTimeWarning', 'on');
+					$timeout(function() {
+						$scope.toggle('washTimeWarning', 'off');
+					}, 1500);
 				} else {
 					//$log.log('save time:' + $scope.selectedTime.time.format('MMMD日HH:mm'));
 					//var res = $scope.selectedTime.time.format('MMMD日') + $filter('amRangeFormat')($scope.selectedTime.time,'HH:mm',$scope.dur);

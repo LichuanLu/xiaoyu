@@ -827,7 +827,6 @@ div.submit {
 }
 .mobile-oneline-form .form-control-wrapper .form-control,
 .mobile-oneline-form .form-control-wrapper .datetime-form-control {
-  border: none;
   height: 50px;
   padding-top: 15px;
   padding-bottom: 15px;
