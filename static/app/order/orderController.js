@@ -143,7 +143,7 @@ angular.module('xiaoyuApp.order')
 						}, 1500);
 					}
 				} else {
-					$state.go('order.washtime',{'addressId':$scope.orderObj.userAddress.id});
+					$state.go('order.washtime',{'addressId':$scope.orderObj.userAddress.address.id});
 				}
 			};
 
