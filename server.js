@@ -1143,7 +1143,7 @@ var data = [{
   },
   "userCar": {
     "car": null,
-    "carNo": "88888",
+    "carNo": "884488",
     "color": "黑色",
     "createdTime": "2014年-10月-31日 12:27:19",
     "default": true,
@@ -1157,7 +1157,7 @@ var data = [{
   "endOrderTime": null,
   "id": 5,
   "startOrderTime": "2014年-11月-04日 21:21:02",
-  "status": 5,
+  "status": 7,
   "type": 2,
   "user": {
     "createdDate": "2014年-10月-31日 12:25:37",
@@ -1186,7 +1186,7 @@ var data = [{
   },
   "userCar": {
     "car": null,
-    "carNo": "88888",
+    "carNo": "886788",
     "color": "黑色",
     "createdTime": "2014年-10月-31日 12:27:19",
     "default": true,
@@ -1396,7 +1396,7 @@ var data = [{
   "endOrderTime": null,
   "id": 3,
   "startOrderTime": "2014年-11月-04日 21:21:02",
-  "status": 3,
+  "status": 7,
   "type": 3,
   "user": {
     "createdDate": "2014年-10月-31日 12:25:37",
@@ -1425,7 +1425,7 @@ var data = [{
   },
   "userCar": {
     "car": null,
-    "carNo": "88888",
+    "carNo": "86688",
     "color": "黑色",
     "createdTime": "2014年-10月-31日 12:27:19",
     "default": true,
@@ -1468,7 +1468,7 @@ var data = [{
   },
   "userCar": {
     "car": null,
-    "carNo": "88888",
+    "carNo": "88788",
     "color": "黑色",
     "createdTime": "2014年-10月-31日 12:27:19",
     "default": true,

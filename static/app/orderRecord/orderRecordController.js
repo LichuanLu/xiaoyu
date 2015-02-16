@@ -14,10 +14,18 @@ angular.module('xiaoyuApp.record')
 
 			$scope.showRecord = true;
 			//if status in array , it will be considerd as finished orders
-			$scope.finishedStatus = [2, 3, 5, 6];
-			$scope.finishedStatusString = ['2', '3', '5', '6'];
+			$scope.byFinishedStatus = [2, 3, 5, 6];
+			$scope.byFinishedStatusString = ['2', '3', '5', '6'];
+
+			$scope.finishedStatus = [4,7];
+			$scope.finishedStatusString = ['4', '7'];
 
 			$scope.filterByFinishedStatus = function(recordObj) {
+				return ($scope.byFinishedStatus.indexOf(recordObj.status) !== -1 || $scope.byFinishedStatusString.indexOf(recordObj.status) !== -1);
+			};
+
+
+			$scope.filterFinishedStatus = function(recordObj) {
 				return ($scope.finishedStatus.indexOf(recordObj.status) !== -1 || $scope.finishedStatusString.indexOf(recordObj.status) !== -1);
 			};
 
