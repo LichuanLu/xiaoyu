@@ -52,7 +52,7 @@
 				<label class="ur-small-element" for="pay-radio-0"><span></span></label>
 			</div>
 		</div>
-		<div class="list-group-item clearfix base-border-radius pl0">
+		<!-- <div class="list-group-item clearfix base-border-radius pl0">
 			<div class="icons-alipay pay-icons pull-left">
 			</div>
 			<span>支付宝支付：</span>
@@ -60,8 +60,8 @@
 				<input id="pay-radio-2" type="radio" name="payType" value="1" ng-model="selectedPayType" class="mark-radio">
 				<label class="ur-small-element" for="pay-radio-2"><span></span></label>
 			</div>
-		</div>
-		<div class="list-group-item clearfix base-border-radius pl0">
+		</div> -->
+		<div class="list-group-item clearfix base-border-radius pl0" ng-hide="hideWechatPay">
 			<div class="icons-wechat pay-icons pull-left">
 			</div>
 			<span>微信支付：</span>

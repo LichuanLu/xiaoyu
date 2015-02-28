@@ -45,6 +45,23 @@ angular.module('xiaoyuApp.record')
 
 					};
 
+					$scope.reApplyOrder = function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						if ($scope.recordObj.type == 3) {
+							$state.go('order', {
+								'userId': userIdService.getData(),
+								'orderId': $scope.recordObj.id,
+								'orderType': 3
+							});
+						} else {
+							$state.go('order', {
+								'userId': userIdService.getData(),
+								'orderId': $scope.recordObj.id
+							});
+						}
+					};
+
 					$scope.goDetail = function() {
 
 						if ($scope.recordObj.id) {

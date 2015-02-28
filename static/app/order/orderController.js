@@ -405,12 +405,13 @@ angular.module('xiaoyuApp.order')
 					if (data) {
 						$scope.orderObj.countPrice = data.countPrice;
 						$scope.orderObj.id = data.id;
+						$scope.orderObj.isVip = data.isVip;
 						//$scope.orderObj.type = data.type;
 						//for type 3
 						$scope.orderObj.washStartTime = data.washStartTime;
 						$scope.orderObj.startOrderTime = data.startOrderTime;
 						$scope.orderObj.duration = data.duration;
-						$state.go('order.confirm');
+						$state.go('order.confirm',{});
 					}
 					// $state.go('pay',{'userId':userIdService.getData(),'param1': data.id,'param2':data.countPrice,'param3':2});
 				});

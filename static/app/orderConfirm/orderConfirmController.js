@@ -64,6 +64,7 @@ angular.module('xiaoyuApp.order')
 			$scope.param3 = $scope.orderObj.type;
 			// $scope.orderObj.discountObj = '';
 			$scope.param4 = $scope.orderObj.discountObj;
+			$scope.param5 = $scope.orderObj.isVip;
 
 			$scope.dur = defaultTimeConfig.duration;
 			// $scope.washTime = $scope.getWashTimeStr($scope.orderObj,$scope.dur);

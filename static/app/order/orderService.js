@@ -163,7 +163,7 @@ angular.module('xiaoyuApp.order')
 				url = '/rest/Order/Car/'+carId+'/Duration/'+duration+'/OrderPrice';
 
 			}else{
-				url = '/rest/Order/Car/'+carId+'/OrderPrice';
+				url = '/rest/Order/User/'+uid+'/Car/'+carId+'/OrderPrice';
 			}
 			var promise = $http({
 				url: url,

@@ -321,7 +321,7 @@ app.configure(function() {
   });
 
 
-  app.get('/rest/Order/Car/:carId/OrderPrice', function(req, res) {
+  app.get('/rest/Order/User/:userId/Car/:carId/OrderPrice', function(req, res) {
     console.log(req.params);
     var result = {
       errorCode: 0,
@@ -388,6 +388,7 @@ app.configure(function() {
       "startOrderTime": "2013-11-12 09:00:00",
       "status": "",
       "type": 2,
+      "isVip":"",
       "user": {
         "createdDate": null,
         "id": 1,
@@ -625,7 +626,7 @@ app.get('/rest/Order/:orderId/view', function(req, res) {
     "orderStatus": [],
     "startOrderTime": "2014年-11月-03日 10:34:24",
     "status": 4,
-    "type": 2,
+    "type": 3,
     "score":'',
     "comments":[{
       "comment":'测试'

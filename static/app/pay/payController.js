@@ -20,13 +20,22 @@ angular.module('xiaoyuApp.pay')
 			//加入Inpage支付判断，inpage支付没有showPrice，还有最终支付需要先拿到orderId，然后提交
 
 
+
+			//默认不隐藏，只有vip支付才隐藏微信支付
+			$scope.hideWechatPay = false;
+
 			if (!$scope.isUndefined($scope.param1)) {
 				$scope.orderId = $scope.param1;
 				$scope.price = $scope.param2;
 				$scope.type = $scope.param3;
 				//可以加判断，是否是object,如果是object就用.type,
 				$scope.discountObj = $scope.param4;
+				$scope.isVip = $scope.param5;
 				// $scope.inpagePay = $scope.param5;
+			}
+
+			if($scope.isVip == 1){
+				$scope.hideWechatPay = true;
 			}
 			// else if(!$scope.isUndefined($stateParams.param1)){
 			// 	$scope.orderId = $stateParams.param1;
@@ -70,6 +79,8 @@ angular.module('xiaoyuApp.pay')
 				$scope.showDiscount = false;
 				$scope.selectedPayType = 2;
 			}
+
+
 
 			$scope.showPrice = true;
 			//如果是页面内支付

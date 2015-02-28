@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('xiaoyuApp.record')
-	.controller('orderFinishController', ['$scope', '$state', '$stateParams','$window','$log','$timeout','$location', '$templateCache', '$rootScope', '$filter',
+	.controller('orderFinishController', ['$scope', '$state', '$stateParams', '$window', '$log', '$timeout', '$location', '$templateCache', '$rootScope', '$filter',
 		'CaptureService', 'orderService', 'orderDetailService', 'userId', 'defaultTimeConfig', 'dateTimeService',
-		function($scope, $state, $stateParams,$window, $log,$timeout, $location, $templateCache, $rootScope, $filter,
+		function($scope, $state, $stateParams, $window, $log, $timeout, $location, $templateCache, $rootScope, $filter,
 			CaptureService, orderService, orderDetailService, userIdService, defaultTimeConfig, dateTimeService) {
 			$log.log('orderFinishController init');
 			//init order detail page
@@ -59,6 +59,16 @@ angular.module('xiaoyuApp.record')
 				$window.location.reload();
 				// $state.reload();
 				// $state.go($state.current,$stateParams, {reload: true});
+			};
+
+			$scope.reApplyOrder = function() {
+				if($scope.orderObj.type == 3){
+					$state.go('order',{'userId':userIdService.getData(),'orderId':$scope.orderObj.id,'orderType':3});
+				}else{
+					$state.go('order',{'userId':userIdService.getData(),'orderId':$scope.orderObj.id});
+				}
+
+
 			};
 
 			$scope.shareAction = function() {

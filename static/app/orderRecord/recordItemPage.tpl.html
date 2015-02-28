@@ -18,8 +18,11 @@
 	</div>
 	<!-- <a ng-click="clickRemove()" ng-show="recordObj.status == 1" class="btn btn-default mt10 fr mr10">删除</a>
 	<a ng-show="recordObj.status == 2" class="btn btn-default mt10 fr" ng-click="clickCancel()">取消订单</a> -->
-	<span ng-show="recordObj.status == 4 || recordObj.status == 7" class="record-highlight-text mt20 fr">服务完成</span>
-	
+	<div class="xy_block_text text_a_c pull-right" ng-show="recordObj.status == 4 || recordObj.status == 7">
+		<a class="btn btn-info block_text" ng-click="reApplyOrder($event)">再次下单</a>
+	</div>
+<!-- 	<span ng-show="recordObj.status == 4 || recordObj.status == 7" class="record-highlight-text mt20 fr">服务完成</span>
+ -->	
 <!--  	<a ng-show="recordObj.status == 4 || recordObj.status == 7" class="btn btn-info mt10 fr">再次下单</a>
  -->
  	
