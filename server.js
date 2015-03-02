@@ -620,7 +620,7 @@ app.get('/rest/Order/:orderId/view', function(req, res) {
   console.log(req.params.uid);
   var data = {
     "countPrice": 200,
-    "endOrderTime": null,
+    "endOrderTime": "2014-11-04 16:15:12",
     'washStartTime': '2014-10-12 03:00:00',
     "id": 1,
     "orderStatus": [],
@@ -666,7 +666,7 @@ app.get('/rest/Order/:orderId/view', function(req, res) {
     },
     "userAddress": { //用户默认地址
       "address": {
-        'id': 1,
+        'id': 2,
         'name': '曙光花园小区',
         'parent': {
           'id': 3,
@@ -699,7 +699,7 @@ app.get('/rest/Order/:orderId/view', function(req, res) {
       "color": '黑色',
       "createdTime": "2014年-10月-30日 12:27:19",
       "default": false,
-      "id": 2,
+      "id": 1,
       "status": 0,
       "type": 1
     }
@@ -769,7 +769,7 @@ app.get('/rest/Order/:uid/DefaultOrder', function(req, res) {
     },
     "userCar": { //用户默认车辆
       "car": {
-        'id': 4,
+        'id': 2,
         'name': '丰田霸道',
         'parent': null,
         'pic': '',

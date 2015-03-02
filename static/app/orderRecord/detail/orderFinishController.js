@@ -11,7 +11,8 @@ angular.module('xiaoyuApp.record')
 
 			//如果是包月，需要时间周期
 			//1 充值 2 洗车 3 包月
-			$scope.washTime = dateTimeService.getOrderWashTimeStr($scope.orderObj, defaultTimeConfig.duration);
+			//$scope.washTime = dateTimeService.getOrderWashTimeStr($scope.orderObj, defaultTimeConfig.duration);
+			$scope.endOrderTime = $scope.orderObj.endOrderTime;
 			// $scope.washTime = '11月11日 12:00';
 
 			//for rating
