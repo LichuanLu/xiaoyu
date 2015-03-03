@@ -680,7 +680,7 @@ app.get('/rest/Order/:orderId/view', function(req, res) {
       },
       "comment": "地下车库205",
       "default": true,
-      "id": 3,
+      "id": 2,
       "status": 2,
       "type": 2,
       "user": null
@@ -699,7 +699,7 @@ app.get('/rest/Order/:orderId/view', function(req, res) {
       "color": '黑色',
       "createdTime": "2014年-10月-30日 12:27:19",
       "default": false,
-      "id": 1,
+      "id": 2,
       "status": 0,
       "type": 1
     }
@@ -762,7 +762,7 @@ app.get('/rest/Order/:uid/DefaultOrder', function(req, res) {
       },
       "comment": "地下车库205",
       "default": true,
-      "id": 3,
+      "id": 1,
       "status": 2,
       "type": 2,
       "user": null
@@ -780,7 +780,7 @@ app.get('/rest/Order/:uid/DefaultOrder', function(req, res) {
       "color": 0,
       "createdTime": "2014年-10月-31日 12:27:19",
       "default": true,
-      "id": 1,
+      "id": 2,
       "status": 0,
       "type": 0,
       "user": null
