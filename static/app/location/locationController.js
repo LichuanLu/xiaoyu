@@ -22,7 +22,7 @@ angular.module('xiaoyuApp.location')
 				if ($scope.locationList.length > 0) {
 					if ($scope.orderObj && $scope.orderObj.userAddress) {
 						var found = $filter('filter')($scope.locationList, {
-							id: $scope.orderObj.userAddress.address.id
+							id: $scope.orderObj.userAddress.id
 						}, true);
 						$log.log('found:' + found);
 						if (found.length) {

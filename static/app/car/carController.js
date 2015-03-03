@@ -25,7 +25,7 @@ angular.module('xiaoyuApp.car')
 			 //     }
 				if ($scope.carList.length > 0) {
 					if($scope.orderObj && $scope.orderObj.userCar){
-						var found = $filter('filter')($scope.carList, {id: $scope.orderObj.userCar.car.id}, true);
+						var found = $filter('filter')($scope.carList, {id: $scope.orderObj.userCar.id}, true);
 						$log.log('found:'+found);
 						if (found.length) {
 							$scope.currentCar.carObj = found[0];
