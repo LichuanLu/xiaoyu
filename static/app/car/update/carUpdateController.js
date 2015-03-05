@@ -99,9 +99,9 @@ angular.module('xiaoyuApp.car')
 					$scope.inputError = false;
 					//输入为空
 					if (!newCarObj.car.name) {
-						$scope.toggle('carWarning', 'on');
+						$rootScope.toggle('carWarning', 'on');
 						$timeout(function() {
-							$scope.toggle('carWarning', 'off');
+							$rootScope.toggle('carWarning', 'off');
 						}, 1500);
 					} else if (newCarObj.carNo === '') {
 						$scope.inputError = true;

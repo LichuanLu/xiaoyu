@@ -48,16 +48,18 @@ angular.module('xiaoyuApp.record')
 			// };
 			//end
 			$scope.submitComment = function() {
-				$log.log('comment:' + $scope.comment);
-				$log.log('score:' + $scope.rate);
+				//$log.log('comment:' + $scope.comment);
+				//$log.log('score:' + $scope.rate);
 				orderDetailService.submitComment($scope.orderObj.id, $scope.comment, $scope.rate).then(function() {
-					$log.log('submit comment success!');
-					$scope.toggle('submitCommentSucMsg', 'on');
+					//$log.log('submit comment success!');
+					$rootScope.toggle('submitCommentSucMsg', 'on');
 					$timeout(function() {
-						$scope.toggle('submitCommentSucMsg', 'off');
+						$rootScope.toggle('submitCommentSucMsg', 'off');
+						$window.location.reload();
 					}, 1500);
+
 				});
-				$window.location.reload();
+				
 				// $state.reload();
 				// $state.go($state.current,$stateParams, {reload: true});
 			};

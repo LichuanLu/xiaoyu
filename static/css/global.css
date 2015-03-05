@@ -289,7 +289,7 @@ input[type=radio]:checked + label > span > span {
   line-height: 50px;
 }
 .Hide {
-  display: none !important;
+  display: none;
 }
 .navbar-app {
   background-color: #0eb7fd;

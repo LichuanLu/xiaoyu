@@ -137,9 +137,9 @@ angular.module('xiaoyuApp.order')
 						$state.go('order.washtime',{'addressId':newLocationObj.address.id});
 
 					} else {
-						$scope.toggle('chooseTimeWarning', 'on');
+						$rootScope.toggle('chooseTimeWarning', 'on');
 						$timeout(function() {
-							$scope.toggle('chooseTimeWarning', 'off');
+							$rootScope.toggle('chooseTimeWarning', 'off');
 						}, 1500);
 					}
 				} else {
@@ -435,19 +435,20 @@ angular.module('xiaoyuApp.order')
 
 				//first check user and washtime
 				if (!$scope.orderObj.user) {
-					$scope.toggle('userWarning', 'on');
+					$rootScope.toggle('userWarning', 'on');
 					$timeout(function() {
-						$scope.toggle('userWarning', 'off');
+						$rootScope.toggle('userWarning', 'off');
 					}, 1500);
 				} else if (!$scope.orderObj.washStartTime && $scope.orderObj.type == 2) {
-					$scope.toggle('washTimeWarning', 'on');
+					$rootScope.toggle('washTimeWarning', 'on');
 					$timeout(function() {
-						$scope.toggle('washTimeWarning', 'off');
+						$rootScope.toggle('washTimeWarning', 'off');
 					}, 1500);
+					
 				} else if (!$scope.orderObj.duration && $scope.orderObj.type == 3) {
-					$scope.toggle('longTearmWarning', 'on');
+					$rootScope.toggle('longTearmWarning', 'on');
 					$timeout(function() {
-						$scope.toggle('longTearmWarning', 'off');
+						$rootScope.toggle('longTearmWarning', 'off');
 					}, 1500);
 				} else if ($scope.orderObj.user.phone === '') {
 					$scope.userInputError = true;
@@ -462,17 +463,17 @@ angular.module('xiaoyuApp.order')
 						var newCarObj = updateCarObjService.getNewCarObj();
 						var newLocationObj = updateLocationObjService.getNewLocationObj();
 						if (!newCarObj.carNo || !newCarObj.car.name) {
-							$scope.toggle('carWarning', 'on');
+							$rootScope.toggle('carWarning', 'on');
 							$timeout(function() {
-								$scope.toggle('carWarning', 'off');
+								$rootScope.toggle('carWarning', 'off');
 							}, 1500);
 						} else if (!validateService.carNoValidate(newCarObj.carNo)) {
 							$scope.inputError = true;
 							$scope.fieldMessage = validateMessage.carNoInputError;
 						} else if (!newLocationObj.address.name || !newLocationObj.comment) {
-							$scope.toggle('addressWarning', 'on');
+							$rootScope.toggle('addressWarning', 'on');
 							$timeout(function() {
-								$scope.toggle('addressWarning', 'off');
+								$rootScope.toggle('addressWarning', 'off');
 							}, 1500);
 						} else {
 							//add new car and add new location
@@ -497,14 +498,14 @@ angular.module('xiaoyuApp.order')
 						//second commit
 						//check car and address
 						if (!$scope.orderObj.userCar) {
-							$scope.toggle('carWarning', 'on');
+							$rootScope.toggle('carWarning', 'on');
 							$timeout(function() {
-								$scope.toggle('carWarning', 'off');
+								$rootScope.toggle('carWarning', 'off');
 							}, 1500);
 						} else if (!$scope.orderObj.userAddress) {
-							$scope.toggle('addressWarning', 'on');
+							$rootScope.toggle('addressWarning', 'on');
 							$timeout(function() {
-								$scope.toggle('addressWarning', 'off');
+								$rootScope.toggle('addressWarning', 'off');
 							}, 1500);
 						} else {
 							$scope.confirmOrder();

@@ -2,10 +2,10 @@
 
 //car page major controller
 angular.module('xiaoyuApp.order')
-	.controller('orderTimeController', ['$scope','$timeout','$filter', '$state', '$stateParams', '$previousState', 'CaptureService', '$templateCache',
+	.controller('orderTimeController', ['$scope','$timeout','$rootScope','$filter', '$state', '$stateParams', '$previousState', 'CaptureService', '$templateCache',
 		'$log', 'orderService', 'defaultTimeConfig',
 
-		function($scope,$timeout, $filter, $state, $stateParams, $previousState, CaptureService, 
+		function($scope,$timeout,$rootScope,$filter, $state, $stateParams, $previousState, CaptureService, 
 			$templateCache, $log, orderService, defaultTimeConfig) {
 			$log.log('orderTimeController init');
 
@@ -165,9 +165,9 @@ angular.module('xiaoyuApp.order')
 
 			$scope.saveAction = function() {
 				if ($scope.selectedTime.time == '') {
-					$scope.toggle('washTimeWarning', 'on');
+					$rootScope.toggle('washTimeWarning', 'on');
 					$timeout(function() {
-						$scope.toggle('washTimeWarning', 'off');
+						$rootScope.toggle('washTimeWarning', 'off');
 					}, 1500);
 				} else {
 					//$log.log('save time:' + $scope.selectedTime.time.format('MMMD日HH:mm'));
