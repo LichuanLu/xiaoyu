@@ -72,8 +72,8 @@ angular.module('xiaoyuApp.order')
 						if (newValue) {
 							var carId;
 							if (type == 2) {
-								if ($scope.orderObj.userCar && $scope.orderObj.userCar.id) {
-									carId = $scope.orderObj.userCar.id;
+								if ($scope.orderObj.userCar.car && $scope.orderObj.userCar.car.id) {
+									carId = $scope.orderObj.userCar.car.id;
 								}
 
 							} else if (type == 1) {

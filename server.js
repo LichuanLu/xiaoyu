@@ -74,7 +74,7 @@ app.configure(function() {
     console.log(req.query.type);
     var data = [{
       "car": {
-        "id": 1,
+        "id": 3,
         "name": "卡宴",
         "parent": null,
         "pic": "",
@@ -90,7 +90,7 @@ app.configure(function() {
       "type": 0
     }, {
       "car": {
-        "id": 2,
+        "id": 4,
         "name": "大奔",
         "parent": null,
         "pic": "",
@@ -769,7 +769,7 @@ app.get('/rest/Order/:uid/DefaultOrder', function(req, res) {
     },
     "userCar": { //用户默认车辆
       "car": {
-        'id': 2,
+        'id': 4,
         'name': '丰田霸道',
         'parent': null,
         'pic': '',
