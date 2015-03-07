@@ -31,10 +31,13 @@
 			<rating class="xy_rating" ng-model="rate" max="max" readonly="!showEdit"></rating>
 		</div>
 		<!-- <textarea ng-show="showEdit" class="needsclick ng-touched xy_text_area base-border-radius" placeholder="请对我们的服务做出评价" rows="5" ng-model="comment"></textarea> -->
+		<!-- <edit-input ng-show="showEdit" class="xy_field_input" input-model="comment" placeholder="服务评价" input-id="comment
+		_input" cancel-input="cancelInput()"></edit-input> -->
+		<textarea ng-show="showEdit" class="xy_text_area" placeholder="请对我们的服务做出评价" rows="5" ng-model="comment"></textarea>
 
-		<div ng-show="showEdit" class="list-group-item base-border-radius">
-			<textarea class="needsclick ng-touched xy_text_area" placeholder="请对我们的服务做出评价" rows="5" ng-model="comment"></textarea>
-		</div>
+		<!-- <div ng-show="showEdit" class="list-group-item base-border-radius">
+			<textarea class="xy_text_area" placeholder="请对我们的服务做出评价" rows="5" ng-model="comment"></textarea>
+		</div> -->
 		<div class="mt10" ng-show="!showEdit">
 			<rating class="xy_rating" ng-model="rate" max="max" readonly="!showEdit"></rating>
 		</div>
