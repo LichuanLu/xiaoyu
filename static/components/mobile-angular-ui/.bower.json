@@ -50,7 +50,7 @@
     "commit": "960773d1aa09ff76fffdda45814f8e12db5f3cd0"
   },
   "_source": "git://github.com/mcasimir/mobile-angular-ui.git",
-  "_target": "~1.1.0-beta.30",
+  "_target": "1.1.0-beta.30",
   "_originalSource": "mobile-angular-ui",
   "_direct": true
 }
