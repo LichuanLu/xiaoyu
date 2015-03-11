@@ -397,7 +397,10 @@ angular.module('xiaoyuApp.order')
 				// });
 
 				//submit the order , and the order status is wait to pay
-				orderService.submitOrder(angular.copy($scope.orderObj)).then(function(data) {
+				var newObj = angular.copy($scope.orderObj);
+				newObj.id = 0;
+				newObj.orderStatus = [];
+				orderService.submitOrder().then(function(data) {
 					$log.log('submit order success , redirect to pay page.');
 					// $location.path('/pay/' + data.orderId);
 					//"type":""    //充值 //洗车 // 包月 //1//2/3
