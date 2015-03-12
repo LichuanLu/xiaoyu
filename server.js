@@ -72,39 +72,40 @@ app.configure(function() {
 
   app.get('/rest/UserCar/:id/ListCar', function(req, res) {
     console.log(req.query.type);
-    var data = [{
-      "car": {
-        "id": 3,
-        "name": "卡宴",
-        "parent": null,
-        "pic": "",
-        "status": 1,
-        "type": 1
-      },
-      "carNo": "京N 88888",
-      "color": '蓝色',
-      "createdTime": "2014年-10月-31日 12:27:19",
-      "default": true,
-      "id": 1,
-      "status": 0,
-      "type": 0
-    }, {
-      "car": {
-        "id": 4,
-        "name": "大奔",
-        "parent": null,
-        "pic": "",
-        "status": 1,
-        "type": 2
-      },
-      "carNo": "京J 99999",
-      "color": '黑色',
-      "createdTime": "2014年-10月-30日 12:27:19",
-      "default": false,
-      "id": 2,
-      "status": 0,
-      "type": 1
-    }];
+    // var data = [{
+    //   "car": {
+    //     "id": 3,
+    //     "name": "卡宴",
+    //     "parent": null,
+    //     "pic": "",
+    //     "status": 1,
+    //     "type": 1
+    //   },
+    //   "carNo": "京N 88888",
+    //   "color": '蓝色',
+    //   "createdTime": "2014年-10月-31日 12:27:19",
+    //   "default": true,
+    //   "id": 1,
+    //   "status": 0,
+    //   "type": 0
+    // }, {
+    //   "car": {
+    //     "id": 4,
+    //     "name": "大奔",
+    //     "parent": null,
+    //     "pic": "",
+    //     "status": 1,
+    //     "type": 2
+    //   },
+    //   "carNo": "京J 99999",
+    //   "color": '黑色',
+    //   "createdTime": "2014年-10月-30日 12:27:19",
+    //   "default": false,
+    //   "id": 2,
+    //   "status": 0,
+    //   "type": 1
+    // }];
+    var data = [];
     res.send({
       errorCode: 0,
       errorDescription: "测试",
@@ -216,45 +217,46 @@ app.configure(function() {
 
   app.get('/rest/UserAddress/:userId/ListAddresses', function(req, res) {
     console.log(req.params.userId);
-    var data = [{
-      "address": {
-        "id": 1,
-        "name": "北京人家",
-        "parent": {
-          "id": 3,
-          "name": "北京",
-          "parent": null,
-          "status": 0,
-          "type": 0
-        },
-        "status": 0,
-        "type": 0
-      },
-      "comment": "车库365号",
-      "default": true,
-      "id": 1,
-      "status": 1,
-      "type": 1
-    }, {
-      "address": {
-        "id": 2,
-        "name": "龙华园",
-        "parent": {
-          "id": 3,
-          "name": "北京",
-          "parent": null,
-          "status": 0,
-          "type": 0
-        },
-        "status": 0,
-        "type": 0
-      },
-      "comment": "3号楼3单元楼下",
-      "default": false,
-      "id": 2,
-      "status": 1,
-      "type": 1
-    }];
+    // var data = [{
+    //   "address": {
+    //     "id": 1,
+    //     "name": "北京人家",
+    //     "parent": {
+    //       "id": 3,
+    //       "name": "北京",
+    //       "parent": null,
+    //       "status": 0,
+    //       "type": 0
+    //     },
+    //     "status": 0,
+    //     "type": 0
+    //   },
+    //   "comment": "车库365号",
+    //   "default": true,
+    //   "id": 1,
+    //   "status": 1,
+    //   "type": 1
+    // }, {
+    //   "address": {
+    //     "id": 2,
+    //     "name": "龙华园",
+    //     "parent": {
+    //       "id": 3,
+    //       "name": "北京",
+    //       "parent": null,
+    //       "status": 0,
+    //       "type": 0
+    //     },
+    //     "status": 0,
+    //     "type": 0
+    //   },
+    //   "comment": "3号楼3单元楼下",
+    //   "default": false,
+    //   "id": 2,
+    //   "status": 1,
+    //   "type": 1
+    // }];
+    var data = [];
     res.send({
       errorCode: 0,
       errorDescription: "11",
