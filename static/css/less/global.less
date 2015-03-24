@@ -89,6 +89,9 @@ input[type=radio]:checked +  label > span > span{
 }
 
 
+.toggle_overlay{
+	position:fixed; top:0; left:0; background:rgba(0,0,0,0.6); z-index:1000; width:100%; height:100%;
+}
 
 .inline-div{
 	display: inline-block;
@@ -218,6 +221,7 @@ input[type=radio]:checked +  label > span > span{
 	font-size: 14px;
 	border-radius: 4px;
 	line-height: 50px;
+	z-index: 1001;
 }
 .Hide{
 	display: none;

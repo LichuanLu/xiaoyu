@@ -35,9 +35,11 @@ angular.module('xiaoyuApp', [
     ]
   )
 
-.config(['$stateProvider', '$urlRouterProvider',
-    function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider','$locationProvider',
+    function($stateProvider, $urlRouterProvider,$locationProvider) {
       // $urlRouterProvider.otherwise("/state1");
+      //testing for html5mode
+      // $locationProvider.html5Mode(false).hashPrefix('!');
       $stateProvider
         .state('pay', {
           url: '/pay/:userId?param1&param2&param3',

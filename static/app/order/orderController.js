@@ -134,7 +134,9 @@ angular.module('xiaoyuApp.order')
 				if ($state.is('order.first')) {
 					var newLocationObj = updateLocationObjService.getNewLocationObj();
 					if (newLocationObj.address && newLocationObj.address.hasOwnProperty('id') && newLocationObj.address.id) {
-						$state.go('order.washtime',{'addressId':newLocationObj.address.id});
+						$state.go('order.washtime', {
+							'addressId': newLocationObj.address.id
+						});
 
 					} else {
 						$rootScope.toggle('chooseTimeWarning', 'on');
@@ -143,7 +145,9 @@ angular.module('xiaoyuApp.order')
 						}, 1500);
 					}
 				} else {
-					$state.go('order.washtime',{'addressId':$scope.orderObj.userAddress.address.id});
+					$state.go('order.washtime', {
+						'addressId': $scope.orderObj.userAddress.address.id
+					});
 				}
 			};
 
@@ -400,8 +404,14 @@ angular.module('xiaoyuApp.order')
 				var newObj = angular.copy($scope.orderObj);
 				newObj.id = 0;
 				newObj.orderStatus = [];
+				$rootScope.toggle('loadingMessage', 'on');
+				$timeout(function() {
+						$rootScope.toggle('loadingMessage', 'off');
+					}, 15000);
 				orderService.submitOrder(newObj).then(function(data) {
 					$log.log('submit order success , redirect to pay page.');
+					$rootScope.toggle('loadingMessage', 'off');
+
 					// $location.path('/pay/' + data.orderId);
 					//"type":""    //充值 //洗车 // 包月 //1//2/3
 					//$location.path('/pay/'+userIdService.getData()).search({param1: data.id,param2:data.countPrice,param3:2});
@@ -414,7 +424,7 @@ angular.module('xiaoyuApp.order')
 						$scope.orderObj.washStartTime = data.washStartTime;
 						$scope.orderObj.startOrderTime = data.startOrderTime;
 						$scope.orderObj.duration = data.duration;
-						$state.go('order.confirm',{});
+						$state.go('order.confirm', {});
 					}
 					// $state.go('pay',{'userId':userIdService.getData(),'param1': data.id,'param2':data.countPrice,'param3':2});
 				});
@@ -447,7 +457,7 @@ angular.module('xiaoyuApp.order')
 					$timeout(function() {
 						$rootScope.toggle('washTimeWarning', 'off');
 					}, 1500);
-					
+
 				} else if (!$scope.orderObj.duration && $scope.orderObj.type == 3) {
 					$rootScope.toggle('longTearmWarning', 'on');
 					$timeout(function() {

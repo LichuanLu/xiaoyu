@@ -380,6 +380,7 @@ app.configure(function() {
 
   app.post('/rest/Order/Add', function(req, res) {
     console.log(req.body);
+    sleep.sleep(5);
     var data = {
       "countPrice": 100,
       "endOrderTime": null,
